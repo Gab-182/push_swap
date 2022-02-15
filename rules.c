@@ -9,11 +9,8 @@ void	swap_a(t_stack *stack)
 {
 	int	i;
 
-	i = 0;
-	while (stack->base_a[i] != 0)
-		i++;
-	if (i > 1)
-		swap(&stack->base_a[i - 1], &stack->base_a[i - 2]);
+	if (stack->len_a && stack->len_a - 1 && stack->len_a - 2)
+		swap(&stack->base_a[stack->len_a - 1], &stack->base_a[stack->len_a - 2]);
 	else
 		exit(EXIT_FAILURE);
 	/********************************|
@@ -38,11 +35,8 @@ void	swap_b(t_stack *stack)
 {
 	int	i;
 
-	i = 0;
-	while (stack->base_b[i] != 0)
-		i++;
-	if (i > 1)
-		swap(&stack->base_b[i - 1], &stack->base_b[i - 2]);
+	if (stack->len_b && stack->len_b - 1 && stack->len_b - 2)
+		swap(&stack->base_b[stack->len_b - 1], &stack->base_b[stack->len_b - 2]);
 	else
 		exit(EXIT_FAILURE);
 	/********************************|
@@ -59,9 +53,6 @@ void	swap_b(t_stack *stack)
 }
 
 /*-----------------------------------------------------------*/
-/**
- * do swap
- */
 void	swap_a_and_b(t_stack *stack)
 {
 	swap_a(stack);
@@ -69,10 +60,6 @@ void	swap_a_and_b(t_stack *stack)
 }
 
 /*-----------------------------------------------------------*/
-/**
- ** take the first element at the top of a and put it at the top of b. Do
- ** nothing if a is empty.
- **/
 void	push_b(t_stack *stack)
 {
 	int	i;
@@ -156,6 +143,7 @@ void	push_b(t_stack *stack)
 	}
 }
 
+/*-----------------------------------------------------------*/
 void	push_a(t_stack *stack)
 {
 	int	i;
@@ -179,11 +167,9 @@ void	push_a(t_stack *stack)
 		while (i < stack->len_a)
 		{
 			stack->base_a[i] = stack->temp_a[i];
-			printf("base_a[%d] = %d\n", i, stack->base_a[i]);
 			i++;
 		}
 		free(stack->temp_a);
-		printf("----------------------------\n");
 		stack->temp_b = (int *)malloc(sizeof(int) * (stack->len_b - 1));
 		stack->len_b = stack->len_b - 1;
 		i = 0;
@@ -199,10 +185,27 @@ void	push_a(t_stack *stack)
 		while (i < stack->len_b)
 		{
 			stack->base_b[i] = stack->temp_b[i];
-			printf("base_b[%d] = %d\n", i, stack->base_b[i]);
 			i++;
 		}
 		free(stack->temp_b);
+		/******************************************************************************|
+		 ******************************************************************************|
+		 * Testing:
+		 */
+		i = 0;
+		while (i < stack->len_b)
+		{
+			printf("base_b[%d] = %d\n", i, stack->base_b[i]);
+			i++;
+		}
+		printf("-----------------------------------\n");
+		i = 0;
+		while (i < stack->len_a)
+		{
+			printf("base_a[%d] = %d\n", i, stack->base_a[i]);
+			i++;
+		}
+		/*******************************************************************************/
 	}
 }
 /*=================================================================================*/

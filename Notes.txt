@@ -1,0 +1,12 @@
+1. check if the argument in the main is:
+    "1 2 3 4 5"qwe
+    ----> it suppose to give you an error.
+
+2. check if the argument in the main is:
+    "0 2 3 4"
+    ------> should work perfectly.
+
+3. check if the argument in the main is:
+    "3 3"
+    -----> should give you error.
+    

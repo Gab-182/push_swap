@@ -16,8 +16,7 @@ int	main(int argc, char **argv)
 	stack.len_b = 0;
 	stack.len_temp_a = 0;
 	stack.len_temp_b = 0;
-
-	if (argc >= 2)
+	if (argc == 2)
 		push_swap(argv[1], &stack);
 	else
 		printf("What???");
