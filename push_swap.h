@@ -37,10 +37,11 @@ void		swap(int *a, int *b);
 void		check_digit(char **str);
 void		checking_duplicated(t_stack *stack);
 /*-------------------------Rules.c------------------------------*/
-// void		swap_a(t_stack stack);
-// void		swap_b(t_stack stack_b);
-// void		swap_a_and_b(t_stack  stack_a, t_stack stack_b);
+void		swap_a(t_stack *stack);
+void		swap_b(t_stack *stack);
+void		swap_a_and_b(t_stack *stack);
 void		push_b(t_stack *stack);
+void		push_a(t_stack *stack);
 /*--------------------------------------------------------------*/
 
 #endif
