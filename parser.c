@@ -10,7 +10,7 @@ void		check_digit(char **str)
 	{
 		if (ft_isdigit(*str[i]) != 1)
 		{
-			ft_putstr("ERROR\n");
+			ft_putstr("ERROR 123\n");
 			free(str);
 			exit(EXIT_FAILURE);
 		}
@@ -26,14 +26,14 @@ void	checking_duplicated(t_stack *stack)
 
 	i = 0;
 	j = 1;
-	while (i <= stack->len_a)
+	while (i < stack->len_a)
 	{
 		
-		while (j <= stack->len_a)
+		while (j < stack->len_a)
 		{
-			if (stack->base_a[i] - stack->base_a[j] == 0)
+			if (stack->base_a[i] == stack->base_a[j])
 			{
-				ft_putstr("ERROR\n");
+				ft_putstr("ERROR ....\n");
 				exit(EXIT_FAILURE);
 			}
 			j++;
