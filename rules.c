@@ -50,7 +50,7 @@ void	swap_a_and_b(t_stack *stack)
 	swap_b(stack);
 }
 
-/*❌-----------------------------------------------------------*/
+/*✅-----------------------------------------------------------*/
 void	push_b(t_stack *stack)
 {
 	int	i;
@@ -117,23 +117,23 @@ void	push_b(t_stack *stack)
 	}
 }
 
-/*❌-----------------------------------------------------------*/
+/*✅-----------------------------------------------------------*/
 void	push_a(t_stack *stack)
 {
-	int	i;
+		int	i;
 
 	if (stack->base_b && stack->len_b)
 	{
-		//printf("<<<<<<<<<<<<<<<<  push_a  >>>>>>>>>>>>>>>>>>>\n");
+		printf("<<<<<<<<<<<<<<<<  push_a  >>>>>>>>>>>>>>>>>>>\n");
 		stack->temp_a = (int *)malloc(sizeof(int) * (stack->len_a + 1));
 		stack->len_a = stack->len_a + 1;
 		i = 0;
-		while (i < stack->len_a)
+		while (i < stack->len_a - 1 && stack->len_a > 1)
 		{
-			stack->temp_a[i] = stack->base_a[i];
+			stack->temp_a[i + 1] = stack->base_a[i];
 			i++;
 		}
-		stack->temp_a[stack->len_a - 1] = stack->base_b[stack->len_b - 1];
+		stack->temp_a[0] = stack->base_b[0];
 		if (stack->len_a > 0)
 			free(stack->base_a);
 		stack->base_a = (int *)malloc(sizeof(int) * stack->len_a);
@@ -150,7 +150,7 @@ void	push_a(t_stack *stack)
 		i = 0;
 		while (i < stack->len_b)
 		{
-			stack->temp_b[i] = stack->base_b[i];
+			stack->temp_b[i] = stack->base_b[i + 1];
 			i++;
 		}
 		if (stack->len_b > 0)
@@ -163,20 +163,21 @@ void	push_a(t_stack *stack)
 			i++;
 		}
 		free(stack->temp_b);
+
 		/******************************************************************************|
 		 * Testing:
 		 */
 		// i = 0;
-		// while (i < stack->len_b)
+		// while (i < stack->len_a)
 		// {
-		// 	printf("base_b[%d] = %d\n", i, stack->base_b[i]);
+		// 	printf("base_a[%d] = %d\n", i, stack->base_a[i]);
 		// 	i++;
 		// }
 		// printf("-----------------------------------\n");
 		// i = 0;
-		// while (i < stack->len_a)
+		// while (i < stack->len_b)
 		// {
-		// 	printf("base_a[%d] = %d\n", i, stack->base_a[i]);
+		// 	printf("base_b[%d] = %d\n", i, stack->base_b[i]);
 		// 	i++;
 		// }
 		/*******************************************************************************/
