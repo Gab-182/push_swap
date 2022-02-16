@@ -21,9 +21,6 @@ typedef struct s_stacks
 
 	int		*temp_a;
 	int		*temp_b;
-
-	int		len_temp_a;
-	int		len_temp_b;
 }			t_stack;
 
 /*-------------------------push_swap.c--------------------------*/
@@ -40,8 +37,17 @@ void		checking_duplicated(t_stack *stack);
 void		swap_a(t_stack *stack);
 void		swap_b(t_stack *stack);
 void		swap_a_and_b(t_stack *stack);
+
 void		push_b(t_stack *stack);
 void		push_a(t_stack *stack);
+
+void		rotate_a(t_stack *stack);
+void		rotate_b(t_stack *stack);
+void		rotate_a_b(t_stack *stack);
+
+void		reverse_rotate_a(t_stack *stack);
+void		reverse_rotate_b(t_stack *stack);
+void		reverse_rotate_a_b(t_stack *stack);
 /*--------------------------------------------------------------*/
 
 #endif

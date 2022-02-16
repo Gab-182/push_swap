@@ -42,9 +42,6 @@ void	push_swap(char *arg, t_stack *stack)
 	push_b(stack);
 	push_b(stack);
 	push_b(stack);
-
-	push_a(stack);
-	
-	swap_b(stack);
-	swap_a(stack);
+	push_b(stack);
+	push_b(stack);
 }

@@ -18,30 +18,30 @@ CC = gcc
 all: $(NAME)
 $(NAME): $(OBJ)
 	@echo "\033[0;31m--------------------------------------------------------------------------------"
-	@echo "\033[0;32m [OK] \033[0m       \033[0;33m making libft.a:\033[0m" $<
+	@echo "\033[0;32m 【OK】 ✅\033[0m       \033[0;33m making libft.a:\033[0m" $<
 	make -C ./libft
 	@echo "\033[0;31m--------------------------------------------------------------------------------"
-	@echo "\033[0;32m [OK] \033[0m       \033[0;33m Compiling with the flags:\033[0m" $<
+	@echo "\033[0;32m 【OK】 ✅\033[0m       \033[0;33m Compiling with the flags:\033[0m" $<
 	$(CC) -g $(FILES) $(FLAGS) ./libft/libft.a -o push_swap
 	@printf "\033c"
 	@echo "\033[0;31m--------------------------------------------------------------------------------"
-	@echo "\033[0;32m [OK] \033[0m       \033[0;33m libft.a created:\033[0m" $<
-	@echo "\033[0;32m [OK] \033[0m       \033[0;33m push_swap compiled:\033[0m" $<
-	@echo "\033[0;32m [OK] \033[0m       \033[0;33m push_swap created:\033[0m" $<
+	@echo "\033[0;32m 【OK】 ✅\033[0m       \033[0;33m ❮libft.a❯ created:\033[0m" $<
+	@echo "\033[0;32m 【OK】 ✅\033[0m       \033[0;33m ❮push_swap❯ compiled:\033[0m" $<
+	@echo "\033[0;32m 【OK】 ✅\033[0m       \033[0;33m ❮push_swap❯ created:\033[0m" $<
 	@echo "\033[0;31m--------------------------------------------------------------------------------"
 clean:
 	@echo "\033[0;31m--------------------------------------------------------------------------------"
 	make -C ./libft clean
 	rm -rf $(OBJ)
-	@echo "\033[0;32m [OK] \033[0m \033[0;33m Push_Swap objects have been cleaned...\033[0m"
-	@echo "\033[0;32m [OK] \033[0m \033[0;33m libft objects have been cleaned...\033[0m"
+	@echo "\033[0;32m 【OK】 ✅\033[0m \033[0;33m ❮Push_Swap❯ objects have been cleaned...\033[0m"
+	@echo "\033[0;32m 【OK】 ✅\033[0m \033[0;33m ❮libft❯ objects have been cleaned...\033[0m"
 	@echo "\033[0;31m--------------------------------------------------------------------------------"
 fclean: clean
 	@echo "\033[0;31m--------------------------------------------------------------------------------"
 	make -C ./libft fclean
 	rm -rf push_swap
-	@echo "\033[0m       \033[0;33m libft archive fcleaned...\033[0m"
-	@echo "\033[0m       \033[0;33m Push_Swap excutable fcleaned...\033[0m"
+	@echo "\033[0m   【OK】 ✅    \033[0;33m ❮libft archive❯ fcleaned...\033[0m"
+	@echo "\033[0m   【OK】 ✅    \033[0;33m ❮Push_Swap excutable❯ fcleaned...\033[0m"
 	@echo "\033[0;31m--------------------------------------------------------------------------------"
 re: fclean all
 

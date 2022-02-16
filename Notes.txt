@@ -1,12 +1,20 @@
-1. check if the argument in the main is:
+【1】 check if the argument in the main is:
     "1 2 3 4 5"qwe
-    ----> it suppose to give you an error.
-
-2. check if the argument in the main is:
+    ----> it suppose to give you an error.❌
+🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡
+【2】 check if the argument in the main is:
     "0 2 3 4"
-    ------> should work perfectly.
-
-3. check if the argument in the main is:
+    ------> should work perfectly.✅
+🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡
+【3】 check if the argument in the main is:
     "3 3"
-    -----> should give you error.
-    
+    -----> should give you error.✅
+🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡
+【4】 Fix push_a && push_b:
+        I am pushing the last two elements from the stack
+        But, it should be the first two elements.....❌
+🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡
+【5】 Fix swap_a && swap_b:
+        I am swapping the last two elements from the stack
+        But, it should be the first two elements.....❌
+🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡
