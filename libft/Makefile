@@ -6,7 +6,7 @@
 #    By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 11:05:39 by gabdoush          #+#    #+#              #
-#    Updated: 2022/02/10 12:38:15 by gabdoush         ###   ########.fr        #
+#    Updated: 2022/02/20 12:30:26 by gabdoush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,8 @@ FILES =  ft_atoi\
 	 ft_lstmap\
 	 ft_strlen\
 	 ft_strlcpy\
-	 ft_strcmp
+	 ft_strcmp\
+	 ft_superior_split
 
 
 
@@ -66,10 +67,10 @@ $(NAME): $(OBJECTS)
 	ar rc libft.a $(OBJECTS)
 
 clean:
-	/bin/rm -f $(OBJECTS)
+	rm -f $(OBJECTS)
 
 fclean: clean
-	/bin/rm -f  $(NAME)
+	rm -rf  $(NAME)
 
 re: fclean all
 

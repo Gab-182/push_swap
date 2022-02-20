@@ -1,23 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/17 19:04:52 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/02/20 12:34:42 by gabdoush         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-/*------------------------------------------------------*/
-
+/*✅-----------------------------------------------------------*/
 void	push_swap(char *arg, t_stack *stack)
 {
 	char	**stack_char;
 	int		i;
-	
+
 	i = 0;
 	if (!arg)
 		exit(EXIT_FAILURE);
 	stack_char = ft_split(arg, ' ');
-/*---------------------------------------*/
-/*Checking If all the elements are digits*/
-/*========================================*/
 	check_digit(stack_char);
-/*========================================*/
-/* Calculating the length of the string  */
-/*========================================*/
 	while (stack_char[i] != NULL)
 	{
 		if (ft_isdigit(*stack_char[i]))
@@ -25,32 +30,27 @@ void	push_swap(char *arg, t_stack *stack)
 	}
 	stack->base_a = (int *)malloc(sizeof(int) * (i));
 	i = 0;
-/*========================================*/
-/* Storing the integers inside that array */
-/*========================================*/
 	while (stack_char[i])
 	{
 		stack->base_a[i] = ft_atoi(stack_char[i]);
 		i++;
 	}
 	stack->len_a = i;
-/*==============================*/
-/* checking duplicated elements */
-/*==============================*/
 	checking_duplicated(stack);
-/*------------------------------------------------------*/
-	push_b(stack);
-	push_b(stack);
-	push_b(stack);
-	push_b(stack);
-	push_b(stack);
-	push_b(stack);
-	push_b(stack);
-	push_b(stack);
-	push_b(stack);
+/*======================================================================*/
+	i = 0;
+	while (i < stack->len_b)
+	{
+		printf("stack->base_b[%d] --> %d\n", i, stack->base_b[i]);
+		i++;
+	}
 
-	push_a(stack);
-	push_a(stack);
-	push_a(stack);
-	push_a(stack);
+	i = 0;
+	while (i < stack->len_a)
+	{
+		printf("stack->base_b[%d] --> %d\n", i, stack->base_a[i]);
+		i++;
+	}
 }
+
+/*======================================================================*/

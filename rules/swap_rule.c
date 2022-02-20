@@ -1,61 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   swap_rule.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 19:07:45 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/17 19:08:19 by gabdoush         ###   ########.fr       */
+/*   Created: 2022/02/17 18:55:52 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/02/17 19:44:05 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*✅-----------------------------------------------------------*/
-void	swap(int *a, int *b)
+void	swap_a(t_stack *stack)
 {
-	int	temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
+	if (stack->len_a > 1)
+		swap(&stack->base_a[0], &stack->base_a[1]);
+	else
+		exit(EXIT_FAILURE);
 }
 
 /*✅-----------------------------------------------------------*/
-char	*ft_strcpy(char *dst, char *src)
+void	swap_b(t_stack *stack)
 {
-	int	n;
-
-	n = 0;
-	while (src[n] != '\0')
-	{
-		dst[n] = src[n];
-		n++;
-	}
-	dst[n] = '\0';
-	return (dst);
+	if (stack->len_b > 1)
+		swap(&stack->base_b[0], &stack->base_b[1]);
+	else
+		exit(EXIT_FAILURE);
 }
 
 /*✅-----------------------------------------------------------*/
-void	ft_putchar(int c)
+void	swap_a_and_b(t_stack *stack)
 {
-	write (1, &c, 1);
-}
-
-/*✅-----------------------------------------------------------*/
-void	ft_putstr(char *s)
-{
-	int		i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i] != '\0')
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
+	swap_a(stack);
+	swap_b(stack);
 }
 
 /*======================================================================*/

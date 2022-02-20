@@ -1,9 +1,29 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/02/17 19:05:15 by gabdoush          #+#    #+#              #
+#    Updated: 2022/02/20 12:03:20 by gabdoush         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#ifndef VERPOSE
+#.SILENT:
+#endif
+
 NAME = push_swap
 
 FILES = push_swap.c\
-		push_swap_utils.c\
-		rules.c\
 		parser.c\
+		push_swap_utils.c\
+		rules/swap_rule.c\
+		rules/push_rule.c\
+		rules/push_rule_utils.c\
+		rules/rotate_rule.c\
+		rules/reverse_rotate_rule.c\
 		main.c
 
 HEADERS = ./push_swap.h\
@@ -23,6 +43,7 @@ $(NAME): $(OBJ)
 	@echo "\033[0;31m--------------------------------------------------------------------------------"
 	@echo "\033[0;32m 【OK】 ✅\033[0m       \033[0;33m Compiling with the flags:\033[0m" $<
 	$(CC) -g $(FILES) $(FLAGS) ./libft/libft.a -o push_swap
+
 	@printf "\033c"
 	@echo "\033[0;31m--------------------------------------------------------------------------------"
 	@echo "\033[0;32m 【OK】 ✅\033[0m       \033[0;33m ❮libft.a❯ created:\033[0m" $<
