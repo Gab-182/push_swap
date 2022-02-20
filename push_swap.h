@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 19:02:45 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/20 13:15:25 by gabdoush         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -35,30 +23,38 @@ typedef struct s_stacks
 }			t_stack;
 
 /*✅-------------------------push_swap.c--------------------------*/
-void		push_swap_q(char *arg, t_stack *stack_a);
-void		push_swap(char **arg, t_stack *stack_a);
+void		push_swap(char *arg, t_stack *stack_a);
+void		push_swap_multi(char **arg, t_stack *stack);
+
 /*✅---------------------push_swap_utils.c------------------------*/
 char		*ft_strcpy(char *dst, char *src);
 void		ft_putstr(char *s);
 void		ft_putchar(int c);
 void		swap(int *a, int *b);
+
 /*✅------------------------parser.c------------------------------*/
 void		check_digit(char **str);
+void		check_digit_multi(char *str);
 void		checking_duplicated(t_stack *stack);
+
 /*✅-----------------------swap_rules.c---------------------------*/
 void		swap_a(t_stack *stack);
 void		swap_b(t_stack *stack);
 void		swap_a_and_b(t_stack *stack);
+
 /*✅-----------------------push_rule.c----------------------------*/
 void		push_b(t_stack *stack);
 void		push_a(t_stack *stack);
+
 /*✅---------------------push_rule_utils.c------------------------*/
 void		allocate_temp_free_base_a(t_stack *stack);
 void		allocate_temp_free_base_b(t_stack *stack);
+
 /*✅----------------------rotate_rule.c---------------------------*/
 void		rotate_a(t_stack *stack);
 void		rotate_b(t_stack *stack);
 void		rotate_a_b(t_stack *stack);
+
 /*✅--------------------reverse_rotate_rule.c---------------------*/
 void		reverse_rotate_a(t_stack *stack);
 void		reverse_rotate_b(t_stack *stack);

@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 19:04:52 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/20 17:09:04 by gabdoush         ###   ########.fr       */
+/*   Created: 2022/02/21 02:15:23 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/02/21 02:15:38 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*✅-----------------------------------------------------------*/
-void	push_swap_q(char *arg, t_stack *stack)
+void	push_swap(char *arg, t_stack *stack)
 {
 	char	**stack_char;
 	int		i;
@@ -39,62 +39,30 @@ void	push_swap_q(char *arg, t_stack *stack)
 	}
 	stack->len_a = i;
 	checking_duplicated(stack);
-/*======================================================================*/
-	i = 0;
-	while (i < stack->len_b)
-	{
-		printf("stack->base_b[%d] --> %d\n", i, stack->base_b[i]);
-		i++;
-	}
-
-	i = 0;
-	while (i < stack->len_a)
-	{
-		printf("stack->base_b[%d] --> %d\n", i, stack->base_a[i]);
-		i++;
-	}
 }
 
-/*======================================================================*/
-
-void	push_swap(char **arg, t_stack *stack)
+/*✅-----------------------------------------------------------*/
+void	push_swap_multi(char **argv, t_stack *stack)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	if (!arg)
-		exit(EXIT_FAILURE);
-	check_digit(arg);
-	while (arg[i] != NULL)
+	while (argv[i] != NULL)
 	{
-		if (ft_isdigit(*arg[i]))
-			i++;
+		check_digit_multi(argv[i]);
+		i++;
 	}
 	stack->base_a = (int *)malloc(sizeof(int) * (i));
 	if (!stack->base_a)
-			exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	i = 0;
-	while (arg[i] && *arg[i] != ' ')
+	while (argv[i])
 	{
-		stack->base_a[i] = ft_atoi(arg[i]);
+		stack->base_a[i] = ft_atoi(argv[i]);
 		i++;
 	}
 	stack->len_a = i;
 	checking_duplicated(stack);
-/*======================================================================*/
-	i = 0;
-	while (i < stack->len_b)
-	{
-		printf("stack->base_b[%d] --> %d\n", i, stack->base_b[i]);
-		i++;
-	}
-
-	i = 0;
-	while (i < stack->len_a)
-	{
-		printf("stack->base_b[%d] --> %d\n", i, stack->base_a[i]);
-		i++;
-	}
 }
 
 /*======================================================================*/

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 19:06:20 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/20 16:57:23 by gabdoush         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 /*✅-----------------------------------------------------------*/
@@ -18,12 +6,12 @@ void	check_digit(char **str)
 	int	i;
 
 	i = 0;
-	while (str[i] != NULL)
+	while (str[i])
 	{
 		if (ft_isdigit(*str[i]) != 1)
 		{
 			ft_putstr("ERROR, digit(check_digit)\n");
-			//free(str);
+			free(str);
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -56,3 +44,19 @@ void	checking_duplicated(t_stack *stack)
 }
 
 /*======================================================================*/
+
+void	check_digit_multi(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]) != 1)
+		{
+			ft_putstr("ERROR, digit(check_digit)\n");
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:05:29 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/20 14:59:47 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/02/21 01:56:37 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include "../push_swap.h"
 
 typedef struct s_list
 {
@@ -23,7 +24,7 @@ typedef struct s_list
 	struct s_list	*next;
 }			t_list;
 
-int				ft_atoi(const char *str);
+int				ft_atoi(char *str);
 int				ft_isalnum(int n);
 int				ft_isalpha(int n);
 int				ft_isascii(int n);
@@ -52,6 +53,7 @@ char			*ft_strdup(char *s1);
 int				ft_strlen(const char *s);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 int				ft_strcmp(char *s1, char *s2);
+char			*ft_strjoin(char *s1, char *s2);
 /*---------------------------The Bonus part--------------------------------*/
 
 t_list			*ft_lstnew(void *content);

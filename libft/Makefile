@@ -6,7 +6,7 @@
 #    By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 11:05:39 by gabdoush          #+#    #+#              #
-#    Updated: 2022/02/20 14:59:58 by gabdoush         ###   ########.fr        #
+#    Updated: 2022/02/21 02:16:13 by gabdoush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,8 @@ FILES =  ft_atoi\
 	 ft_lstmap\
 	 ft_strlen\
 	 ft_strlcpy\
-	 ft_strcmp
+	 ft_strcmp\
+	 ft_strjoin
 
 OBJECTS =	$(FILES:.c=.o)
 
