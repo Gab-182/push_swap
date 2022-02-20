@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:06:20 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/20 12:15:31 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:57:23 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	check_digit(char **str)
 	{
 		if (ft_isdigit(*str[i]) != 1)
 		{
-			ft_putstr("ERROR, digit\n");
-			free(str);
+			ft_putstr("ERROR, digit(check_digit)\n");
+			//free(str);
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -44,7 +44,8 @@ void	checking_duplicated(t_stack *stack)
 		{
 			if (stack->base_a[i] == stack->base_a[j])
 			{
-				ft_putstr("ERROR, \n");
+				ft_putstr("ERROR, Duplicate\n");
+				free(stack->base_a);
 				exit(EXIT_FAILURE);
 			}
 			j++;

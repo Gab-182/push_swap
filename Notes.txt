@@ -6,14 +6,14 @@
 #    By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 19:06:05 by gabdoush          #+#    #+#              #
-#    Updated: 2022/02/17 19:06:10 by gabdoush         ###   ########.fr        #
+#    Updated: 2022/02/20 17:37:28 by gabdoush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 【1】 check if the argument in the main is:
     "1 2 3 4 5"qwe
-    ----> it suppose to give you an error.❌
+    ----> it suppose to give you an error.✅
 🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡
 【2】 check if the argument in the main is:
     "0 2 3 4"
@@ -25,9 +25,15 @@
 🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡
 【4】 Fix push_a && push_b:
         I am pushing the last two elements from the stack
-        But, it should be the first two elements.....❌
+        But, it should be the first two elements.....✅
 🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡
 【5】 Fix swap_a && swap_b:
         I am swapping the last two elements from the stack
-        But, it should be the first two elements.....❌
+        But, it should be the first two elements.....✅
+🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡
+【6】 Check for the arguments:
+        ./push_swap "2 -2"
+        ./push_swap 2 -2
+        -----> it should handeld correctly....
+        ..❌
 🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡🁡

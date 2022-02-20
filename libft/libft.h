@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:05:29 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/20 12:30:43 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:59:47 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ char			*ft_strdup(char *s1);
 int				ft_strlen(const char *s);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 int				ft_strcmp(char *s1, char *s2);
-char			**ft_superior_split(char *s, char c);
 /*---------------------------The Bonus part--------------------------------*/
 
 t_list			*ft_lstnew(void *content);

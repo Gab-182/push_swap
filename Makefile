@@ -6,7 +6,7 @@
 #    By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 19:05:15 by gabdoush          #+#    #+#              #
-#    Updated: 2022/02/20 12:03:20 by gabdoush         ###   ########.fr        #
+#    Updated: 2022/02/20 14:45:55 by gabdoush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ HEADERS = ./push_swap.h\
 
 OBJ = $(FILES:.c=.o)
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 
 CC = gcc
 

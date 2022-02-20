@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:02:45 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/20 12:32:35 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/02/20 13:15:25 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ typedef struct s_stacks
 }			t_stack;
 
 /*✅-------------------------push_swap.c--------------------------*/
-void		push_swap(char *arg, t_stack *stack_a);
+void		push_swap_q(char *arg, t_stack *stack_a);
+void		push_swap(char **arg, t_stack *stack_a);
 /*✅---------------------push_swap_utils.c------------------------*/
 char		*ft_strcpy(char *dst, char *src);
 void		ft_putstr(char *s);

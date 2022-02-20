@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:05:43 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/20 12:34:03 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:53:47 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,13 @@ int	main(int argc, char **argv)
 	stack.len_a = 0;
 	stack.len_b = 0;
 	if (argc == 2)
-		push_swap(argv[1], &stack);
+		push_swap_q(argv[1], &stack);
+/*==============================================================*/
 	else if(argc > 2)
 	{
 		/* to move after {./push_swap} */
-		// argv++;
-		// push_swap(*argv, &stack);
-		int i = 0;
-		while (argv[i] != NULL)
-		{
-			printf("argv[%d] --> %s\n" , i, argv[i]);
-			i++;
-		}
+		argv++;
+		push_swap(argv, &stack);
 	}
 	return (EXIT_SUCCESS);
 }
-
-/****************************************************************
- * NOTES:
- * ==============================================================
- * you need also to handle the arguments if they are not in qutations, 
- * so if (argc > 1).
- */
