@@ -36,6 +36,8 @@ void		swap(int *a, int *b);
 void		check_digit(char **str);
 void		check_digit_multi(char *str);
 void		checking_duplicated(t_stack *stack);
+void		check_empty(char *arg);
+void		check_length(char *arg);
 
 /*✅-----------------------swap_rules.c---------------------------*/
 void		swap_a(t_stack *stack);

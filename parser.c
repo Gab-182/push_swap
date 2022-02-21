@@ -6,11 +6,11 @@ void	check_digit(char **str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] && str)
 	{
 		if (ft_isdigit(*str[i]) != 1)
 		{
-			ft_putstr("ERROR, digit(check_digit)\n");
+			ft_putstr("ERROR\n");
 			free(str);
 			exit(EXIT_FAILURE);
 		}
@@ -32,7 +32,7 @@ void	checking_duplicated(t_stack *stack)
 		{
 			if (stack->base_a[i] == stack->base_a[j])
 			{
-				ft_putstr("ERROR, Duplicate\n");
+				ft_putstr("ERROR\n");
 				free(stack->base_a);
 				exit(EXIT_FAILURE);
 			}
@@ -43,8 +43,7 @@ void	checking_duplicated(t_stack *stack)
 	}
 }
 
-/*======================================================================*/
-
+/*✅-----------------------------------------------------------*/
 void	check_digit_multi(char *str)
 {
 	int	i;
@@ -52,11 +51,61 @@ void	check_digit_multi(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]) != 1)
+		if (str[i] == '-' || str[i] == '+')
 		{
-			ft_putstr("ERROR, digit(check_digit)\n");
+			if (ft_isdigit(str[i + 1]) == 1)
+				i++;
+			else
+			{
+				ft_putstr("ERROR\n");
+				exit(EXIT_FAILURE);
+			}
+		}
+		while (str[i] == ' ' && str[i])
+			i++;
+		if ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ')
+			i++;
+		else
+		{
+			ft_putstr("ERROR\n");
 			exit(EXIT_FAILURE);
 		}
-		i++;
 	}
 }
+
+/*✅-----------------------------------------------------------*/
+void	check_empty(char *arg)
+{
+	int	i;
+
+	i = 0;
+	if (ft_strlen(arg) == 0)
+	{
+		ft_putstr("ERROR\n");
+		exit(EXIT_FAILURE);
+	}
+	while (arg[i])
+	{
+		if (arg[i] == ' ')
+			i++;
+		else
+			break ;
+	}
+	if (i == ft_strlen(arg))
+	{
+		ft_putstr("ERROR\n");
+		exit(EXIT_FAILURE);
+	}
+}
+
+/*✅-----------------------------------------------------------*/
+void	check_length(char *arg)
+{
+	if (ft_strlen(arg) == 0)
+	{
+		ft_putstr("ERROR\n");
+		exit(EXIT_FAILURE);
+	}
+}
+
+/*======================================================================*/

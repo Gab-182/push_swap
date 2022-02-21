@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:05:29 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/21 01:56:37 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/02/21 05:03:42 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_list
 	struct s_list	*next;
 }			t_list;
 
-int				ft_atoi(char *str);
+long long int				ft_atoi(char *str);
 int				ft_isalnum(int n);
 int				ft_isalpha(int n);
 int				ft_isascii(int n);
@@ -54,6 +54,7 @@ int				ft_strlen(const char *s);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 int				ft_strcmp(char *s1, char *s2);
 char			*ft_strjoin(char *s1, char *s2);
+int				ft_isspace(int n);
 /*---------------------------The Bonus part--------------------------------*/
 
 t_list			*ft_lstnew(void *content);
