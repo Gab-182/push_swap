@@ -1,5 +1,25 @@
 #include "push_swap.h"
 
+void	check_nigative(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '-' || str[i] == '+')
+		{
+			if (ft_isdigit(str[i + 1]) == 1)
+				break ;
+			else
+			{
+				ft_putstr("ERROR\n");
+				exit(EXIT_FAILURE);
+			}
+		}
+		i++;
+	}
+}
 /*✅-----------------------------------------------------------*/
 void	check_digit(char **str)
 {
@@ -8,7 +28,26 @@ void	check_digit(char **str)
 	i = 0;
 	while (str[i] && str)
 	{
-		if (ft_isdigit(*str[i]) != 1)
+		//check_nigative(str[i]);
+		printf("*str[i] --> %c\n", *str[i]);
+		printf("*(str[i + 1]) --> %c\n", *(str[i + 1]));
+
+
+
+		if (*str[i] && str[i] && (*str[i] == '-' || *str[i] == '+'))
+		{
+			i++;
+			if (*str[i] && ft_isdigit(*str[i]) == 1)
+				i++;
+			else
+			{
+				ft_putstr("ERROR\n");
+				exit(EXIT_FAILURE);
+			}
+		}
+
+
+		if (ft_isdigit(*str[i]) != 1 )
 		{
 			ft_putstr("ERROR\n");
 			free(str);
