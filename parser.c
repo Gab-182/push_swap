@@ -1,25 +1,20 @@
 #include "push_swap.h"
 
-void	check_nigative(char *str)
+int isNumber(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i]!= '\0')
 	{
-		if (str[i] == '-' || str[i] == '+')
-		{
-			if (ft_isdigit(str[i + 1]) == 1)
-				break ;
-			else
-			{
-				ft_putstr("ERROR\n");
-				exit(EXIT_FAILURE);
-			}
-		}
+
+		if (ft_isdigit(str[i]) == 0 || str[i] == '-' || str[i] == '+')
+			return (0);
 		i++;
 	}
+	return (1);
 }
+
 /*✅-----------------------------------------------------------*/
 void	check_digit(char **str)
 {
@@ -28,33 +23,28 @@ void	check_digit(char **str)
 	i = 0;
 	while (str[i] && str)
 	{
-		//check_nigative(str[i]);
-		printf("*str[i] --> %c\n", *str[i]);
-		printf("*(str[i + 1]) --> %c\n", *(str[i + 1]));
-
-
-
-		if (*str[i] && str[i] && (*str[i] == '-' || *str[i] == '+'))
+		if (str[i][0] == '-' || str[i][0] == '+')
 		{
-			i++;
-			if (*str[i] && ft_isdigit(*str[i]) == 1)
-				i++;
-			else
+			if (str[i] && str && str[i][1] && ft_isdigit(str[i][1]) == 1)
 			{
-				ft_putstr("ERROR\n");
-				exit(EXIT_FAILURE);
+				if (str[i+1] == NULL)
+					return ;
+				i++;
 			}
+			else
+				error();
 		}
-
-
-		if (ft_isdigit(*str[i]) != 1 )
+		else if (isNumber(str[i]) != 1)
+			error();
+		else if (ft_isdigit(*str[i]) != 1 )
 		{
-			ft_putstr("ERROR\n");
 			free(str);
-			exit(EXIT_FAILURE);
+			error();
 		}
-		i++;
+		else
+			i++;
 	}
+	return ;
 }
 
 /*✅-----------------------------------------------------------*/
@@ -69,11 +59,10 @@ void	checking_duplicated(t_stack *stack)
 	{
 		while (j < stack->len_a)
 		{
-			if (stack->base_a[i] == stack->base_a[j])
+			if (stack->base_a[i] == stack->base_a[j] && stack->base_a[j] != ' ')
 			{
-				ft_putstr("ERROR\n");
 				free(stack->base_a);
-				exit(EXIT_FAILURE);
+				error();
 			}
 			j++;
 		}
@@ -82,7 +71,7 @@ void	checking_duplicated(t_stack *stack)
 	}
 }
 
-/*✅-----------------------------------------------------------*/
+/*-------------------------------------------------------------*/
 void	check_digit_multi(char *str)
 {
 	int	i;
@@ -95,19 +84,14 @@ void	check_digit_multi(char *str)
 			if (ft_isdigit(str[i + 1]) == 1)
 				i++;
 			else
-			{
-				ft_putstr("ERROR\n");
-				exit(EXIT_FAILURE);
-			}
+				error();
 		}
-		while (str[i] == ' ' && str[i])
-			i++;
-		if ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ')
-			i++;
-		else
+		while (str[i] && str)
 		{
-			ft_putstr("ERROR\n");
-			exit(EXIT_FAILURE);
+			if ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ')
+				i++;
+			else
+				error();
 		}
 	}
 }
@@ -119,10 +103,7 @@ void	check_empty(char *arg)
 
 	i = 0;
 	if (ft_strlen(arg) == 0)
-	{
-		ft_putstr("ERROR\n");
-		exit(EXIT_FAILURE);
-	}
+		error();
 	while (arg[i])
 	{
 		if (arg[i] == ' ')
@@ -131,20 +112,18 @@ void	check_empty(char *arg)
 			break ;
 	}
 	if (i == ft_strlen(arg))
-	{
-		ft_putstr("ERROR\n");
-		exit(EXIT_FAILURE);
-	}
+		error();
 }
 
 /*✅-----------------------------------------------------------*/
+/**
+ ** check if the argument is empty without any thing, just two qutations.
+ ** it should throw error.
+ **/
 void	check_length(char *arg)
 {
 	if (ft_strlen(arg) == 0)
-	{
-		ft_putstr("ERROR\n");
-		exit(EXIT_FAILURE);
-	}
+		error();
 }
 
-/*======================================================================*/
+/*============================================================*/

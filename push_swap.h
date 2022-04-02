@@ -24,13 +24,14 @@ typedef struct s_stacks
 
 /*✅-------------------------push_swap.c--------------------------*/
 void		push_swap(char *arg, t_stack *stack_a);
-void		push_swap_multi(char **arg, t_stack *stack);
+void		push_swap_multi(char **arg, t_stack *stack, int i);
 
 /*✅---------------------push_swap_utils.c------------------------*/
 char		*ft_strcpy(char *dst, char *src);
 void		ft_putstr(char *s);
 void		ft_putchar(int c);
 void		swap(int *a, int *b);
+void		error(void);
 
 /*✅------------------------parser.c------------------------------*/
 void		check_digit(char **str);
@@ -38,6 +39,7 @@ void		check_digit_multi(char *str);
 void		checking_duplicated(t_stack *stack);
 void		check_empty(char *arg);
 void		check_length(char *arg);
+void		check_empty_multible(char **arg);
 
 /*✅-----------------------swap_rules.c---------------------------*/
 void		swap_a(t_stack *stack);

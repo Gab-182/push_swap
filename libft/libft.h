@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:05:29 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/21 05:03:42 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/04/02 12:29:43 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_list
 	struct s_list	*next;
 }			t_list;
 
-long long int				ft_atoi(char *str);
+long long int	ft_atoi(char *str);
 int				ft_isalnum(int n);
 int				ft_isalpha(int n);
 int				ft_isascii(int n);

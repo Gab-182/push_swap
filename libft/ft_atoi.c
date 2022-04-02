@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 10:45:16 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/21 08:20:52 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/04/02 17:08:02 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ long long int	ft_atoi(char *str)
 	sign = 1;
 	while (str[i])
 	{
-		if ((str[i] >= 'a' && str[i] >= 'z') || (str[i] >= 'A' && str[i] >= 'Z'))
+		if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
 		{
-			ft_putstr("ERROR\n");
 			free(str);
-			exit(EXIT_FAILURE);
+			error();
 		}
 		i++;
 	}

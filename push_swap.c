@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 02:15:23 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/21 10:43:52 by gabdoush         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
-/*✅-----------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 void	push_swap(char *arg, t_stack *stack)
 {
 	char	**stack_char;
@@ -26,8 +14,10 @@ void	push_swap(char *arg, t_stack *stack)
 	check_digit(stack_char);
 	while (stack_char[i] != NULL)
 	{
-		if (ft_isdigit(*stack_char[i]))
+		if ((*stack_char[i] >= '0' && *stack_char[i] <= '9') || *stack_char[i] == '-' || *stack_char[i] == ' ' || *stack_char[i] == '+')
 			i++;
+		else
+			error();
 	}
 	stack->base_a = (int *)malloc(sizeof(int) * (i));
 	if (!stack->base_a)
@@ -42,18 +32,15 @@ void	push_swap(char *arg, t_stack *stack)
 	checking_duplicated(stack);
 }
 
-/*✅-----------------------------------------------------------*/
-void	push_swap_multi(char **argv, t_stack *stack)
+/*✅---------------------------------------------------------------------------*/
+void	push_swap_multi(char **argv, t_stack *stack, int i)
 {
-	int	i;
-
-	i = 0;
 	while (argv[i] != NULL)
 	{
 		check_length(argv[i]);
 		check_digit_multi(argv[i]);
 		i++;
-	}
+	} 
 	stack->base_a = (int *)malloc(sizeof(int) * (i));
 	if (!stack->base_a)
 		exit(EXIT_FAILURE);
@@ -63,9 +50,8 @@ void	push_swap_multi(char **argv, t_stack *stack)
 		stack->base_a[i] = ft_atoi(argv[i]);
 		if (ft_atoi(argv[i]) > 2147483647 || ft_atoi(argv[i]) < -2147483648)
 		{
-			ft_putstr("ERROR\n");
 			free(stack->base_a);
-			exit(EXIT_FAILURE);
+			error();
 		}
 		i++;
 	}
@@ -73,4 +59,4 @@ void	push_swap_multi(char **argv, t_stack *stack)
 	checking_duplicated(stack);
 }
 
-/*======================================================================*/
+/*=============================================================================*/
