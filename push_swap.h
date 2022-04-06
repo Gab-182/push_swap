@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 22:41:19 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/04/02 22:41:56 by gabdoush         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -75,9 +63,6 @@ void		rotate_a_b(t_stack *stack);
 void		reverse_rotate_a(t_stack *stack);
 void		reverse_rotate_b(t_stack *stack);
 void		reverse_rotate_a_b(t_stack *stack);
-
-/*✅--------------------sorting.c---------------------*/
-void		bubble_sort (int *base_a, int n);
 
 #endif
 
