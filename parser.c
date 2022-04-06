@@ -88,10 +88,20 @@ void	check_digit_multi(char *str)
 		}
 		while (str[i] && str)
 		{
-			if ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ')
-				i++;
+			if ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ' || str[i] == '-' || str[i] == '+')
+			{
+				if (str[i] == '-' || str[i] == '+')
+				{
+					if (ft_isdigit(str[i + 1]) == 1)
+						i++;
+					else
+						error();
+				}
+			}
+				//i++;
 			else
 				error();
+			i++;
 		}
 	}
 }

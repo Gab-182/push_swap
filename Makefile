@@ -6,7 +6,7 @@
 #    By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 19:05:15 by gabdoush          #+#    #+#              #
-#    Updated: 2022/02/21 01:27:04 by gabdoush         ###   ########.fr        #
+#    Updated: 2022/04/02 22:40:43 by gabdoush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ NAME = push_swap
 
 FILES = push_swap.c\
 		parser.c\
+		sorting.c\
 		push_swap_utils.c\
 		rules/swap_rule.c\
 		rules/push_rule.c\
