@@ -32,31 +32,53 @@ void	push_swap(char *arg, t_stack *stack)
 	checking_duplicated(stack);
 }
 
-/*✅---------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------*/
 void	push_swap_multi(char **argv, t_stack *stack, int i)
 {
-	while (argv[i] != NULL)
-	{
-		check_length(argv[i]);
-		check_digit_multi(argv[i]);
-		i++;
-	} 
-	stack->base_a = (int *)malloc(sizeof(int) * (i));
-	if (!stack->base_a)
-		exit(EXIT_FAILURE);
-	i = 0;
+	int			j;
+	int			s;
+	int			num;
+	char		**split;
+
+	j = 0;
+	s = 0;
 	while (argv[i])
 	{
-		stack->base_a[i] = ft_atoi(argv[i]);
-		if (ft_atoi(argv[i]) > 2147483647 || ft_atoi(argv[i]) < -2147483648)
+		check_length(argv[i]);
+		while (argv[i][j])
 		{
-			free(stack->base_a);
-			error();
+			// you can use strchr() function and save lines for the var j and s.
+			if (argv[i][j] == ' ')
+			{
+				split = ft_split(argv[i], ' ');
+				while (split[s])
+				{
+					num = ft_atoi(split[s]);
+					addLast(stack,num);
+					s++;
+				}
+				free(split);
+				split = NULL;
+				i++;
+				j = 0;
+				break ;
+			}
+			else
+				j++;
 		}
-		i++;
+		j = 0;
+		if (argv[i])
+		{
+			check_length(argv[i]);
+			check_length(argv[i]);
+			check_digit_multi(argv[i]);
+			if(ft_atoi(argv[i]) > 2147483647 || ft_atoi(argv[i]) < -2147483648)
+				error();
+			num = ft_atoi(argv[i]);
+			addLast(stack,num);
+			i++;
+		}
 	}
-	stack->len_a = i;
 	checking_duplicated(stack);
 }
-
 /*=============================================================================*/

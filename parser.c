@@ -71,7 +71,7 @@ void	checking_duplicated(t_stack *stack)
 	}
 }
 
-/*-------------------------------------------------------------*/
+// /*-------------------------------------------------------------*/
 void	check_digit_multi(char *str)
 {
 	int	i;
@@ -122,7 +122,7 @@ void	check_empty(char *arg)
  **/
 void	check_length(char *arg)
 {
-	if (ft_strlen(arg) == 0)
+	if (ft_strlen(arg) == 1 && arg[0] == ' ')
 		error();
 }
 

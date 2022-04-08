@@ -8,7 +8,7 @@
 # include <stdlib.h>
 # include "./libft/libft.h"
 
-typedef struct s_stacks
+typedef struct s_stack
 {
 	int		*base_a;
 	int		*base_b;
@@ -32,6 +32,7 @@ void		ft_putstr(char *s);
 void		ft_putchar(int c);
 void		swap(int *a, int *b);
 void		error(void);
+void		addLast(t_stack *stack, int num);
 
 /*✅------------------------parser.c------------------------------*/
 void		check_digit(char **str);
