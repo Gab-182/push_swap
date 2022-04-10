@@ -1,7 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-/*✅--------------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
@@ -22,11 +22,11 @@ typedef struct s_stack
 	int		*temp_b;
 }			t_stack;
 
-/*✅-------------------------push_swap.c--------------------------*/
+/*✅-------------------------------push_swap.c--------------------------------*/
 void		push_swap(char *arg, t_stack *stack_a);
 void		push_swap_multi(char **arg, t_stack *stack, int i);
 
-/*✅---------------------push_swap_utils.c------------------------*/
+/*✅---------------------------push_swap_utils.c------------------------------*/
 char		*ft_strcpy(char *dst, char *src);
 void		ft_putstr(char *s);
 void		ft_putchar(int c);
@@ -34,37 +34,40 @@ void		swap(int *a, int *b);
 void		error(void);
 void		addLast(t_stack *stack, int num);
 
-/*✅------------------------parser.c------------------------------*/
+/*✅------------------------------parser.c------------------------------------*/
 void		check_digit(char **str);
 void		check_digit_multi(char *str);
+void		check_negative_sign(char *str);
 void		checking_duplicated(t_stack *stack);
 void		check_empty(char *arg);
-void		check_length(char *arg);
-void		check_empty_multible(char **arg);
 
-/*✅-----------------------swap_rules.c---------------------------*/
+/*✅-----------------------------swap_rules.c---------------------------------*/
 void		swap_a(t_stack *stack);
 void		swap_b(t_stack *stack);
 void		swap_a_and_b(t_stack *stack);
 
-/*✅-----------------------push_rule.c----------------------------*/
+/*✅-----------------------------push_rule.c----------------------------------*/
 void		push_b(t_stack *stack);
 void		push_a(t_stack *stack);
 
-/*✅---------------------push_rule_utils.c------------------------*/
+/*✅---------------------------push_rule_utils.c------------------------------*/
 void		allocate_temp_free_base_a(t_stack *stack);
 void		allocate_temp_free_base_b(t_stack *stack);
 
-/*✅----------------------rotate_rule.c---------------------------*/
+/*✅----------------------------rotate_rule.c---------------------------------*/
 void		rotate_a(t_stack *stack);
 void		rotate_b(t_stack *stack);
 void		rotate_a_b(t_stack *stack);
 
-/*✅--------------------reverse_rotate_rule.c---------------------*/
+/*✅--------------------------reverse_rotate_rule.c---------------------------*/
 void		reverse_rotate_a(t_stack *stack);
 void		reverse_rotate_b(t_stack *stack);
 void		reverse_rotate_a_b(t_stack *stack);
 
+/*✅-------------------------------sort_3_5.c---------------------------------*/
+void	sort_3(t_stack *stack);
+void	sort_5(t_stack *stack);
+
 #endif
 
-/*======================================================================*/
+/*============================================================================*/

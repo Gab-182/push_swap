@@ -1,5 +1,17 @@
 #include "push_swap.h"
 
+void	sort(t_stack *stack)
+{
+	if (stack -> len_a == 2)
+		sort_2(a);
+	else if (stack -> len_a == 3)
+		sort_3(a);
+	else if (stack -> len_a == 4)
+		sort_4(a, b);
+	else if (stack -> len_a == 5)
+		sort_5(stack);
+}
+
 /*✅--------------------------------------------------------------------------*/
 void	push_swap(char *arg, t_stack *stack)
 {
@@ -30,9 +42,17 @@ void	push_swap(char *arg, t_stack *stack)
 	}
 	stack->len_a = i;
 	checking_duplicated(stack);
+	/*************************   SORTING  *************************************/
+	sort(stack);
+	i = 0;
+	while(i < stack -> len_a)
+	{
+		printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
+		i++;
+	}
 }
 
-/*---------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 void	push_swap_multi(char **argv, t_stack *stack, int i)
 {
 	int			j;
@@ -44,7 +64,8 @@ void	push_swap_multi(char **argv, t_stack *stack, int i)
 	s = 0;
 	while (argv[i])
 	{
-		check_length(argv[i]);
+		check_empty(argv[i]);
+		check_negative_sign(argv[i]);
 		while (argv[i][j])
 		{
 			// you can use strchr() function and save lines for the var j and s.
@@ -69,8 +90,6 @@ void	push_swap_multi(char **argv, t_stack *stack, int i)
 		j = 0;
 		if (argv[i])
 		{
-			check_length(argv[i]);
-			check_length(argv[i]);
 			check_digit_multi(argv[i]);
 			if(ft_atoi(argv[i]) > 2147483647 || ft_atoi(argv[i]) < -2147483648)
 				error();
@@ -80,5 +99,13 @@ void	push_swap_multi(char **argv, t_stack *stack, int i)
 		}
 	}
 	checking_duplicated(stack);
+	/************************   SORTING  **************************************/
+	sort(stack);
+	i = 0;
+	while(i < stack -> len_a)
+	{
+		printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
+		i++;
+	}
 }
-/*=============================================================================*/
+/*============================================================================*/

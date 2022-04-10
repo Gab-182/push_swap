@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int isNumber(char *str)
+int	isNumber(char *str)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ void	check_digit(char **str)
 		{
 			if (str[i] && str && str[i][1] && ft_isdigit(str[i][1]) == 1)
 			{
-				if (str[i+1] == NULL)
+				if (str[i + 1] == NULL)
 					return ;
 				i++;
 			}
@@ -36,7 +36,7 @@ void	check_digit(char **str)
 		}
 		else if (isNumber(str[i]) != 1)
 			error();
-		else if (ft_isdigit(*str[i]) != 1 )
+		else if (ft_isdigit(*str[i]) != 1)
 		{
 			free(str);
 			error();
@@ -95,6 +95,25 @@ void	check_digit_multi(char *str)
 		}
 	}
 }
+/*✅-----------------------------------------------------------*/
+
+void	check_negative_sign(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '-' || str[i] == '+')
+		{
+			if (ft_isdigit(str[i + 1]) == 1)
+				i++;
+			else
+				error();
+		}
+		i++;
+	}
+}
 
 /*✅-----------------------------------------------------------*/
 void	check_empty(char *arg)
@@ -112,17 +131,6 @@ void	check_empty(char *arg)
 			break ;
 	}
 	if (i == ft_strlen(arg))
-		error();
-}
-
-/*✅-----------------------------------------------------------*/
-/**
- ** check if the argument is empty without any thing, just two qutations.
- ** it should throw error.
- **/
-void	check_length(char *arg)
-{
-	if (ft_strlen(arg) == 1 && arg[0] == ' ')
 		error();
 }
 

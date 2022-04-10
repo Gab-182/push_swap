@@ -24,6 +24,7 @@ FILES = push_swap.c\
 		rules/push_rule_utils.c\
 		rules/rotate_rule.c\
 		rules/reverse_rotate_rule.c\
+		sort_3_5.c\
 		main.c
 
 HEADERS = ./push_swap.h\

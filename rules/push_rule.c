@@ -40,6 +40,7 @@ void	push_b(t_stack *stack)
 		free(stack->temp_b);
 		allocate_temp_free_base_a(stack);
 	}
+	printf("pb\n");
 }
 
 /*✅-----------------------------------------------------------*/
@@ -70,6 +71,7 @@ void	push_a(t_stack *stack)
 		free(stack->temp_a);
 		allocate_temp_free_base_b(stack);
 	}
+	printf("pa\n");
 }
 
 /*======================================================================*/
