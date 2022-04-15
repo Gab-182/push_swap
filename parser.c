@@ -1,5 +1,11 @@
 #include "push_swap.h"
 
+/**
+ * @brief Check if the given argument is a valid number.
+ * 
+ * @param str 
+ * @return int 
+ */
 int	isNumber(char *str)
 {
 	int	i;
@@ -15,7 +21,13 @@ int	isNumber(char *str)
 	return (1);
 }
 
-/*✅-----------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief Check the validation of the given argument.
+ * positive number or nigative number
+ * 
+ * @param str 
+ */
 void	check_digit(char **str)
 {
 	int	i;
@@ -47,7 +59,12 @@ void	check_digit(char **str)
 	return ;
 }
 
-/*✅-----------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief Check if there any duplicate numbers in the given arguments.
+ * 
+ * @param stack 
+ */
 void	checking_duplicated(t_stack *stack)
 {
 	int	i;
@@ -71,7 +88,13 @@ void	checking_duplicated(t_stack *stack)
 	}
 }
 
-// /*-------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief check the validation of the given arguments
+ * positive number or nigative number.
+ * 
+ * @param str 
+ */
 void	check_digit_multi(char *str)
 {
 	int	i;
@@ -95,8 +118,13 @@ void	check_digit_multi(char *str)
 		}
 	}
 }
-/*✅-----------------------------------------------------------*/
-
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief check the validity of using negative or positive signs
+ * as an arguments.
+ * 
+ * @param str 
+ */
 void	check_negative_sign(char *str)
 {
 	int	i;
@@ -115,7 +143,11 @@ void	check_negative_sign(char *str)
 	}
 }
 
-/*✅-----------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief check if the argument is not just spaces
+ * @param arg 
+ */
 void	check_empty(char *arg)
 {
 	int	i;
@@ -134,4 +166,4 @@ void	check_empty(char *arg)
 		error();
 }
 
-/*============================================================*/
+/*============================================================================*/

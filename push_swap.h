@@ -23,9 +23,15 @@ typedef struct s_stack
 	int		*temp_b;
 }			t_stack;
 
+typedef struct save_s
+{
+	int		m;
+	int		k;
+}			save_t;
+
 /*✅-------------------------------push_swap.c--------------------------------*/
-void		push_swap(char *arg, t_stack *stack_a);
-void		push_swap_multi(char **arg, t_stack *stack, int i);
+void		push_swap(char *arg, t_stack *stack_a, save_t *save);
+void		push_swap_multi(char **arg, t_stack *stack, int i, save_t *save);
 
 /*✅---------------------------push_swap_utils.c------------------------------*/
 char		*ft_strcpy(char *dst, char *src);
@@ -34,6 +40,7 @@ void		ft_putchar(int c);
 void		swap(int *a, int *b);
 void		error(void);
 void		addLast(t_stack *stack, int num);
+int			is_sorted(t_stack *stack);
 
 /*✅------------------------------parser.c------------------------------------*/
 void		check_digit(char **str);
@@ -74,6 +81,10 @@ void		sort_5(t_stack *stack);
 /*✅----------------------------sort_3_4_5_utils.c----------------------------*/
 int			get_smallest_position(t_stack *stack, int smallest_num);
 int			get_smallest(t_stack *stack);
+
+
+long long	convert(int n);
+void		positive_sort(t_stack *stack, save_t *save);
 
 #endif
 

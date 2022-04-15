@@ -1,6 +1,10 @@
 #include "push_swap.h"
 
 /*----------------------------------------------------------------------------*/
+/**
+ * @brief Sorting two numbers.
+ * @param stack 
+ */
 void	sort_2(t_stack *stack)
 {
 	if (stack -> base_a[1] < stack -> base_a[0])
@@ -8,6 +12,10 @@ void	sort_2(t_stack *stack)
 }
 
 /*----------------------------------------------------------------------------*/
+/**
+ * @brief Sorting 3 numbers.
+ * @param stack 
+ */
 void	sort_3(t_stack  *stack)
 {
 	// 2, 1, 3
@@ -44,6 +52,10 @@ void	sort_3(t_stack  *stack)
 }
 
 /*----------------------------------------------------------------------------*/
+/**
+ * @brief Sorting 4 numbers.
+ * @param stack 
+ */
 void	sort_4(t_stack *stack)
 {
 	int	smallest_num;
@@ -80,6 +92,10 @@ void	sort_4(t_stack *stack)
 }
 
 /*----------------------------------------------------------------------------*/
+/**
+ * @brief Sorting 5 numbers.
+ * @param stack 
+ */
 void	sort_5(t_stack *stack)
 {
 	int	smallest_num;
