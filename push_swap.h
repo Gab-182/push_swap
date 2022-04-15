@@ -14,6 +14,7 @@ typedef struct s_stack
 	int		*base_b;
 
 	int		num;
+	int		rules_number;
 
 	int		len_a;
 	int		len_b;
@@ -64,9 +65,15 @@ void		reverse_rotate_a(t_stack *stack);
 void		reverse_rotate_b(t_stack *stack);
 void		reverse_rotate_a_b(t_stack *stack);
 
-/*✅-------------------------------sort_3_5.c---------------------------------*/
-void	sort_3(t_stack *stack);
-void	sort_5(t_stack *stack);
+/*✅-------------------------------sort_3_4_5.c-------------------------------*/
+void		sort_2(t_stack *stack);
+void		sort_3(t_stack *stack);
+void		sort_4(t_stack *stack);
+void		sort_5(t_stack *stack);
+
+/*✅----------------------------sort_3_4_5_utils.c----------------------------*/
+int			get_smallest_position(t_stack *stack, int smallest_num);
+int			get_smallest(t_stack *stack);
 
 #endif
 

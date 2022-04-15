@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:57:54 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/17 19:38:14 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/04/11 04:31:12 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	push_b(t_stack *stack)
 		allocate_temp_free_base_a(stack);
 	}
 	printf("pb\n");
+	stack -> rules_number += 1;
 }
 
 /*✅-----------------------------------------------------------*/
@@ -72,6 +73,7 @@ void	push_a(t_stack *stack)
 		allocate_temp_free_base_b(stack);
 	}
 	printf("pa\n");
+	stack -> rules_number += 1;
 }
 
 /*======================================================================*/

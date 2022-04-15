@@ -3,11 +3,11 @@
 void	sort(t_stack *stack)
 {
 	if (stack -> len_a == 2)
-		sort_2(a);
+		sort_2(stack);
 	else if (stack -> len_a == 3)
-		sort_3(a);
+		sort_3(stack);
 	else if (stack -> len_a == 4)
-		sort_4(a, b);
+		sort_4(stack);
 	else if (stack -> len_a == 5)
 		sort_5(stack);
 }
@@ -42,14 +42,19 @@ void	push_swap(char *arg, t_stack *stack)
 	}
 	stack->len_a = i;
 	checking_duplicated(stack);
-	/*************************   SORTING  *************************************/
+	/************************   SORTING  **************************************/
 	sort(stack);
+	printf("-----------------------\n");
+	printf("Rules number = %d\n", stack -> rules_number);
+	printf("-----------------------\n");
 	i = 0;
+	printf("After sorting :\n");
 	while(i < stack -> len_a)
 	{
 		printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
 		i++;
 	}
+	printf("-----------------------\n");
 }
 
 /*----------------------------------------------------------------------------*/
@@ -101,11 +106,15 @@ void	push_swap_multi(char **argv, t_stack *stack, int i)
 	checking_duplicated(stack);
 	/************************   SORTING  **************************************/
 	sort(stack);
+	printf("-----------------------\n");
+	printf("Rules number = %d\n", stack -> rules_number);
+	printf("-----------------------\n");
 	i = 0;
 	while(i < stack -> len_a)
 	{
 		printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
 		i++;
 	}
+	printf("-----------------------\n");
 }
 /*============================================================================*/
