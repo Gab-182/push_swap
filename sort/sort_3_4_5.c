@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*----------------------------------------------------------------------------*/
 /**
@@ -60,7 +60,7 @@ void	sort_4(t_stack *stack)
 {
 	int	smallest_num;
 
-	smallest_num = get_smallest(stack);
+	smallest_num = get_smallest_a(stack);
 	if (get_smallest_position(stack, smallest_num) == 0)
 	{
 		push_b(stack);
@@ -100,7 +100,7 @@ void	sort_5(t_stack *stack)
 {
 	int	smallest_num;
 
-	smallest_num = get_smallest(stack);
+	smallest_num = get_smallest_a(stack);
 	if (get_smallest_position(stack, smallest_num) == 0)
 	{
 		push_b(stack);

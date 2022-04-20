@@ -6,7 +6,7 @@
 #    By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 19:05:15 by gabdoush          #+#    #+#              #
-#    Updated: 2022/04/15 03:22:21 by gabdoush         ###   ########.fr        #
+#    Updated: 2022/04/20 04:26:51 by gabdoush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,11 @@ FILES = push_swap.c\
 		rules/push_rule_utils.c\
 		rules/rotate_rule.c\
 		rules/reverse_rotate_rule.c\
-		sort_3_4_5.c\
-		sort_3_4_5_utils.c\
-		go_big.c\
+		sort/sort_3_4_5.c\
+		sort/sort_utils.c\
+		sort/go_big.c\
+		sort/stack_a.c\
+		sort/stack_b.c\
 		main.c
 
 HEADERS = ./push_swap.h\

@@ -21,17 +21,20 @@ typedef struct s_stack
 
 	int		*temp_a;
 	int		*temp_b;
+
+	long	piv_big;
+	long	piv_small;
+	int		ra;
+	int		rb;
+	int		pa;
+	int		pb;
+
 }			t_stack;
 
-typedef struct save_s
-{
-	int		m;
-	int		k;
-}			save_t;
 
 /*✅-------------------------------push_swap.c--------------------------------*/
-void		push_swap(char *arg, t_stack *stack_a, save_t *save);
-void		push_swap_multi(char **arg, t_stack *stack, int i, save_t *save);
+void		push_swap(char *arg, t_stack *stack_a);
+void		push_swap_multi(char **arg, t_stack *stack);
 
 /*✅---------------------------push_swap_utils.c------------------------------*/
 char		*ft_strcpy(char *dst, char *src);
@@ -78,14 +81,25 @@ void		sort_3(t_stack *stack);
 void		sort_4(t_stack *stack);
 void		sort_5(t_stack *stack);
 
-/*✅----------------------------sort_3_4_5_utils.c----------------------------*/
+/*✅-------------------------------sort_utils.c-------------------------------*/
 int			get_smallest_position(t_stack *stack, int smallest_num);
-int			get_smallest(t_stack *stack);
+int			get_smallest_a(t_stack *stack);
+int			get_largest_a(t_stack *stack);
+int			get_smallest_b(t_stack *stack);
+int			get_largest_b(t_stack *stack);
 
+/*✅---------------------------------stack_a.c--------------------------------*/
+void		a_to_b(t_stack *stack, int *cnt);
 
-long long	convert(int n);
-void		positive_sort(t_stack *stack, save_t *save);
+/*✅---------------------------------stack_b.c--------------------------------*/
+void		b_to_a(t_stack *stack, int *cnt);
 
+/*✅---------------------------------go_big.c---------------------------------*/
+void		select_pivot_b(t_stack *stack);
+void		select_pivot_a(t_stack *stack);
+void		init_value(t_stack *stack);
+
+/*----------------------------------------------------------------------------*/
 #endif
 
 /*============================================================================*/

@@ -1,7 +1,10 @@
 #include "push_swap.h"
 
-void	sort(t_stack *stack, save_t *save)
+void	sort(t_stack *stack)
 {
+	int	cnt;
+
+	cnt = 0;
 	if (is_sorted(stack) == 1)
 	{
 		if (stack -> len_a == 2)
@@ -14,19 +17,13 @@ void	sort(t_stack *stack, save_t *save)
 			sort_5(stack);
 		else
 		{
-			save -> m = 0;
-			while (save -> m < 31)
-			{
-				save->k = 0;
-				positive_sort(stack, save);
-				save->m++;
-			}
+			a_to_b(stack, &cnt);
 		}
 	}
 }
 
 /*✅--------------------------------------------------------------------------*/
-void	push_swap(char *arg, t_stack *stack, save_t *save)
+void	push_swap(char *arg, t_stack *stack)
 {
 	char	**stack_char;
 	int		i;
@@ -57,28 +54,30 @@ void	push_swap(char *arg, t_stack *stack, save_t *save)
 	stack->len_a = i;
 	checking_duplicated(stack);
 	/************************   SORTING  **************************************/
-	sort(stack, save);
-	// printf("-----------------------\n");
-	// printf("Rules number = %d\n", stack -> rules_number);
-	// printf("-----------------------\n");
-	// i = 0;
-	// printf("After sorting :\n");
-	// while(i < stack -> len_a)
-	// {
-	// 	printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
-	// 	i++;
-	// }
-	// printf("-----------------------\n");
+	sort(stack);
+	printf("-----------------------\n");
+	printf("Rules number = %d\n", stack -> rules_number);
+	printf("-----------------------\n");
+	i = 0;
+	printf("After sorting :\n");
+	while(i < stack -> len_a)
+	{
+		printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
+		i++;
+	}
+	printf("-----------------------\n");
 }
 
 /*----------------------------------------------------------------------------*/
-void	push_swap_multi(char **argv, t_stack *stack, int i, save_t *save)
+void	push_swap_multi(char **argv, t_stack *stack)
 {
+	int			i;
 	int			j;
 	int			s;
 	int			num;
 	char		**split;
 
+	i = 0;
 	j = 0;
 	s = 0;
 	while (argv[i])
@@ -87,7 +86,6 @@ void	push_swap_multi(char **argv, t_stack *stack, int i, save_t *save)
 		check_negative_sign(argv[i]);
 		while (argv[i][j])
 		{
-			// you can use strchr() function and save lines for the var j and s.
 			if (argv[i][j] == ' ')
 			{
 				split = ft_split(argv[i], ' ');
@@ -119,7 +117,7 @@ void	push_swap_multi(char **argv, t_stack *stack, int i, save_t *save)
 	}
 	checking_duplicated(stack);
 	/************************   SORTING  **************************************/
-	sort(stack, save);
+	sort(stack);
 	printf("-----------------------\n");
 	printf("Rules number = %d\n", stack -> rules_number);
 	printf("-----------------------\n");
@@ -127,7 +125,6 @@ void	push_swap_multi(char **argv, t_stack *stack, int i, save_t *save)
 	while(i < stack -> len_a)
 	{
 		printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
-		//printf("In binery --> %lld\n\n", convert(stack -> base_a[i]));
 		i++;
 	}
 	printf("-----------------------\n");
