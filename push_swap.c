@@ -8,21 +8,19 @@ void	sort(t_stack *stack)
 	if (is_sorted(stack) == 1)
 	{
 		if (stack -> len_a == 2)
-			sort_2(stack);
+			sort_2_a(stack);
 		else if (stack -> len_a == 3)
-			sort_3(stack);
+			sort_3_a(stack);
 		else if (stack -> len_a == 4)
-			sort_4(stack);
+			sort_4_a(stack);
 		else if (stack -> len_a == 5)
-			sort_5(stack);
-		else
-		{
-			a_to_b(stack, &cnt);
-		}
+			sort_5_a(stack);
+		else if (stack -> len_a > 5)
+			a_to_b(stack -> len_a, stack, &cnt);
 	}
 }
 
-/*✅--------------------------------------------------------------------------*/
+/*✅-------------------------------------------------------------------------*/
 void	push_swap(char *arg, t_stack *stack)
 {
 	char	**stack_char;
@@ -55,17 +53,17 @@ void	push_swap(char *arg, t_stack *stack)
 	checking_duplicated(stack);
 	/************************   SORTING  **************************************/
 	sort(stack);
-	printf("-----------------------\n");
-	printf("Rules number = %d\n", stack -> rules_number);
-	printf("-----------------------\n");
-	i = 0;
-	printf("After sorting :\n");
-	while(i < stack -> len_a)
-	{
-		printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
-		i++;
-	}
-	printf("-----------------------\n");
+	// printf("-----------------------\n");
+	// printf("Rules number = %d\n", stack -> rules_number);
+	// printf("-----------------------\n");
+	// i = 0;
+	// printf("After sorting :\n");
+	// while(i < stack -> len_a)
+	// {
+	// 	printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
+	// 	i++;
+	// }
+	// printf("-----------------------\n");
 }
 
 /*----------------------------------------------------------------------------*/
@@ -118,15 +116,25 @@ void	push_swap_multi(char **argv, t_stack *stack)
 	checking_duplicated(stack);
 	/************************   SORTING  **************************************/
 	sort(stack);
-	printf("-----------------------\n");
-	printf("Rules number = %d\n", stack -> rules_number);
-	printf("-----------------------\n");
-	i = 0;
-	while(i < stack -> len_a)
-	{
-		printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
-		i++;
-	}
-	printf("-----------------------\n");
+	// printf("-----------------------\n");
+	// printf("Rules number = %d\n", stack -> rules_number);
+	// printf("-----------------------\n");
+	// i = 0;
+	// while(i < stack -> len_a)
+	// {
+	// 	printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
+	// 	i++;
+	// }
+	// printf("-----------------------\n");
+
+
+	// printf("-----------------------\n");
+	// i = 0;
+	// while(i < stack -> len_b)
+	// {
+	// 	printf("stack -> base_b[%d] = %d\n", i, stack -> base_b[i]);
+	// 	i++;
+	// }
+	// printf("-----------------------\n");
 }
 /*============================================================================*/

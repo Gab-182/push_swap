@@ -1,13 +1,12 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-/*✅--------------------------------------------------------------------------*/
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include "./libft/libft.h"
-
+/*✅---------------------------  Structure  ----------------------------------*/
 typedef struct s_stack
 {
 	int		*base_a;
@@ -30,76 +29,96 @@ typedef struct s_stack
 	int		pb;
 
 }			t_stack;
-
+/*----------------------------------------------------------------------------*/
 
 /*✅-------------------------------push_swap.c--------------------------------*/
-void		push_swap(char *arg, t_stack *stack_a);
-void		push_swap_multi(char **arg, t_stack *stack);
+
+void					push_swap(char *arg, t_stack *stack_a);
+void					push_swap_multi(char **arg, t_stack *stack);
 
 /*✅---------------------------push_swap_utils.c------------------------------*/
-char		*ft_strcpy(char *dst, char *src);
-void		ft_putstr(char *s);
-void		ft_putchar(int c);
-void		swap(int *a, int *b);
-void		error(void);
-void		addLast(t_stack *stack, int num);
-int			is_sorted(t_stack *stack);
+
+char					*ft_strcpy(char *dst, char *src);
+void					ft_putstr(char *s);
+void					ft_putchar(int c);
+void					swap(int *a, int *b);
+void					error(void);
+void					addLast(t_stack *stack, int num);
+int						is_sorted(t_stack *stack);
 
 /*✅------------------------------parser.c------------------------------------*/
-void		check_digit(char **str);
-void		check_digit_multi(char *str);
-void		check_negative_sign(char *str);
-void		checking_duplicated(t_stack *stack);
-void		check_empty(char *arg);
+
+void					check_digit(char **str);
+void					check_digit_multi(char *str);
+void					check_negative_sign(char *str);
+void					checking_duplicated(t_stack *stack);
+void					check_empty(char *arg);
 
 /*✅-----------------------------swap_rules.c---------------------------------*/
-void		swap_a(t_stack *stack);
-void		swap_b(t_stack *stack);
-void		swap_a_and_b(t_stack *stack);
+
+void					swap_a(t_stack *stack);
+void					swap_b(t_stack *stack);
+void					swap_a_and_b(t_stack *stack);
 
 /*✅-----------------------------push_rule.c----------------------------------*/
-void		push_b(t_stack *stack);
-void		push_a(t_stack *stack);
+
+void					push_b(t_stack *stack);
+void					push_a(t_stack *stack);
 
 /*✅---------------------------push_rule_utils.c------------------------------*/
-void		allocate_temp_free_base_a(t_stack *stack);
-void		allocate_temp_free_base_b(t_stack *stack);
+
+void					allocate_temp_free_base_a(t_stack *stack);
+void					allocate_temp_free_base_b(t_stack *stack);
 
 /*✅----------------------------rotate_rule.c---------------------------------*/
-void		rotate_a(t_stack *stack);
-void		rotate_b(t_stack *stack);
-void		rotate_a_b(t_stack *stack);
+
+void					rotate_a(t_stack *stack);
+void					rotate_b(t_stack *stack);
+void					rotate_a_b(t_stack *stack);
 
 /*✅--------------------------reverse_rotate_rule.c---------------------------*/
-void		reverse_rotate_a(t_stack *stack);
-void		reverse_rotate_b(t_stack *stack);
-void		reverse_rotate_a_b(t_stack *stack);
 
-/*✅-------------------------------sort_3_4_5.c-------------------------------*/
-void		sort_2(t_stack *stack);
-void		sort_3(t_stack *stack);
-void		sort_4(t_stack *stack);
-void		sort_5(t_stack *stack);
+void					reverse_rotate_a(t_stack *stack);
+void					reverse_rotate_b(t_stack *stack);
+void					reverse_rotate_a_b(t_stack *stack);
+
+/*✅-------------------------------sort_5_a.c-------------------------------*/
+
+void					sort_2_a(t_stack *stack);
+void					sort_3_a(t_stack *stack);
+void					sort_4_a(t_stack *stack);
+void					sort_5_a(t_stack *stack);
+
+/*✅-------------------------------sort_5_b.c-------------------------------*/
+
+void					sort_2_b(t_stack *stack);
+void					sort_3_b(t_stack *stack);
+void					sort_4_b(t_stack *stack);
+void					sort_5_b(t_stack *stack);
 
 /*✅-------------------------------sort_utils.c-------------------------------*/
-int			get_smallest_position(t_stack *stack, int smallest_num);
-int			get_smallest_a(t_stack *stack);
-int			get_largest_a(t_stack *stack);
-int			get_smallest_b(t_stack *stack);
-int			get_largest_b(t_stack *stack);
+
+int						get_smallest_a(t_stack *stack);
+int						get_largest_a(t_stack *stack);
+int						get_smallest_b(t_stack *stack);
+int						get_largest_b(t_stack *stack);
+int						get_position_a(t_stack *stack, int num);
+int						get_position_b(t_stack *stack, int num);
 
 /*✅---------------------------------stack_a.c--------------------------------*/
-void		a_to_b(t_stack *stack, int *cnt);
+
+void					a_to_b(int size, t_stack *stack, int *cnt);
 
 /*✅---------------------------------stack_b.c--------------------------------*/
-void		b_to_a(t_stack *stack, int *cnt);
+
+void					b_to_a(int size, t_stack *stack, int *cnt);
 
 /*✅---------------------------------go_big.c---------------------------------*/
-void		select_pivot_b(t_stack *stack);
-void		select_pivot_a(t_stack *stack);
-void		init_value(t_stack *stack);
 
-/*----------------------------------------------------------------------------*/
+void					select_pivot_b(t_stack *stack);
+void					select_pivot_a(t_stack *stack);
+void					init_value(t_stack *stack);
+
 #endif
 
 /*============================================================================*/

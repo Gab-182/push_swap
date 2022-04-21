@@ -25,28 +25,6 @@ int	get_smallest_a(t_stack *stack)
 
 /*----------------------------------------------------------------------------*/
 /**
- * @brief Get the position of the smallest number.
- * 
- * @param stack 
- * @param smallest_num 
- * @return int 
- */
-int	get_smallest_position(t_stack *stack, int smallest_num)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack -> len_a)
-	{
-		if (smallest_num == stack -> base_a[i])
-			return (i);
-		i++;
-	}
-	return (0);
-}
-
-/*----------------------------------------------------------------------------*/
-/**
  * @brief Get the largest number in the stack a.
  * 
  * @param stack 
@@ -112,4 +90,49 @@ int	get_largest_b(t_stack *stack)
 	}
 	return (max);
 }
+
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief Get the number position in the stack a.
+ * 
+ * @param stack 
+ * @param num 
+ * @return int 
+ */
+int	get_position_a(t_stack *stack, int num)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack -> len_a)
+	{
+		if (num == stack -> base_a[i])
+			return (i);
+		i++;
+	}
+	return (0);
+}
+
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief Get the number position in the stack b.
+ * 
+ * @param stack 
+ * @param num 
+ * @return int 
+ */
+int	get_position_b(t_stack *stack, int num)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack -> len_b)
+	{
+		if (num == stack -> base_b[i])
+			return (i);
+		i++;
+	}
+	return (0);
+}
+
 /*----------------------------------------------------------------------------*/

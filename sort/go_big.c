@@ -1,5 +1,10 @@
 #include "../push_swap.h"
 
+/**
+ * @brief initilize part of the struct from the header file (ra, rb, pa, pb).
+ * 
+ * @param stack 
+ */
 void	init_value(t_stack *stack)
 {
 	stack -> ra = 0;
@@ -8,6 +13,11 @@ void	init_value(t_stack *stack)
 	stack -> pb = 0;
 }
 /*----------------------------------------------------------------------------*/
+/**
+ * @brief define the big and the small pivot for the stack a.
+ * 
+ * @param stack 
+ */
 void	select_pivot_a(t_stack *stack)
 {
 	long	min;
@@ -20,6 +30,11 @@ void	select_pivot_a(t_stack *stack)
 }
 
 /*----------------------------------------------------------------------------*/
+/**
+ * @brief define the big and the small pivot for the stack b.
+ * 
+ * @param stack 
+ */
 void	select_pivot_b(t_stack *stack)
 {
 	long	min;

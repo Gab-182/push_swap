@@ -1,6 +1,48 @@
 #include "../push_swap.h"
 
+int	exceptional_cases_a(int size, t_stack *stack)
+{
+	if (size == 1)
+		return (0);
+	if (size == 2)
+	{
+		sort_2_a(stack);
+		return (0);
+	}
+	else if (size == 3)
+	{
+		sort_3_a(stack);
+		return (0);
+	}
+	else if (size == 4)
+	{
+		sort_4_a(stack);
+		return (0);
+	}
+	else if (size == 5)
+	{
+		sort_5_a(stack);
+		return (0);
+	}
+	else
+		return (1);
+}
 /*----------------------------------------------------------------------------*/
+/** _______________
+ **| EXPLANATION: |
+ **---------------
+ * so the logic here is to check if the first number in the stack is bigger or
+ * smaller than the (big pivot):
+ * --> if it is bigger --> rotate the stack_a.
+ * --> if it is smaller --> push the number to the stack b.
+ **/
+
+/**
+ * @brief if the first numbers in the stack _a bigger than the (big pivot) 
+ * push it to the stack_b, else rotate the stack_a.
+ * 
+ * @param stack 
+ */
 void	push_rotate_a(t_stack *stack)
 {
 	if (stack -> base_a[0] > stack-> piv_big)
@@ -30,15 +72,24 @@ void	back_to_orig_ra(t_stack *stack, int *cnt)
 	rem = stack -> ra - rrr;
 	if ((*cnt) > 0)
 	{
-		while (rrr--)
+		while (rrr)
+		{
 			reverse_rotate_a_b(stack);
-		while (rem--)
+			rrr--;
+		}
+		while (rem)
+		{
 			reverse_rotate_a(stack);
+			rem--;
+		}
 	}
 	else
 	{
-		while (rrr--)
+		while (rrr)
+		{
 			reverse_rotate_b(stack);
+			rrr--;
+		}
 	}
 }
 
@@ -53,9 +104,15 @@ void	back_to_orig_rb(t_stack *stack, int *cnt)
 	if ((*cnt) > 0)
 	{
 		while (rrr--)
+		{
 			reverse_rotate_a_b(stack);
+			rrr--;
+		}
 		while (rem--)
+		{
 			reverse_rotate_b(stack);
+			rem--;
+		}
 	}
 	else
 	{
@@ -69,14 +126,16 @@ void	back_to_orig_rb(t_stack *stack, int *cnt)
 }
 
 /*----------------------------------------------------------------------------*/
-void		a_to_b(t_stack *stack, int *cnt)
+void		a_to_b(int size, t_stack *stack, int *cnt)
 {
-	int		temp;
+	int	temp;
 
+	if (!exceptional_cases_a(size, stack))
+		return ;
 	init_value(stack);
 	select_pivot_a(stack);
-	temp = stack -> len_a;
-	while (temp >= 0)
+	temp = size;
+	while (temp)
 	{
 		push_rotate_a(stack);
 		temp--;
@@ -86,9 +145,18 @@ void		a_to_b(t_stack *stack, int *cnt)
 		back_to_orig_ra(stack, cnt);
 	else
 		back_to_orig_rb(stack, cnt);
-	a_to_b(stack, cnt);
-	b_to_a(stack, cnt);
-	b_to_a(stack, cnt);
+	/** _______________
+	 **| EXPLANATION: |
+	 **---------------
+	 * then do recursive for the function, but now the size is taken
+	 * according to how many times we rotate the stack a.
+	 * that mean call the function with the the length of the rest of the 
+	 * numbers that left in the stack and those numbers are bigger than
+	 * the (pivot_big).
+	 **/
+	a_to_b(stack -> ra, stack, cnt);
+	b_to_a(stack -> rb, stack, cnt);
+	b_to_a(stack -> pb - stack -> rb, stack, cnt);
 }
 
 /*----------------------------------------------------------------------------*/
