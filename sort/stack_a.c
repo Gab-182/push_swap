@@ -35,6 +35,8 @@ int	exceptional_cases_a(int size, t_stack *stack)
  * smaller than the (big pivot):
  * --> if it is bigger --> rotate the stack_a.
  * --> if it is smaller --> push the number to the stack b.
+ * then comapare the pushed number with the small pivot:
+ * --> if it is bigger --> rotate stack_b
  **/
 
 /**
@@ -43,7 +45,7 @@ int	exceptional_cases_a(int size, t_stack *stack)
  * 
  * @param stack 
  */
-void	push_rotate_a(t_stack *stack)
+void	compare_to_pivot(t_stack *stack)
 {
 	if (stack -> base_a[0] > stack-> piv_big)
 	{
@@ -72,23 +74,23 @@ void	back_to_orig_ra(t_stack *stack, int *cnt)
 	rem = stack -> ra - rrr;
 	if ((*cnt) > 0)
 	{
-		while (rrr)
+		while (rrr--)
 		{
 			reverse_rotate_a_b(stack);
-			rrr--;
+			// rrr--;
 		}
-		while (rem)
+		while (rem--)
 		{
 			reverse_rotate_a(stack);
-			rem--;
+			// rem--;
 		}
 	}
 	else
 	{
-		while (rrr)
+		while (rrr--)
 		{
 			reverse_rotate_b(stack);
-			rrr--;
+			// rrr--;
 		}
 	}
 }
@@ -106,21 +108,21 @@ void	back_to_orig_rb(t_stack *stack, int *cnt)
 		while (rrr--)
 		{
 			reverse_rotate_a_b(stack);
-			rrr--;
+			// rrr--;
 		}
 		while (rem--)
 		{
 			reverse_rotate_b(stack);
-			rem--;
+			// rem--;
 		}
 	}
 	else
 	{
 		rrr = stack -> rb;
-		while (rrr)
+		while (rrr--)
 		{
 			reverse_rotate_b(stack);
-			rrr--;
+			// rrr--;
 		}
 	}
 }
@@ -135,12 +137,17 @@ void		a_to_b(int size, t_stack *stack, int *cnt)
 	init_value(stack);
 	select_pivot_a(stack);
 	temp = size;
-	while (temp)
+	while (temp--)
 	{
-		push_rotate_a(stack);
-		temp--;
+		compare_to_pivot(stack);
+		// temp--;
 	}
-		
+	/***
+	 * ra --> represent how many numbers in stack a bigger that the big pivot.
+	 * rb --> represent how many numbers in stack b bigger that the small pivot.
+	 * So here we are comparing how many numbers in stack_a bigger than pivot_big,
+	 * with how many numbers from stack_b bigger than pivot_small.
+	*/
 	if (stack -> ra > stack -> rb)
 		back_to_orig_ra(stack, cnt);
 	else

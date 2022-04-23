@@ -25,7 +25,9 @@ void	select_pivot_a(t_stack *stack)
 
 	min = get_smallest_a(stack);
 	max = get_largest_a(stack);
+	// for stack a.
 	stack -> piv_big = (min + max) / 2;
+	// for stack b.
 	stack -> piv_small = (min + stack -> piv_big) / 2;
 }
 

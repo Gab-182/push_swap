@@ -116,25 +116,25 @@ void	push_swap_multi(char **argv, t_stack *stack)
 	checking_duplicated(stack);
 	/************************   SORTING  **************************************/
 	sort(stack);
-	// printf("-----------------------\n");
-	// printf("Rules number = %d\n", stack -> rules_number);
-	// printf("-----------------------\n");
-	// i = 0;
-	// while(i < stack -> len_a)
-	// {
-	// 	printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
-	// 	i++;
-	// }
-	// printf("-----------------------\n");
+	printf("-----------------------\n");
+	printf("Rules number = %d\n", stack -> rules_number);
+	printf("-----------------------\n");
+	i = 0;
+	while(i < stack -> len_a)
+	{
+		printf("base_a[%d] = %d\n", i, stack -> base_a[i]);
+		i++;
+	}
+	printf("-----------------------\n");
 
 
-	// printf("-----------------------\n");
-	// i = 0;
-	// while(i < stack -> len_b)
-	// {
-	// 	printf("stack -> base_b[%d] = %d\n", i, stack -> base_b[i]);
-	// 	i++;
-	// }
-	// printf("-----------------------\n");
+	printf("-----------------------\n");
+	i = 0;
+	while(i < stack -> len_b)
+	{
+		printf("base_b[%d] = %d\n", i, stack -> base_b[i]);
+		i++;
+	}
+	printf("-----------------------\n");
 }
 /*============================================================================*/

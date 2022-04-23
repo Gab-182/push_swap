@@ -58,15 +58,15 @@ void	back_to_ra(t_stack *stack)
 
 	rrr = stack -> rb;
 	rem = stack -> ra - rrr;
-	while (rrr)
+	while (rrr--)
 	{
 		reverse_rotate_a_b(stack);
-		rrr--;
+		// rrr--;
 	}
-	while (rem)
+	while (rem--)
 	{
 		reverse_rotate_a(stack);
-		rem--;
+		// rem--;
 	}
 }
 
@@ -78,15 +78,15 @@ void	back_to_rb(t_stack *stack)
 
 	rrr = stack -> ra;
 	rem = stack -> rb - rrr;
-	while (rrr)
+	while (rrr--)
 	{
 		reverse_rotate_a_b(stack);
-		rrr--;
+		// rrr--;
 	}
-	while (rem)
+	while (rem--)
 	{
 		reverse_rotate_b(stack);
-		rem--;
+		// rem--;
 	}
 }
 
@@ -101,10 +101,10 @@ void	b_to_a(int size, t_stack *stack, int *cnt)
 	init_value(stack);
 	select_pivot_b(stack);
 	temp = size;
-	while (temp)
+	while (temp--)
 	{
 		push_rotate_b(stack);
-		temp--;
+		// temp--;
 	}
 	a_to_b(stack -> pa - stack -> ra, stack, cnt);
 	if (stack -> ra > stack -> rb)
