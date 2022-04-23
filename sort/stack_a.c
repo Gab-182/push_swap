@@ -50,15 +50,18 @@ void	compare_to_pivot(t_stack *stack)
 	if (stack -> base_a[0] > stack-> piv_big)
 	{
 		rotate_a(stack);
+		ft_putstr("ra\n");
 		stack -> ra++;
 	}
 	else
 	{
 		push_b(stack);
+		ft_putstr("pb\n");
 		stack -> pb++;
 		if (stack -> base_b[0] > stack -> piv_small)
 		{
 			rotate_b(stack);
+			ft_putstr("rb\n");
 			stack -> rb++;
 		}
 	}
@@ -77,12 +80,12 @@ void	back_to_orig_ra(t_stack *stack, int *cnt)
 		while (rrr--)
 		{
 			reverse_rotate_a_b(stack);
-			// rrr--;
+			ft_putstr("rrr\n");
 		}
 		while (rem--)
 		{
 			reverse_rotate_a(stack);
-			// rem--;
+			ft_putstr("rra\n");
 		}
 	}
 	else
@@ -90,7 +93,7 @@ void	back_to_orig_ra(t_stack *stack, int *cnt)
 		while (rrr--)
 		{
 			reverse_rotate_b(stack);
-			// rrr--;
+			ft_putstr("rrb\n");
 		}
 	}
 }
@@ -108,12 +111,12 @@ void	back_to_orig_rb(t_stack *stack, int *cnt)
 		while (rrr--)
 		{
 			reverse_rotate_a_b(stack);
-			// rrr--;
+			ft_putstr("rrr\n");
 		}
 		while (rem--)
 		{
 			reverse_rotate_b(stack);
-			// rem--;
+			ft_putstr("rrb\n");
 		}
 	}
 	else
@@ -122,7 +125,7 @@ void	back_to_orig_rb(t_stack *stack, int *cnt)
 		while (rrr--)
 		{
 			reverse_rotate_b(stack);
-			// rrr--;
+			ft_putstr("rrb\n");
 		}
 	}
 }

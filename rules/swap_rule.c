@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:55:52 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/04/11 04:31:47 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/04/23 14:12:25 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	swap_a(t_stack *stack)
 		swap(&stack->base_a[0], &stack->base_a[1]);
 	else
 		exit(EXIT_FAILURE);
-	printf("sa\n");
+	//printf("sa\n");
 	stack -> rules_number += 1;
 }
 
@@ -30,7 +30,7 @@ void	swap_b(t_stack *stack)
 		swap(&stack->base_b[0], &stack->base_b[1]);
 	else
 		exit(EXIT_FAILURE);
-	printf("sb\n");
+	//printf("sb\n");
 	stack -> rules_number += 1;
 }
 
@@ -39,7 +39,7 @@ void	swap_a_and_b(t_stack *stack)
 {
 	swap_a(stack);
 	swap_b(stack);
-	printf("ss\n");
+	//printf("ss\n");
 	stack -> rules_number += 1;
 }
 

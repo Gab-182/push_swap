@@ -5,6 +5,7 @@ int	exceptional_cases_b(int size, t_stack *stack)
 	if (size == 1)
 	{
 		push_a(stack);
+		ft_putstr("pa\n");
 		return (0);
 	}
 	if (size == 2)
@@ -36,15 +37,18 @@ void	push_rotate_b(t_stack *stack)
 	if (stack -> base_b[0] <= stack -> piv_small)
 	{
 		rotate_b(stack);
+		ft_putstr("rb\n");
 		stack -> rb++;
 	}
 	else
 	{
 		push_a(stack);
+		ft_putstr("pa\n");
 		stack -> pa++;
 		if (stack -> base_a[0] <= stack -> piv_big)
 		{
 			rotate_a(stack);
+			ft_putstr("ra\n");
 			stack -> ra++;
 		}
 	}
@@ -61,12 +65,12 @@ void	back_to_ra(t_stack *stack)
 	while (rrr--)
 	{
 		reverse_rotate_a_b(stack);
-		// rrr--;
+		ft_putstr("rrr\n");
 	}
 	while (rem--)
 	{
 		reverse_rotate_a(stack);
-		// rem--;
+		ft_putstr("rra\n");
 	}
 }
 
@@ -81,12 +85,12 @@ void	back_to_rb(t_stack *stack)
 	while (rrr--)
 	{
 		reverse_rotate_a_b(stack);
-		// rrr--;
+		ft_putstr("rrr\n");
 	}
 	while (rem--)
 	{
 		reverse_rotate_b(stack);
-		// rem--;
+		ft_putstr("rrb\n");
 	}
 }
 
@@ -102,10 +106,7 @@ void	b_to_a(int size, t_stack *stack, int *cnt)
 	select_pivot_b(stack);
 	temp = size;
 	while (temp--)
-	{
 		push_rotate_b(stack);
-		// temp--;
-	}
 	a_to_b(stack -> pa - stack -> ra, stack, cnt);
 	if (stack -> ra > stack -> rb)
 		back_to_ra(stack);

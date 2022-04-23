@@ -26,7 +26,7 @@ void	rotate_a(t_stack *stack)
 		i++;
 	}
 	free(stack->temp_a);
-	printf("ra\n");
+	//printf("ra\n");
 	stack -> rules_number += 1;
 }
 
@@ -64,7 +64,7 @@ void	rotate_a_b(t_stack *stack)
 {
 	rotate_a(stack);
 	rotate_b(stack);
-	printf("rr\n");
+	//printf("rr\n");
 	stack -> rules_number += 1;
 }
 
