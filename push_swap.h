@@ -82,19 +82,25 @@ void					reverse_rotate_a(t_stack *stack);
 void					reverse_rotate_b(t_stack *stack);
 void					reverse_rotate_a_b(t_stack *stack);
 
-/*✅-------------------------------sort_5_a.c-------------------------------*/
+/*✅--------------------------------sort_5_a.c--------------------------------*/
 
 void					sort_2_a(t_stack *stack);
 void					sort_3_a(t_stack *stack);
 void					sort_4_a(t_stack *stack);
 void					sort_5_a(t_stack *stack);
 
-/*✅-------------------------------sort_5_b.c-------------------------------*/
+/*✅--------------------------exceptional_cases_a.c---------------------------*/
 
-void					sort_2_b(t_stack *stack);
-void					sort_3_b(t_stack *stack);
-void					sort_4_b(t_stack *stack);
-void					sort_5_b(t_stack *stack);
+void					handle_under_three(int size, t_stack *stack);
+void					handle_arg_three_a(t_stack *stack);
+void					hanlde_sort_five(int size, t_stack *stack);
+void					handle_arg_two_b(t_stack *stack);
+
+/*✅--------------------------exceptional_cases_b.c---------------------------*/
+
+void					handle_under_three_b(int size, t_stack *stack);
+void					hanlde_sort_five_b(int size, t_stack *stack);
+int						helping_sort(int *temp_stack);
 
 /*✅-------------------------------sort_utils.c-------------------------------*/
 

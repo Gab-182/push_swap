@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:56:06 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/04/23 14:12:06 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/04/25 06:48:01 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	reverse_rotate_b(t_stack *stack)
 		i++;
 	}
 	free(stack->temp_b);
-	printf("rrb\n");
+	//printf("rrb\n");
 	stack -> rules_number += 1;
 }
 

@@ -2,30 +2,14 @@
 
 int	exceptional_cases_b(int size, t_stack *stack)
 {
-	if (size == 1)
+	if (size <= 3)
 	{
-		push_a(stack);
-		ft_putstr("pa\n");
-		return (0);
-	}
-	if (size == 2)
-	{
-		sort_2_b(stack);
-		return (0);
-	}
-	else if (size == 3)
-	{
-		sort_3_b(stack);
-		return (0);
-	}
-	else if (size == 4)
-	{
-		sort_4_b(stack);
+		handle_under_three(size, stack);
 		return (0);
 	}
 	else if (size == 5)
 	{
-		sort_5_b(stack);
+		hanlde_sort_five_b(5, stack);
 		return (0);
 	}
 	else
@@ -34,7 +18,7 @@ int	exceptional_cases_b(int size, t_stack *stack)
 /*----------------------------------------------------------------------------*/
 void	push_rotate_b(t_stack *stack)
 {
-	if (stack -> base_b[0] <= stack -> piv_small)
+	if (stack -> base_b[0] <= stack -> piv_big)
 	{
 		rotate_b(stack);
 		ft_putstr("rb\n");
@@ -45,7 +29,7 @@ void	push_rotate_b(t_stack *stack)
 		push_a(stack);
 		ft_putstr("pa\n");
 		stack -> pa++;
-		if (stack -> base_a[0] <= stack -> piv_big)
+		if (stack -> base_a[0] <= stack -> piv_small)
 		{
 			rotate_a(stack);
 			ft_putstr("ra\n");

@@ -2,26 +2,14 @@
 
 int	exceptional_cases_a(int size, t_stack *stack)
 {
-	if (size == 1)
-		return (0);
-	if (size == 2)
+	if (size <= 3)
 	{
-		sort_2_a(stack);
-		return (0);
-	}
-	else if (size == 3)
-	{
-		sort_3_a(stack);
-		return (0);
-	}
-	else if (size == 4)
-	{
-		sort_4_a(stack);
+		handle_under_three(size, stack);
 		return (0);
 	}
 	else if (size == 5)
 	{
-		sort_5_a(stack);
+		hanlde_sort_five(size, stack);
 		return (0);
 	}
 	else

@@ -35,7 +35,8 @@ void	push_swap(char *arg, t_stack *stack)
 	while (stack_char[i] != NULL)
 	{
 		if ((*stack_char[i] >= '0' && *stack_char[i] <= '9') || \
-			*stack_char[i] == '-' || *stack_char[i] == ' ' || *stack_char[i] == '+')
+			*stack_char[i] == '-' || *stack_char[i] == ' ' \
+			|| *stack_char[i] == '+')
 			i++;
 		else
 			error();
@@ -53,17 +54,17 @@ void	push_swap(char *arg, t_stack *stack)
 	checking_duplicated(stack);
 	/************************   SORTING  **************************************/
 	sort(stack);
-	// printf("-----------------------\n");
-	// printf("Rules number = %d\n", stack -> rules_number);
-	// printf("-----------------------\n");
-	// i = 0;
-	// printf("After sorting :\n");
-	// while(i < stack -> len_a)
-	// {
-	// 	printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
-	// 	i++;
-	// }
-	// printf("-----------------------\n");
+	printf("-----------------------\n");
+	printf("Rules number = %d\n", stack -> rules_number);
+	printf("-----------------------\n");
+	i = 0;
+	printf("After sorting :\n");
+	while(i < stack -> len_a)
+	{
+		printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
+		i++;
+	}
+	printf("-----------------------\n");
 }
 
 /*----------------------------------------------------------------------------*/

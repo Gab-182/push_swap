@@ -56,7 +56,7 @@ void	rotate_b(t_stack *stack)
 		i++;
 	}
 	free(stack->temp_b);
-	printf("rb\n");
+	//printf("rb\n");
 }
 
 /*✅-----------------------------------------------------------*/
