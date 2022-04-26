@@ -86,30 +86,26 @@ void					reverse_rotate_a_b(t_stack *stack);
 
 void					sort_2_a(t_stack *stack);
 void					sort_3_a(t_stack *stack);
-void					sort_4_a(t_stack *stack);
-void					sort_5_a(t_stack *stack);
+void					sort_4_a(int size, t_stack *stack);
+void					sort_5_a(int size, t_stack *stack);
 
-/*✅--------------------------exceptional_cases_a.c---------------------------*/
+/*✅--------------------------small_chunks_a.c---------------------------*/
 
-void					handle_under_three(int size, t_stack *stack);
-void					handle_arg_three_a(t_stack *stack);
-void					hanlde_sort_five(int size, t_stack *stack);
-void					handle_arg_two_b(t_stack *stack);
+int						small_chunks_a(int size, t_stack *stack);
+void					handle_chunk_three_a(int size, t_stack *stack);
+void					handle_chunk_three_a(int size, t_stack *stack);
 
-/*✅--------------------------exceptional_cases_b.c---------------------------*/
+/*✅--------------------------small_chunks_b.c---------------------------*/
 
-void					handle_under_three_b(int size, t_stack *stack);
-void					hanlde_sort_five_b(int size, t_stack *stack);
-int						helping_sort(int *temp_stack);
+int						small_chunks_b(int size, t_stack *stack);
 
 /*✅-------------------------------sort_utils.c-------------------------------*/
 
-int						get_smallest_a(t_stack *stack);
-int						get_largest_a(t_stack *stack);
-int						get_smallest_b(t_stack *stack);
-int						get_largest_b(t_stack *stack);
-int						get_position_a(t_stack *stack, int num);
-int						get_position_b(t_stack *stack, int num);
+int						get_smallest(int size, int *chunk, t_stack *stack);
+int						get_largest(int size, int *chunk, t_stack *stack);
+int						get_position(int size, int num, int *chunk, t_stack *stack);
+void					select_pivot(int size, int* chunk, t_stack *stack);
+void					init_value(t_stack *stack);
 
 /*✅---------------------------------stack_a.c--------------------------------*/
 
@@ -119,11 +115,6 @@ void					a_to_b(int size, t_stack *stack, int *cnt);
 
 void					b_to_a(int size, t_stack *stack, int *cnt);
 
-/*✅---------------------------------go_big.c---------------------------------*/
-
-void					select_pivot_b(t_stack *stack);
-void					select_pivot_a(t_stack *stack);
-void					init_value(t_stack *stack);
 
 #endif
 

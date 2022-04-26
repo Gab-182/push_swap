@@ -2,22 +2,24 @@
 
 /*----------------------------------------------------------------------------*/
 /**
- * @brief Get the smallest number in the stack a.
+ * @brief Get the smallest number in the chunk.
  * 
  * @param stack 
  * @return int 
  */
-int	get_smallest_a(t_stack *stack)
+int	get_smallest(int size, int *chunk, t_stack *stack)
 {
 	int	i;
 	int	smallest_num;
 
 	i = 1;
-	smallest_num = stack -> base_a[0];
-	while (i < stack -> len_a)
+	smallest_num = chunk[0];
+	if (size == stack -> len_a)
+		size = size - 1;
+	while (i < size)
 	{
-		if (smallest_num > stack -> base_a[i])
-			smallest_num = stack -> base_a[i];
+		if (smallest_num > chunk[i])
+			smallest_num = chunk[i];
 		i++;
 	}
 	return (smallest_num);
@@ -25,67 +27,24 @@ int	get_smallest_a(t_stack *stack)
 
 /*----------------------------------------------------------------------------*/
 /**
- * @brief Get the largest number in the stack a.
+ * @brief Get the largest number in the chunk.
  * 
  * @param stack 
  * @return int 
  */
-int	get_largest_a(t_stack *stack)
+int	get_largest(int size, int *chunk, t_stack *stack)
 {
 	int	i;
 	int max;
 
 	i = 1;
-	max = stack -> base_a[0];
-	while(i < stack -> len_a)
+	max = chunk[0];
+	if (size == stack -> len_a)
+		size = size - 1;
+	while(i < size)
 	{
-		if(max < stack -> base_a[i])
-			max = stack -> base_a[i];
-		i++;
-	}
-	return (max);
-}
-/*----------------------------------------------------------------------------*/
-/**
- * @brief Get the smallest number in the stack b.
- * 
- * @param stack 
- * @return int 
- */
-int	get_smallest_b(t_stack *stack)
-{
-	int	i;
-	int	smallest_num;
-
-	i = 1;
-	smallest_num = stack -> base_b[0];
-	while (i < stack -> len_b)
-	{
-		if (smallest_num > stack -> base_b[i])
-			smallest_num = stack -> base_b[i];
-		i++;
-	}
-	return (smallest_num);
-}
-
-/*----------------------------------------------------------------------------*/
-/**
- * @brief Get the largest number in the stack b.
- * 
- * @param stack 
- * @return int 
- */
-int	get_largest_b(t_stack *stack)
-{
-	int	i;
-	int max;
-
-	i = 1;
-	max = stack -> base_b[0];
-	while(i < stack -> len_b)
-	{
-		if(max < stack -> base_b[i])
-			max = stack -> base_b[i];
+		if(max < chunk[i])
+			max = chunk[i];
 		i++;
 	}
 	return (max);
@@ -93,20 +52,22 @@ int	get_largest_b(t_stack *stack)
 
 /*----------------------------------------------------------------------------*/
 /**
- * @brief Get the number position in the stack a.
+ * @brief Get the number position in the chunk.
  * 
  * @param stack 
  * @param num 
  * @return int 
  */
-int	get_position_a(t_stack *stack, int num)
+int	get_position(int size, int num, int *chunk, t_stack *stack)
 {
 	int	i;
 
 	i = 0;
-	while (i < stack -> len_a)
+	if (size == stack -> len_a)
+		size = size - 1;
+	while (i < size)
 	{
-		if (num == stack -> base_a[i])
+		if (num == chunk[i])
 			return (i);
 		i++;
 	}
@@ -115,24 +76,34 @@ int	get_position_a(t_stack *stack, int num)
 
 /*----------------------------------------------------------------------------*/
 /**
- * @brief Get the number position in the stack b.
+ * @brief initilize part of the struct from the header file (ra, rb, pa, pb).
  * 
  * @param stack 
- * @param num 
- * @return int 
  */
-int	get_position_b(t_stack *stack, int num)
+void	init_value(t_stack *stack)
 {
-	int	i;
+	stack -> ra = 0;
+	stack -> rb = 0;
+	stack -> pa = 0;
+	stack -> pb = 0;
+}
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief define the big and the small pivot for the stack a.
+ * 
+ * @param stack 
+ */
+void	select_pivot(int size, int* chunk, t_stack *stack)
+{
+	long	min;
+	long	max;
 
-	i = 0;
-	while (i < stack -> len_b)
-	{
-		if (num == stack -> base_b[i])
-			return (i);
-		i++;
-	}
-	return (0);
+	min = get_smallest(size, chunk, stack);
+	max = get_largest(size, chunk, stack);
+	// for comparing inside stack a.
+	stack -> piv_big = (min + max) / 2;
+	// for comparing inside stack b.
+	stack -> piv_small = (min + stack -> piv_big) / 2;
 }
 
 /*----------------------------------------------------------------------------*/

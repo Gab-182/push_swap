@@ -1,20 +1,6 @@
 #include "../push_swap.h"
 
-int	exceptional_cases_b(int size, t_stack *stack)
-{
-	if (size <= 3)
-	{
-		handle_under_three(size, stack);
-		return (0);
-	}
-	else if (size == 5)
-	{
-		hanlde_sort_five_b(5, stack);
-		return (0);
-	}
-	else
-		return (1);
-}
+
 /*----------------------------------------------------------------------------*/
 void	push_rotate_b(t_stack *stack)
 {
@@ -83,11 +69,11 @@ void	b_to_a(int size, t_stack *stack, int *cnt)
 {
 	int	temp;
 
-	if (!exceptional_cases_b(size, stack))
-		return ;
+	// if (!small_chunks_b(size, stack))
+	// 	return ;
 	(*cnt)++;
 	init_value(stack);
-	select_pivot_b(stack);
+	select_pivot(size, stack -> base_b, stack);
 	temp = size;
 	while (temp--)
 		push_rotate_b(stack);

@@ -6,13 +6,13 @@
 #    By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 19:05:15 by gabdoush          #+#    #+#              #
-#    Updated: 2022/04/25 12:04:41 by gabdoush         ###   ########.fr        #
+#    Updated: 2022/04/26 20:36:42 by gabdoush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#ifndef VERPOSE
-#.SILENT:
-#endif
+# ifndef VERPOSE
+# .SILENT:
+# endif
 
 NAME = push_swap
 
@@ -25,10 +25,9 @@ FILES = push_swap.c\
 		rules/rotate_rule.c\
 		rules/reverse_rotate_rule.c\
 		sort/sort_5_a.c\
-		sort/exceptional_cases_a.c\
-		sort/exceptional_cases_b.c\
+		sort/small_chunks_a.c\
+		sort/small_chunks_b.c\
 		sort/sort_utils.c\
-		sort/go_big.c\
 		sort/stack_a.c\
 		sort/stack_b.c\
 		main.c

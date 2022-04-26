@@ -1,20 +1,6 @@
 #include "../push_swap.h"
 
-int	exceptional_cases_a(int size, t_stack *stack)
-{
-	if (size <= 3)
-	{
-		handle_under_three(size, stack);
-		return (0);
-	}
-	else if (size == 5)
-	{
-		hanlde_sort_five(size, stack);
-		return (0);
-	}
-	else
-		return (1);
-}
+
 /*----------------------------------------------------------------------------*/
 /** _______________
  **| EXPLANATION: |
@@ -123,17 +109,16 @@ void		a_to_b(int size, t_stack *stack, int *cnt)
 {
 	int	temp;
 
-	if (!exceptional_cases_a(size, stack))
+	if (!small_chunks_a(size, stack))
 		return ;
 	init_value(stack);
-	select_pivot_a(stack);
+	select_pivot(size, stack -> base_a, stack);
 	temp = size;
 	while (temp--)
-	{
 		compare_to_pivot(stack);
-		// temp--;
-	}
-	/***
+	/** _______________
+	 **| EXPLANATION: |
+	 **---------------
 	 * ra --> represent how many numbers in stack a bigger that the big pivot.
 	 * rb --> represent how many numbers in stack b bigger that the small pivot.
 	 * So here we are comparing how many numbers in stack_a bigger than pivot_big,

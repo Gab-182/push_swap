@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	sort(t_stack *stack)
+void	sort(int size, t_stack *stack)
 {
 	int	cnt;
 
@@ -12,11 +12,11 @@ void	sort(t_stack *stack)
 		else if (stack -> len_a == 3)
 			sort_3_a(stack);
 		else if (stack -> len_a == 4)
-			sort_4_a(stack);
+			sort_4_a(size, stack);
 		else if (stack -> len_a == 5)
-			sort_5_a(stack);
+			sort_5_a(size, stack);
 		else if (stack -> len_a > 5)
-			a_to_b(stack -> len_a, stack, &cnt);
+			a_to_b(size, stack, &cnt);
 	}
 }
 
@@ -53,7 +53,8 @@ void	push_swap(char *arg, t_stack *stack)
 	stack->len_a = i;
 	checking_duplicated(stack);
 	/************************   SORTING  **************************************/
-	sort(stack);
+
+	sort(stack -> len_a, stack);
 	printf("-----------------------\n");
 	printf("Rules number = %d\n", stack -> rules_number);
 	printf("-----------------------\n");
@@ -116,7 +117,8 @@ void	push_swap_multi(char **argv, t_stack *stack)
 	}
 	checking_duplicated(stack);
 	/************************   SORTING  **************************************/
-	sort(stack);
+
+	sort(stack -> len_a, stack);
 	printf("-----------------------\n");
 	printf("Rules number = %d\n", stack -> rules_number);
 	printf("-----------------------\n");
