@@ -7,15 +7,13 @@
  * @param stack 
  * @return int 
  */
-int	get_smallest(int size, int *chunk, t_stack *stack)
+int	get_smallest(int size, int *chunk)
 {
 	int	i;
 	int	smallest_num;
 
 	i = 1;
 	smallest_num = chunk[0];
-	if (size == stack -> len_a)
-		size = size - 1;
 	while (i < size)
 	{
 		if (smallest_num > chunk[i])
@@ -32,15 +30,14 @@ int	get_smallest(int size, int *chunk, t_stack *stack)
  * @param stack 
  * @return int 
  */
-int	get_largest(int size, int *chunk, t_stack *stack)
+int	get_largest(int size, int *chunk)
 {
 	int	i;
 	int max;
 
 	i = 1;
 	max = chunk[0];
-	if (size == stack -> len_a)
-		size = size - 1;
+
 	while(i < size)
 	{
 		if(max < chunk[i])
@@ -58,13 +55,12 @@ int	get_largest(int size, int *chunk, t_stack *stack)
  * @param num 
  * @return int 
  */
-int	get_position(int size, int num, int *chunk, t_stack *stack)
+int	get_position(int size, int num, int *chunk)
 {
 	int	i;
 
 	i = 0;
-	if (size == stack -> len_a)
-		size = size - 1;
+
 	while (i < size)
 	{
 		if (num == chunk[i])
@@ -93,13 +89,13 @@ void	init_value(t_stack *stack)
  * 
  * @param stack 
  */
-void	select_pivot(int size, int* chunk, t_stack *stack)
+void	select_pivot(int size, int *chunk, t_stack *stack)
 {
 	long	min;
 	long	max;
 
-	min = get_smallest(size, chunk, stack);
-	max = get_largest(size, chunk, stack);
+	min = get_smallest(size, chunk);
+	max = get_largest(size, chunk);
 	// for comparing inside stack a.
 	stack -> piv_big = (min + max) / 2;
 	// for comparing inside stack b.

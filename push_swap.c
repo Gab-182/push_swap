@@ -10,7 +10,7 @@ void	sort(int size, t_stack *stack)
 		if (stack -> len_a == 2)
 			sort_2_a(stack);
 		else if (stack -> len_a == 3)
-			sort_3_a(stack);
+			sort_chunk_3_a(size, stack);
 		else if (stack -> len_a == 4)
 			sort_4_a(size, stack);
 		else if (stack -> len_a == 5)
@@ -57,12 +57,19 @@ void	push_swap(char *arg, t_stack *stack)
 	sort(stack -> len_a, stack);
 	printf("-----------------------\n");
 	printf("Rules number = %d\n", stack -> rules_number);
-	printf("-----------------------\n");
+	printf("\n============  a  ================= \n");
 	i = 0;
-	printf("After sorting :\n");
 	while(i < stack -> len_a)
 	{
-		printf("stack -> base_a[%d] = %d\n", i, stack -> base_a[i]);
+		printf("%d\n", stack -> base_a[i]);
+		i++;
+	}
+
+	printf("\n============  b  ================= \n");
+	i = 0;
+	while(i < stack -> len_b)
+	{
+		printf("%d\n", stack -> base_b[i]);
 		i++;
 	}
 	printf("-----------------------\n");
@@ -121,23 +128,22 @@ void	push_swap_multi(char **argv, t_stack *stack)
 	sort(stack -> len_a, stack);
 	printf("-----------------------\n");
 	printf("Rules number = %d\n", stack -> rules_number);
-	printf("-----------------------\n");
+	printf("\n============  a  ================= \n");
 	i = 0;
 	while(i < stack -> len_a)
 	{
-		printf("base_a[%d] = %d\n", i, stack -> base_a[i]);
+		printf("%d\n", stack -> base_a[i]);
 		i++;
 	}
-	printf("-----------------------\n");
 
-
-	printf("-----------------------\n");
+	printf("\n============  b  ================= \n");
 	i = 0;
 	while(i < stack -> len_b)
 	{
-		printf("base_b[%d] = %d\n", i, stack -> base_b[i]);
+		printf("%d\n", stack -> base_b[i]);
 		i++;
 	}
 	printf("-----------------------\n");
 }
+
 /*============================================================================*/

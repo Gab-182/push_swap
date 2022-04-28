@@ -1,5 +1,28 @@
 #include "../push_swap.h"
 
+/*============================================================================*/
+int	small_chunks_a(int size, t_stack *stack)
+{
+	if (size == 1)
+		return (0);
+	else if (size == 2)
+	{
+		sort_2_a(stack);
+		return (0);
+	}
+	if (size == 3)
+	{
+		sort_chunk_3_a(size, stack);
+		return (0);
+	}
+	else if (size == 5)
+	{
+		sort_chunk_5_a(size, stack);
+		return (0);
+	}
+	else
+		return (1);
+}
 
 /*----------------------------------------------------------------------------*/
 /** _______________
@@ -140,6 +163,7 @@ void		a_to_b(int size, t_stack *stack, int *cnt)
 	a_to_b(stack -> ra, stack, cnt);
 	b_to_a(stack -> rb, stack, cnt);
 	b_to_a(stack -> pb - stack -> rb, stack, cnt);
+	printf("cnt = %d\n", *cnt);
 }
 
-/*----------------------------------------------------------------------------*/
+/*============================================================================*/

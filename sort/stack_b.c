@@ -1,10 +1,44 @@
 #include "../push_swap.h"
 
+/*============================================================================*/
+// you need to to do some thing about when the size is 4.
+int	small_chunks_b(int size, t_stack *stack)
+{
+	if (size == 1)
+	{
+		push_a(stack);
+		ft_putstr("pa\n");
+		return (0);
+	}
+	else if (size == 2)
+	{
+		sort_2_b(stack);
+		return (0);
+	}
+	else if (size == 3)
+	{
+		sort_chunk_3_b(size, stack);
+		return (0);
+	}
+	// else if (size == 4)
+	// {
+	// 	sort_chunk_4_b(size, stack);
+	// }
+	else if (size == 5)
+	{
+		sort_chunk_5_b(size, stack);
+		return (0);
+	}
+	else
+		return (1);
+}
 
 /*----------------------------------------------------------------------------*/
 void	push_rotate_b(t_stack *stack)
 {
-	if (stack -> base_b[0] <= stack -> piv_big)
+	printf("stack->piv_small = %ld\n", stack->piv_small);
+	printf("stack->piv_big = %ld\n", stack->piv_big);
+	if (stack -> base_b[0] <= stack -> piv_small)
 	{
 		rotate_b(stack);
 		ft_putstr("rb\n");
@@ -15,7 +49,7 @@ void	push_rotate_b(t_stack *stack)
 		push_a(stack);
 		ft_putstr("pa\n");
 		stack -> pa++;
-		if (stack -> base_a[0] <= stack -> piv_small)
+		if (stack -> base_a[0] <= stack -> piv_big)
 		{
 			rotate_a(stack);
 			ft_putstr("ra\n");
@@ -69,11 +103,12 @@ void	b_to_a(int size, t_stack *stack, int *cnt)
 {
 	int	temp;
 
-	// if (!small_chunks_b(size, stack))
-	// 	return ;
 	(*cnt)++;
+	if (!small_chunks_b(size, stack))
+		return ;
 	init_value(stack);
 	select_pivot(size, stack -> base_b, stack);
+
 	temp = size;
 	while (temp--)
 		push_rotate_b(stack);
@@ -86,4 +121,4 @@ void	b_to_a(int size, t_stack *stack, int *cnt)
 	b_to_a(stack -> rb, stack, cnt);
 }
 
-/*----------------------------------------------------------------------------*/
+/*============================================================================*/

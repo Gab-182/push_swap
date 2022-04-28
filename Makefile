@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/17 19:05:15 by gabdoush          #+#    #+#              #
-#    Updated: 2022/04/26 20:36:42 by gabdoush         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 # ifndef VERPOSE
 # .SILENT:
 # endif
@@ -24,12 +12,14 @@ FILES = push_swap.c\
 		rules/push_rule_utils.c\
 		rules/rotate_rule.c\
 		rules/reverse_rotate_rule.c\
-		sort/sort_5_a.c\
-		sort/small_chunks_a.c\
-		sort/small_chunks_b.c\
-		sort/sort_utils.c\
-		sort/stack_a.c\
+		sort/sort_chunk_3_b.c\
+		sort/sort_chunk_5_b.c\
 		sort/stack_b.c\
+		sort/stack_a.c\
+		sort/sort_chunk_3_a.c\
+		sort/sort_chunk_5_a.c\
+		sort/small_sorting_a.c\
+		sort/sort_utils.c\
 		main.c
 
 HEADERS = ./push_swap.h\
