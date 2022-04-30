@@ -10,11 +10,11 @@ void	sort(int size, t_stack *stack)
 		if (stack -> len_a == 2)
 			sort_2_a(stack);
 		else if (stack -> len_a == 3)
-			sort_chunk_3_a(size, stack);
+			sort_chunk_3_a(3, stack);
 		else if (stack -> len_a == 4)
-			sort_4_a(size, stack);
+			sort_4_a(4, stack);
 		else if (stack -> len_a == 5)
-			sort_5_a(size, stack);
+			sort_5_a(5, stack);
 		else if (stack -> len_a > 5)
 			a_to_b(size, stack, &cnt);
 	}

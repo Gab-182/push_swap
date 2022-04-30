@@ -32,7 +32,7 @@ void	sort_4_a(int size, t_stack *stack)
 	{
 		push_b(stack);
 		ft_putstr("pb\n");
-		sort_chunk_3_a(size, stack);
+		sort_chunk_3_a(3, stack);
 		push_a(stack);
 		ft_putstr("pa\n");
 	}
@@ -42,7 +42,7 @@ void	sort_4_a(int size, t_stack *stack)
 		ft_putstr("sa\n");
 		push_b(stack);
 		ft_putstr("pb\n");
-		sort_chunk_3_a(size, stack);
+		sort_chunk_3_a(3, stack);
 		push_a(stack);
 		ft_putstr("pa\n");
 	}
@@ -54,7 +54,7 @@ void	sort_4_a(int size, t_stack *stack)
 		ft_putstr("sa\n");
 		push_b(stack);
 		ft_putstr("pb\n");
-		sort_chunk_3_a(size, stack);
+		sort_chunk_3_a(3, stack);
 		push_a(stack);
 		ft_putstr("pa\n");
 	}
@@ -64,7 +64,7 @@ void	sort_4_a(int size, t_stack *stack)
 		ft_putstr("rra\n");
 		push_b(stack);
 		ft_putstr("pb\n");
-		sort_chunk_3_a(size, stack);
+		sort_chunk_3_a(3, stack);
 		push_a(stack);
 		ft_putstr("pa\n");
 	}

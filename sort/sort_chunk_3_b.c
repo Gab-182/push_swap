@@ -84,7 +84,7 @@ void	arg_three_bottom_min_b(t_stack *stack, int max)
 }
 
 /*----------------------------------------------------------------------------*/
-void	sort_chunk_3_b(int size, t_stack *stack)
+void	 sort_chunk_3_b(int size, t_stack *stack)
 {
 	int	min;
 	int	max;

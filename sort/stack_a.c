@@ -3,7 +3,7 @@
 /*============================================================================*/
 int	small_chunks_a(int size, t_stack *stack)
 {
-	if (size == 1)
+	if (size == 1 || size == 0)
 		return (0);
 	else if (size == 2)
 	{
@@ -12,12 +12,17 @@ int	small_chunks_a(int size, t_stack *stack)
 	}
 	if (size == 3)
 	{
-		sort_chunk_3_a(size, stack);
+		sort_chunk_3_a(3, stack);
+		return (0);
+	}
+	else if(size == 4)
+	{
+		sort_4_a(4, stack);
 		return (0);
 	}
 	else if (size == 5)
 	{
-		sort_chunk_5_a(size, stack);
+		sort_chunk_5_a(5, stack);
 		return (0);
 	}
 	else
@@ -85,7 +90,7 @@ void	back_to_orig_ra(t_stack *stack, int *cnt)
 			ft_putstr("rra\n");
 		}
 	}
-	else
+	else // to move the biggest number of b to the top.
 	{
 		while (rrr--)
 		{
@@ -160,10 +165,10 @@ void		a_to_b(int size, t_stack *stack, int *cnt)
 	 * numbers that left in the stack and those numbers are bigger than
 	 * the (pivot_big).
 	 **/
-	a_to_b(stack -> ra, stack, cnt);
+	a_to_b(stack -> ra, stack, cnt); // call again for (ra) the rest of the number in stack_a.
 	b_to_a(stack -> rb, stack, cnt);
 	b_to_a(stack -> pb - stack -> rb, stack, cnt);
-	printf("cnt = %d\n", *cnt);
+	// printf("cnt = %d\n", *cnt);
 }
 
 /*============================================================================*/

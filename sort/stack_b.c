@@ -4,7 +4,9 @@
 // you need to to do some thing about when the size is 4.
 int	small_chunks_b(int size, t_stack *stack)
 {
-	if (size == 1)
+	if (size == 0)
+		return (0);
+	else if (size == 1)
 	{
 		push_a(stack);
 		ft_putstr("pa\n");
@@ -17,16 +19,12 @@ int	small_chunks_b(int size, t_stack *stack)
 	}
 	else if (size == 3)
 	{
-		sort_chunk_3_b(size, stack);
+		sort_chunk_3_b(3, stack);
 		return (0);
 	}
-	// else if (size == 4)
-	// {
-	// 	sort_chunk_4_b(size, stack);
-	// }
 	else if (size == 5)
 	{
-		sort_chunk_5_b(size, stack);
+		sort_chunk_5_b(5, stack);
 		return (0);
 	}
 	else

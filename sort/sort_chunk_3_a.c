@@ -61,6 +61,7 @@ void	arg_three_bottom_min_a(t_stack *stack, int max)
 	{
 		if (stack -> base_a[0] == max)
 			swap_a(stack);
+
 		rotate_a(stack);
 		swap_a(stack);
 		reverse_rotate_a(stack);

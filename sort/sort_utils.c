@@ -28,6 +28,7 @@ int	get_smallest(int size, int *chunk)
  * @brief Get the largest number in the chunk.
  * 
  * @param stack 
+ * @param size
  * @return int 
  */
 int	get_largest(int size, int *chunk)
@@ -61,7 +62,7 @@ int	get_position(int size, int num, int *chunk)
 
 	i = 0;
 
-	while (i < size)
+	while (i <= size)
 	{
 		if (num == chunk[i])
 			return (i);

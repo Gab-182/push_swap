@@ -28,6 +28,8 @@ typedef struct s_stack
 	int		pa;
 	int		pb;
 
+	int		middle_num;
+
 }			t_stack;
 
 

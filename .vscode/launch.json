@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
 		{
-            "name": "push_swap",
+      "name": "push_swap",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/push_swap",
-            "args": ["81 16 14 17 13 15"],
+            "args": ["16 6 13 18 10 14 19 7 1 20 11 4 5 12 15 2 8 17 3 9"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
