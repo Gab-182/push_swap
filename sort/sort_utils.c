@@ -75,22 +75,24 @@ int	get_position(int size, int num, int *chunk)
 /**
  * @brief initilize part of the struct from the header file (ra, rb, pa, pb).
  * 
- * @param stack 
+ * @param rules 
  */
-void	init_value(t_stack *stack)
+void	init_value(t_rules *rules)
 {
-	stack -> ra = 0;
-	stack -> rb = 0;
-	stack -> pa = 0;
-	stack -> pb = 0;
+	rules -> ra = 0;
+	rules -> rb = 0;
+	rules -> pa = 0;
+	rules -> pb = 0;
 }
 /*----------------------------------------------------------------------------*/
 /**
  * @brief define the big and the small pivot for the stack a.
  * 
- * @param stack 
+ * @param size 
+ * @param chunk 
+ * @param rules 
  */
-void	select_pivot(int size, int *chunk, t_stack *stack)
+void	select_pivot(int size, int *chunk, t_rules *rules)
 {
 	long	min;
 	long	max;
@@ -98,9 +100,9 @@ void	select_pivot(int size, int *chunk, t_stack *stack)
 	min = get_smallest(size, chunk);
 	max = get_largest(size, chunk);
 	// for comparing inside stack a.
-	stack -> piv_big = (min + max) / 2;
+	rules -> piv_big = (min + max) / 2;
 	// for comparing inside stack b.
-	stack -> piv_small = (min + stack -> piv_big) / 2;
+	rules -> piv_small = (min + rules -> piv_big) / 2;
 }
 
 /*----------------------------------------------------------------------------*/

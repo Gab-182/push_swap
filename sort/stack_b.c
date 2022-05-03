@@ -1,7 +1,6 @@
 #include "../push_swap.h"
 
 /*============================================================================*/
-// you need to to do some thing about when the size is 4.
 int	small_chunks_b(int size, t_stack *stack)
 {
 	if (size == 0)
@@ -32,38 +31,36 @@ int	small_chunks_b(int size, t_stack *stack)
 }
 
 /*----------------------------------------------------------------------------*/
-void	push_rotate_b(t_stack *stack)
+void	push_rotate_b(t_stack *stack, t_rules *rules)
 {
-	printf("stack->piv_small = %ld\n", stack->piv_small);
-	printf("stack->piv_big = %ld\n", stack->piv_big);
-	if (stack -> base_b[0] <= stack -> piv_small)
+	if (stack -> base_b[0] <= rules -> piv_small)
 	{
 		rotate_b(stack);
 		ft_putstr("rb\n");
-		stack -> rb++;
+		rules -> rb++;
 	}
 	else
 	{
 		push_a(stack);
 		ft_putstr("pa\n");
-		stack -> pa++;
-		if (stack -> base_a[0] <= stack -> piv_big)
+		rules -> pa++;
+		if (stack -> base_a[0] <= rules -> piv_big)
 		{
 			rotate_a(stack);
 			ft_putstr("ra\n");
-			stack -> ra++;
+			rules -> ra++;
 		}
 	}
 }
 
 /*----------------------------------------------------------------------------*/
-void	back_to_ra(t_stack *stack)
+void	back_to_ra(t_stack *stack, t_rules *rules)
 {
 	int	rrr;
 	int	rem;
 
-	rrr = stack -> rb;
-	rem = stack -> ra - rrr;
+	rrr = rules -> rb;
+	rem = rules -> ra - rrr;
 	while (rrr--)
 	{
 		reverse_rotate_a_b(stack);
@@ -77,13 +74,13 @@ void	back_to_ra(t_stack *stack)
 }
 
 /*----------------------------------------------------------------------------*/
-void	back_to_rb(t_stack *stack)
+void	back_to_rb(t_stack *stack, t_rules *rules)
 {
 	int	rrr;
 	int	rem;
 
-	rrr = stack -> ra;
-	rem = stack -> rb - rrr;
+	rrr = rules -> ra;
+	rem = rules -> rb - rrr;
 	while (rrr--)
 	{
 		reverse_rotate_a_b(stack);
@@ -100,23 +97,23 @@ void	back_to_rb(t_stack *stack)
 void	b_to_a(int size, t_stack *stack, int *cnt)
 {
 	int	temp;
+	t_rules rules;
 
 	(*cnt)++;
 	if (!small_chunks_b(size, stack))
 		return ;
-	init_value(stack);
-	select_pivot(size, stack -> base_b, stack);
-
+	init_value(&rules);
+	select_pivot(size, stack -> base_b, &rules);
 	temp = size;
 	while (temp--)
-		push_rotate_b(stack);
-	a_to_b(stack -> pa - stack -> ra, stack, cnt);
-	if (stack -> ra > stack -> rb)
-		back_to_ra(stack);
+		push_rotate_b(stack, &rules);
+ 	a_to_b(rules.pa - rules.ra, stack, cnt);
+	if (rules.ra > rules.rb)
+		back_to_ra(stack, &rules);
 	else
-		back_to_rb(stack);
-	a_to_b(stack -> ra, stack, cnt);
-	b_to_a(stack -> rb, stack, cnt);
+		back_to_rb(stack, &rules);
+	a_to_b(rules.ra, stack, cnt);
+	b_to_a(rules.rb, stack, cnt);
 }
 
 /*============================================================================*/

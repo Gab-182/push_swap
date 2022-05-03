@@ -47,36 +47,36 @@ int	small_chunks_a(int size, t_stack *stack)
  * 
  * @param stack 
  */
-void	compare_to_pivot(t_stack *stack)
+void	compare_to_pivot(t_stack *stack, t_rules *rules)
 {
-	if (stack -> base_a[0] > stack-> piv_big)
+	if (stack -> base_a[0] > rules-> piv_big)
 	{
 		rotate_a(stack);
 		ft_putstr("ra\n");
-		stack -> ra++;
+		rules -> ra++;
 	}
 	else
 	{
 		push_b(stack);
 		ft_putstr("pb\n");
-		stack -> pb++;
-		if (stack -> base_b[0] > stack -> piv_small)
+		rules -> pb++;
+		if (stack -> base_b[0] > rules -> piv_small)
 		{
 			rotate_b(stack);
 			ft_putstr("rb\n");
-			stack -> rb++;
+			rules -> rb++;
 		}
 	}
 }
 
 /*----------------------------------------------------------------------------*/
-void	back_to_orig_ra(t_stack *stack, int *cnt)
+void	back_to_orig_ra(t_stack *stack, int *cnt, t_rules *rules)
 {
 	int	rrr;
 	int	rem;
 
-	rrr = stack -> rb;
-	rem = stack -> ra - rrr;
+	rrr = rules -> rb;
+	rem = rules -> ra - rrr;
 	if ((*cnt) > 0)
 	{
 		while (rrr--)
@@ -101,13 +101,13 @@ void	back_to_orig_ra(t_stack *stack, int *cnt)
 }
 
 /*----------------------------------------------------------------------------*/
-void	back_to_orig_rb(t_stack *stack, int *cnt)
+void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
 {
 	int	rrr;
 	int	rem;
 
-	rrr = stack -> ra;
-	rem = stack -> rb - rrr;
+	rrr = rules -> ra;
+	rem = rules -> rb - rrr;
 	if ((*cnt) > 0)
 	{
 		while (rrr--)
@@ -123,7 +123,7 @@ void	back_to_orig_rb(t_stack *stack, int *cnt)
 	}
 	else
 	{
-		rrr = stack -> rb;
+		rrr = rules -> rb;
 		while (rrr--)
 		{
 			reverse_rotate_b(stack);
@@ -136,14 +136,15 @@ void	back_to_orig_rb(t_stack *stack, int *cnt)
 void		a_to_b(int size, t_stack *stack, int *cnt)
 {
 	int	temp;
+	t_rules rules;
 
 	if (!small_chunks_a(size, stack))
 		return ;
-	init_value(stack);
-	select_pivot(size, stack -> base_a, stack);
+	init_value(&rules);
+	select_pivot(size, stack -> base_a, &rules);
 	temp = size;
 	while (temp--)
-		compare_to_pivot(stack);
+		compare_to_pivot(stack, &rules);
 	/** _______________
 	 **| EXPLANATION: |
 	 **---------------
@@ -152,10 +153,10 @@ void		a_to_b(int size, t_stack *stack, int *cnt)
 	 * So here we are comparing how many numbers in stack_a bigger than pivot_big,
 	 * with how many numbers from stack_b bigger than pivot_small.
 	*/
-	if (stack -> ra > stack -> rb)
-		back_to_orig_ra(stack, cnt);
+	if (rules.ra > rules.rb)
+		back_to_orig_ra(stack, cnt, &rules);
 	else
-		back_to_orig_rb(stack, cnt);
+		back_to_orig_rb(stack, cnt, &rules);
 	/** _______________
 	 **| EXPLANATION: |
 	 **---------------
@@ -165,10 +166,9 @@ void		a_to_b(int size, t_stack *stack, int *cnt)
 	 * numbers that left in the stack and those numbers are bigger than
 	 * the (pivot_big).
 	 **/
-	a_to_b(stack -> ra, stack, cnt); // call again for (ra) the rest of the number in stack_a.
-	b_to_a(stack -> rb, stack, cnt);
-	b_to_a(stack -> pb - stack -> rb, stack, cnt);
-	// printf("cnt = %d\n", *cnt);
+	a_to_b(rules.ra, stack, cnt); // call again for (ra) the rest of the number in stack_a.
+	b_to_a(rules.rb, stack, cnt);
+	b_to_a(rules.pb - rules.rb, stack, cnt);
 }
 
 /*============================================================================*/
