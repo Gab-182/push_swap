@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_b.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/03 16:15:09 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/05/03 20:53:20 by gabdoush         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 /*============================================================================*/
@@ -8,7 +20,7 @@ int	small_chunks_b(int size, t_stack *stack)
 	else if (size == 1)
 	{
 		push_a(stack);
-		ft_putstr("pa\n");
+		printf("pa\n");
 		return (0);
 	}
 	else if (size == 2)
@@ -36,18 +48,18 @@ void	push_rotate_b(t_stack *stack, t_rules *rules)
 	if (stack -> base_b[0] <= rules -> piv_small)
 	{
 		rotate_b(stack);
-		ft_putstr("rb\n");
+		printf("rb\n");
 		rules -> rb++;
 	}
 	else
 	{
 		push_a(stack);
-		ft_putstr("pa\n");
+		printf("pa\n");
 		rules -> pa++;
 		if (stack -> base_a[0] <= rules -> piv_big)
 		{
 			rotate_a(stack);
-			ft_putstr("ra\n");
+			printf("ra\n");
 			rules -> ra++;
 		}
 	}
@@ -64,12 +76,12 @@ void	back_to_ra(t_stack *stack, t_rules *rules)
 	while (rrr--)
 	{
 		reverse_rotate_a_b(stack);
-		ft_putstr("rrr\n");
+		printf("rrr\n");
 	}
 	while (rem--)
 	{
 		reverse_rotate_a(stack);
-		ft_putstr("rra\n");
+		printf("rra\n");	
 	}
 }
 
@@ -84,12 +96,12 @@ void	back_to_rb(t_stack *stack, t_rules *rules)
 	while (rrr--)
 	{
 		reverse_rotate_a_b(stack);
-		ft_putstr("rrr\n");
+		printf("rrr\n");
 	}
 	while (rem--)
 	{
 		reverse_rotate_b(stack);
-		ft_putstr("rrb\n");
+		printf("rrb\n");
 	}
 }
 
@@ -107,7 +119,7 @@ void	b_to_a(int size, t_stack *stack, int *cnt)
 	temp = size;
 	while (temp--)
 		push_rotate_b(stack, &rules);
- 	a_to_b(rules.pa - rules.ra, stack, cnt);
+	a_to_b(rules.pa - rules.ra, stack, cnt);
 	if (rules.ra > rules.rb)
 		back_to_ra(stack, &rules);
 	else

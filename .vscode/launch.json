@@ -1,19 +1,24 @@
 {
-    "version": "0.2.0",
-    "configurations": [
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
 		{
-      "name": "push_swap",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/push_swap",
-            "args": ["6 13 10 7 1 11 4 5 12 2 8 17 3 9"],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-			"externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb",
-            "preLaunchTask": "C/C++: gcc build active file"
-		},
-    ]
+			"name": "gcc - Build and debug active file",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "/Users/gabdoush/Desktop/push_swap/push_swap",
+			"args": ["-912 267 368 260 583 -837 564 -965 84 549 943 -788 596 -717 -28 -805 484 -166 728 -416 -254 -98 -724 369 -90 415 -96 -831 -205 713 -797 858 501 902 20 -256 -257 -344 522 -985 -488 -561 791 -145 -813 676 -898 -406 493 162 653 -578 412 389 462 -209 672 -44 -600 45 231 398 -699 -949 99 -935 -409 -7 -201 420 -658 177 -696 -618 -24 -731 133 -210 879 575 -832 614 -489 -889 -890 -9 410 -843 -602 615 -927 -22 -989 -508 -392 -153 -368 -609 -17 -606"],
+			"stopAtEntry": false,
+			"cwd": "/Users/gabdoush/Desktop/push_swap",
+			"logging": {
+				"moduleLoad": true,
+				"trace": false ,
+				"programOutput": true},
+			"environment": [],
+			"MIMode": "lldb",
+			"preLaunchTask": "Build"
+		}
+	]
 }

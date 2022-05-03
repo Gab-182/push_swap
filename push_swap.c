@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/03 16:19:29 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/05/03 22:17:23 by gabdoush         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sort(int size, t_stack *stack)
@@ -69,7 +81,7 @@ void	push_swap(char *arg, t_stack *stack)
 	i = 0;
 	while(i < stack -> len_b)
 	{
-		printf("%d\n", stack -> base_b[i]);
+		printf("%d ", stack -> base_b[i]);
 		i++;
 	}
 	printf("-----------------------\n");
@@ -99,7 +111,7 @@ void	push_swap_multi(char **argv, t_stack *stack)
 				while (split[s])
 				{
 					num = ft_atoi(split[s]);
-					addLast(stack,num);
+					addLast(stack, num);
 					s++;
 				}
 				free(split);
@@ -115,10 +127,10 @@ void	push_swap_multi(char **argv, t_stack *stack)
 		if (argv[i])
 		{
 			check_digit_multi(argv[i]);
-			if(ft_atoi(argv[i]) > 2147483647 || ft_atoi(argv[i]) < -2147483648)
+			if (ft_atoi(argv[i]) > 2147483647 || ft_atoi(argv[i]) < -2147483648)
 				error();
 			num = ft_atoi(argv[i]);
-			addLast(stack,num);
+			addLast(stack, num);
 			i++;
 		}
 	}
@@ -140,7 +152,7 @@ void	push_swap_multi(char **argv, t_stack *stack)
 	i = 0;
 	while(i < stack -> len_b)
 	{
-		printf("%d\n", stack -> base_b[i]);
+		printf("%d ", stack -> base_b[i]);
 		i++;
 	}
 	printf("-----------------------\n");

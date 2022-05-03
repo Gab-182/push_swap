@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/03 16:19:36 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/05/03 16:19:52 by gabdoush         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -81,17 +93,17 @@ void		reverse_rotate_a(t_stack *stack);
 void		reverse_rotate_b(t_stack *stack);
 void		reverse_rotate_a_b(t_stack *stack);
 
-/*✅------------------------------sort_chunk_3_a.c----------------------------------*/
+/*✅------------------------------sort_chunk_3_a.c-----------------------------*/
 void		sort_chunk_3_a(int size, t_stack *stack);
 
-/*✅------------------------------sort_chunk_5_a.c----------------------------------*/
+/*✅------------------------------sort_chunk_5_a.c-----------------------------*/
 void		sort_chunk_5_a(int size, t_stack *stack);
 
-/*✅------------------------------sort_chunk_3_b.c----------------------------------*/
+/*✅------------------------------sort_chunk_3_b.c-----------------------------*/
 void		sort_chunk_3_b(int size, t_stack *stack);
 void		sort_2_b(t_stack *stack);
 
-/*✅------------------------------sort_chunk_5_b.c----------------------------------*/
+/*✅------------------------------sort_chunk_5_b.c-----------------------------*/
 void		sort_chunk_5_b(int size, t_stack *stack);
 void		bubble_sort_5(int *chunk);
 int			get_middle_num_five_b(t_stack *stack);

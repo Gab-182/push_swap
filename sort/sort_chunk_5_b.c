@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_chunk_5_b.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/03 16:13:05 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/05/03 21:00:04 by gabdoush         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 
@@ -61,25 +73,23 @@ void	sort_chunk_5_b(int size, t_stack *stack)
 		if (stack -> base_b[0] >= middle_num)
 		{
 			push_a(stack);
-			ft_putstr("pa\n");
+			printf("pa\n");
 			push++;
 		}
 		else
 		{
 			rotate_b(stack);
-			ft_putstr("rb\n");
+			printf("rb\n");
 			rotate++;
 		}
-		// i am sopping here so i can use sort 3 nums function.
 		if (push == 3)
 			break ;
 	}
 	while (rotate--)
 	{
 		reverse_rotate_b(stack);
-		ft_putstr("rrb\n");
+		printf("rrb\n");
 	}
-	// I changed some thing in this function so fiqure it out.
 	sort_chunk_3_a(3, stack);
 	sort_2_b(stack);
 }

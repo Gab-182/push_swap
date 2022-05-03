@@ -1,19 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/03 16:15:43 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/05/03 16:19:04 by gabdoush         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /**
  * @brief Check if the given argument is a valid number.
  * 
- * @param str 
- * @return int 
+ * @param str
+ * @return int
  */
+
 int	isNumber(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i]!= '\0')
+	while (str[i] != '\0')
 	{
-
 		if (ft_isdigit(str[i]) == 0 || str[i] == '-' || str[i] == '+')
 			return (0);
 		i++;
@@ -118,6 +130,7 @@ void	check_digit_multi(char *str)
 		}
 	}
 }
+
 /*----------------------------------------------------------------------------*/
 /**
  * @brief check the validity of using negative or positive signs

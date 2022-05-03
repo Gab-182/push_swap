@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/03 16:13:28 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/05/03 16:14:01 by gabdoush         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 /*----------------------------------------------------------------------------*/
@@ -34,14 +46,14 @@ int	get_smallest(int size, int *chunk)
 int	get_largest(int size, int *chunk)
 {
 	int	i;
-	int max;
+	int	max;
 
 	i = 1;
 	max = chunk[0];
 
-	while(i < size)
+	while (i < size)
 	{
-		if(max < chunk[i])
+		if (max < chunk[i])
 			max = chunk[i];
 		i++;
 	}
@@ -84,6 +96,7 @@ void	init_value(t_rules *rules)
 	rules -> pa = 0;
 	rules -> pb = 0;
 }
+
 /*----------------------------------------------------------------------------*/
 /**
  * @brief define the big and the small pivot for the stack a.
@@ -99,9 +112,7 @@ void	select_pivot(int size, int *chunk, t_rules *rules)
 
 	min = get_smallest(size, chunk);
 	max = get_largest(size, chunk);
-	// for comparing inside stack a.
 	rules -> piv_big = (min + max) / 2;
-	// for comparing inside stack b.
 	rules -> piv_small = (min + rules -> piv_big) / 2;
 }
 

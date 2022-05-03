@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_reverse_rotate_rule.c                            :+:      :+:    :+:   */
+/*   reverse_rotate_rule.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:56:06 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/04/27 22:28:22 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/03 20:48:59 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	reverse_rotate_a(t_stack *stack)
 		i++;
 	}
 	free(stack->temp_a);
-	//printf("rra\n");
-	stack -> rules_number += 1;
 }
 
 /*✅--------------------------------------------------------------------------*/
@@ -66,8 +64,6 @@ void	reverse_rotate_b(t_stack *stack)
 		i++;
 	}
 	free(stack->temp_b);
-	//printf("rrb\n");
-	stack -> rules_number += 1;
 }
 
 /*✅--------------------------------------------------------------------------*/
@@ -75,8 +71,6 @@ void	reverse_rotate_a_b(t_stack *stack)
 {
 	reverse_rotate_a(stack);
 	reverse_rotate_b(stack);
-	//printf("rrr\n");
-	stack -> rules_number += 1;
 }
 
 /*============================================================================*/

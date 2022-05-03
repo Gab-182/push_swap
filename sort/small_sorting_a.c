@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   small_sorting_a.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/03 16:11:23 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/05/03 21:15:56 by gabdoush         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 /*----------------------------------------------------------------------------*/
@@ -10,7 +22,7 @@ void	sort_2_a(t_stack *stack)
 	if (stack -> base_a[1] < stack -> base_a[0])
 	{
 		swap_a(stack);
-		ft_putstr("sa\n");
+		printf("sa\n");
 	}
 }
 
@@ -27,46 +39,46 @@ void	sort_4_a(int size, t_stack *stack)
 {
 	int	smallest_num;
 
-	smallest_num = get_smallest(size, stack -> base_a);
+	smallest_num = get_smallest(4, stack -> base_a);
 	if (get_position(size, smallest_num, stack -> base_a) == 0)
 	{
 		push_b(stack);
-		ft_putstr("pb\n");
+		printf("pb\n");
 		sort_chunk_3_a(3, stack);
 		push_a(stack);
-		ft_putstr("pa\n");
+		printf("pa\n");
 	}
-	else if (get_position(size, smallest_num, stack -> base_a) == 1)
+	else if (get_position(4, smallest_num, stack -> base_a) == 1)
 	{
 		swap_a(stack);
-		ft_putstr("sa\n");
+		printf("sa\n");
 		push_b(stack);
-		ft_putstr("pb\n");
+		printf("pb\n");
 		sort_chunk_3_a(3, stack);
 		push_a(stack);
-		ft_putstr("pa\n");
+		printf("pa\n");
 	}
-	else if (get_position(size, smallest_num, stack -> base_a) == 2)
+	else if (get_position(4, smallest_num, stack -> base_a) == 2)
 	{
 		rotate_a(stack);
-		ft_putstr("ra\n");
+		printf("ra\n");
 		swap_a(stack);
-		ft_putstr("sa\n");
+		printf("sa\n");
 		push_b(stack);
-		ft_putstr("pb\n");
+		printf("pb\n");
 		sort_chunk_3_a(3, stack);
 		push_a(stack);
-		ft_putstr("pa\n");
+		printf("pa\n");
 	}
-	else if (get_position(size, smallest_num, stack -> base_a) == 3)
+	else if (get_position(4, smallest_num, stack -> base_a) == 3)
 	{
 		reverse_rotate_a(stack);
-		ft_putstr("rra\n");
+		printf("rra\n");
 		push_b(stack);
-		ft_putstr("pb\n");
+		printf("pb\n");
 		sort_chunk_3_a(3, stack);
 		push_a(stack);
-		ft_putstr("pa\n");
+		printf("pa\n");
 	}
 }
 
@@ -83,58 +95,58 @@ void	sort_5_a(int size, t_stack *stack)
 {
 	int	smallest_num;
 
-	smallest_num = get_smallest(size, stack -> base_a);
-	if (get_position(size, smallest_num, stack -> base_a) == 0)
+	smallest_num = get_smallest(5, stack -> base_a);
+	if (get_position(5, smallest_num, stack -> base_a) == 0)
 	{
 		push_b(stack);
-		ft_putstr("pb\n");
+		printf("pb\n");
 		sort_4_a(size, stack);
 		push_a(stack);
-		ft_putstr("pa\n");
+		printf("pa\n");
 	}
-	else if (get_position(size, smallest_num, stack -> base_a) == 1)
+	else if (get_position(5, smallest_num, stack -> base_a) == 1)
 	{
 		swap_a(stack);
-		ft_putstr("sa\n");
+		printf("sa\n");
 		push_b(stack);
-		ft_putstr("pb\n");
+		printf("pb\n");
 		sort_4_a(size, stack);
 		push_a(stack);
-		ft_putstr("pa\n");
+		printf("pa\n");
 	}
-	else if (get_position(size, smallest_num, stack -> base_a) == 2)
+	else if (get_position(5, smallest_num, stack -> base_a) == 2)
 	{
 		rotate_a(stack);
-		ft_putstr("ra\n");
+		printf("ra\n");
 		swap_a(stack);
-		ft_putstr("sa\n");
+		printf("sa\n");
 		push_b(stack);
-		ft_putstr("pb\n");
+		printf("pb\n");
 		sort_4_a(size, stack);
 		push_a(stack);
-		ft_putstr("pa\n");
+		printf("pa\n");
 	}
-	else if (get_position(size, smallest_num, stack -> base_a) == 3)
+	else if (get_position(5, smallest_num, stack -> base_a) == 3)
 	{
 		reverse_rotate_a(stack);
+		printf("rra\n");
 		reverse_rotate_a(stack);
-		ft_putstr("rra\nrra\n");
+		printf("rra\n");
 		push_b(stack);
-		ft_putstr("pb\n");
+		printf("pb\n");
 		sort_4_a(size, stack);
 		push_a(stack);
-		ft_putstr("pa\n");
+		printf("pa\n");
 	}
-	else if (get_position(size, smallest_num, stack -> base_a) == 4)
+	else if (get_position(5, smallest_num, stack -> base_a) == 4)
 	{
-		
 		reverse_rotate_a(stack);
-		ft_putstr("rra\n");
+		printf("rra\n");
 		push_b(stack);
-		ft_putstr("pb\n");
+		printf("pb\n");
 		sort_4_a(size, stack);
 		push_a(stack);
-		ft_putstr("pa\n");
+		printf("pa\n");
 	}
 }
 /*----------------------------------------------------------------------------*/

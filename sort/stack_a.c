@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_a.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/03 16:14:07 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/05/03 22:13:47 by gabdoush         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 /*============================================================================*/
@@ -15,7 +27,7 @@ int	small_chunks_a(int size, t_stack *stack)
 		sort_chunk_3_a(3, stack);
 		return (0);
 	}
-	else if(size == 4)
+	else if (size == 4)
 	{
 		sort_4_a(4, stack);
 		return (0);
@@ -52,18 +64,18 @@ void	compare_to_pivot(t_stack *stack, t_rules *rules)
 	if (stack -> base_a[0] > rules-> piv_big)
 	{
 		rotate_a(stack);
-		ft_putstr("ra\n");
+		printf("ra\n");
 		rules -> ra++;
 	}
 	else
 	{
 		push_b(stack);
-		ft_putstr("pb\n");
+		printf("pb\n");
 		rules -> pb++;
 		if (stack -> base_b[0] > rules -> piv_small)
 		{
 			rotate_b(stack);
-			ft_putstr("rb\n");
+			printf("rb\n");
 			rules -> rb++;
 		}
 	}
@@ -82,20 +94,20 @@ void	back_to_orig_ra(t_stack *stack, int *cnt, t_rules *rules)
 		while (rrr--)
 		{
 			reverse_rotate_a_b(stack);
-			ft_putstr("rrr\n");
+			printf("rrr\n");
 		}
 		while (rem--)
 		{
 			reverse_rotate_a(stack);
-			ft_putstr("rra\n");
+			printf("rra\n");
 		}
 	}
-	else // to move the biggest number of b to the top.
+	else
 	{
 		while (rrr--)
 		{
 			reverse_rotate_b(stack);
-			ft_putstr("rrb\n");
+			printf("rrb\n");
 		}
 	}
 }
@@ -113,12 +125,12 @@ void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
 		while (rrr--)
 		{
 			reverse_rotate_a_b(stack);
-			ft_putstr("rrr\n");
+			printf("rrr\n");
 		}
 		while (rem--)
 		{
 			reverse_rotate_b(stack);
-			ft_putstr("rrb\n");
+			printf("rrb\n");
 		}
 	}
 	else
@@ -127,7 +139,7 @@ void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
 		while (rrr--)
 		{
 			reverse_rotate_b(stack);
-			ft_putstr("rrb\n");
+			printf("rrb\n");
 		}
 	}
 }
@@ -136,7 +148,7 @@ void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
 void		a_to_b(int size, t_stack *stack, int *cnt)
 {
 	int	temp;
-	t_rules rules;
+	t_rules	rules;
 
 	if (!small_chunks_a(size, stack))
 		return ;
@@ -166,7 +178,7 @@ void		a_to_b(int size, t_stack *stack, int *cnt)
 	 * numbers that left in the stack and those numbers are bigger than
 	 * the (pivot_big).
 	 **/
-	a_to_b(rules.ra, stack, cnt); // call again for (ra) the rest of the number in stack_a.
+	a_to_b(rules.ra, stack, cnt);
 	b_to_a(rules.rb, stack, cnt);
 	b_to_a(rules.pb - rules.rb, stack, cnt);
 }

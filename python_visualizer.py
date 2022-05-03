@@ -31,8 +31,8 @@ RELATIVE_PATH = r'push_swap'
 
 class PsGui:
     def __init__(self, master):
-        ww = 600
-        wh = 600
+        ww = 900
+        wh = 900
         self.i = 0
         self.speed = 0
         dirname = os.path.dirname(os.path.abspath(__file__))
@@ -172,8 +172,8 @@ class PsGui:
 
     def draw_rectangles(self):
         vi = 0
-        ww = 600
-        wh = 600
+        ww = 900
+        wh = 900
         hw = ww / 2
         hm = len(self.pile_a) + len(self.pile_b)
         mx, mn = (0, 0)

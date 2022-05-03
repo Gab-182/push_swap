@@ -1,5 +1,16 @@
-#include "../push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_chunk_5_a.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/03 15:53:28 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/05/03 21:01:20 by gabdoush         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "../push_swap.h"
 
 /*============================================================================*/
 void	bubble_sort_a(int *chunk, int size)
@@ -9,7 +20,7 @@ void	bubble_sort_a(int *chunk, int size)
 	int	temp;
 
 	i = 0;
-	while (i < size) 
+	while (i < size)
 	{
 		j = 0;
 		while (j < size - i - 1)
@@ -33,7 +44,6 @@ int	get_middle_num_five_a(int size, t_stack *stack)
 	int	i;
 
 	i = 0;
-	
 	if (size == 5)
 	{
 		stack -> temp_a = (int *)malloc(sizeof(int) * size);
@@ -45,8 +55,9 @@ int	get_middle_num_five_a(int size, t_stack *stack)
 		bubble_sort_a(stack -> temp_a, size);
 		middle_num = stack -> temp_a[2];
 		free(stack -> temp_a);
+		return (middle_num);
 	}
-	return (middle_num);
+	return (0);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -64,18 +75,23 @@ void	sort_five_a(int size, t_stack *stack)
 		if (stack -> base_a[0] < mid)
 		{
 			push_b(stack);
+			printf("pb\n");
 			push++;
 		}
 		else
 		{
 			rotate_a(stack);
+			printf("ra\n");
 			rotate++;
 		}
 		if (push == 2)
 			break ;
 	}
 	while (rotate--)
+	{
 		reverse_rotate_a(stack);
+		printf("rra\n");
+	}
 }
 
 /*----------------------------------------------------------------------------*/
