@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:14:07 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/03 22:13:47 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/04 01:45:36 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,30 +84,33 @@ void	compare_to_pivot(t_stack *stack, t_rules *rules)
 /*----------------------------------------------------------------------------*/
 void	back_to_orig_ra(t_stack *stack, int *cnt, t_rules *rules)
 {
-	int	rrr;
+	int	rb;
 	int	rem;
 
-	rrr = rules -> rb;
-	rem = rules -> ra - rrr;
+	rb = rules -> rb;
+	rem = rules -> ra - rb;
 	if ((*cnt) > 0)
 	{
-		while (rrr--)
+		while (rb)
 		{
 			reverse_rotate_a_b(stack);
 			printf("rrr\n");
+			rb--;
 		}
-		while (rem--)
+		while (rem)
 		{
 			reverse_rotate_a(stack);
 			printf("rra\n");
+			rem--;
 		}
 	}
 	else
 	{
-		while (rrr--)
+		while (rb)
 		{
 			reverse_rotate_b(stack);
 			printf("rrb\n");
+			rb--;
 		}
 	}
 }
@@ -122,24 +125,27 @@ void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
 	rem = rules -> rb - rrr;
 	if ((*cnt) > 0)
 	{
-		while (rrr--)
+		while (rrr)
 		{
 			reverse_rotate_a_b(stack);
 			printf("rrr\n");
+			rrr--;
 		}
-		while (rem--)
+		while (rem)
 		{
 			reverse_rotate_b(stack);
 			printf("rrb\n");
+			rem--;
 		}
 	}
 	else
 	{
 		rrr = rules -> rb;
-		while (rrr--)
+		while (rrr)
 		{
 			reverse_rotate_b(stack);
 			printf("rrb\n");
+			rrr--;
 		}
 	}
 }
@@ -155,29 +161,18 @@ void		a_to_b(int size, t_stack *stack, int *cnt)
 	init_value(&rules);
 	select_pivot(size, stack -> base_a, &rules);
 	temp = size;
-	while (temp--)
+	while (temp)
+	{
 		compare_to_pivot(stack, &rules);
-	/** _______________
-	 **| EXPLANATION: |
-	 **---------------
-	 * ra --> represent how many numbers in stack a bigger that the big pivot.
-	 * rb --> represent how many numbers in stack b bigger that the small pivot.
-	 * So here we are comparing how many numbers in stack_a bigger than pivot_big,
-	 * with how many numbers from stack_b bigger than pivot_small.
-	*/
+		temp--;
+	}
 	if (rules.ra > rules.rb)
 		back_to_orig_ra(stack, cnt, &rules);
 	else
 		back_to_orig_rb(stack, cnt, &rules);
-	/** _______________
-	 **| EXPLANATION: |
-	 **---------------
-	 * then do recursive for the function, but now the size is taken
-	 * according to how many times we rotate the stack a.
-	 * that mean call the function with the the length of the rest of the 
-	 * numbers that left in the stack and those numbers are bigger than
-	 * the (pivot_big).
-	 **/
+
+
+	
 	a_to_b(rules.ra, stack, cnt);
 	b_to_a(rules.rb, stack, cnt);
 	b_to_a(rules.pb - rules.rb, stack, cnt);

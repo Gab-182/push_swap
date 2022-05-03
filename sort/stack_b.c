@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:09 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/03 20:53:20 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/03 23:20:57 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,15 +73,17 @@ void	back_to_ra(t_stack *stack, t_rules *rules)
 
 	rrr = rules -> rb;
 	rem = rules -> ra - rrr;
-	while (rrr--)
+	while (rrr)
 	{
 		reverse_rotate_a_b(stack);
 		printf("rrr\n");
+		rrr--;
 	}
-	while (rem--)
+	while (rem)
 	{
 		reverse_rotate_a(stack);
-		printf("rra\n");	
+		printf("rra\n");
+		rem--;
 	}
 }
 
@@ -93,15 +95,17 @@ void	back_to_rb(t_stack *stack, t_rules *rules)
 
 	rrr = rules -> ra;
 	rem = rules -> rb - rrr;
-	while (rrr--)
+	while (rrr)
 	{
 		reverse_rotate_a_b(stack);
 		printf("rrr\n");
+		rrr--;
 	}
-	while (rem--)
+	while (rem)
 	{
 		reverse_rotate_b(stack);
 		printf("rrb\n");
+		rem--;
 	}
 }
 
@@ -117,8 +121,11 @@ void	b_to_a(int size, t_stack *stack, int *cnt)
 	init_value(&rules);
 	select_pivot(size, stack -> base_b, &rules);
 	temp = size;
-	while (temp--)
+	while (temp)
+	{
 		push_rotate_b(stack, &rules);
+		temp--;
+	}
 	a_to_b(rules.pa - rules.ra, stack, cnt);
 	if (rules.ra > rules.rb)
 		back_to_ra(stack, &rules);
