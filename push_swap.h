@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:36 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/03 16:19:52 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/04 11:35:12 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ void		push_swap(char *arg, t_stack *stack_a);
 void		push_swap_multi(char **arg, t_stack *stack);
 
 /*✅---------------------------push_swap_utils.c------------------------------*/
-char		*ft_strcpy(char *dst, char *src);
+void		ft_stack_cpy(int *dst, int *src, int size);
 void		ft_putstr(char *s);
 void		ft_putchar(int c);
 void		swap(int *a, int *b);
 void		error(void);
+void		free_stack(int *stack, char flag);
 void		addLast(t_stack *stack, int num);
 int			is_sorted(t_stack *stack);
 

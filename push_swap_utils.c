@@ -3,16 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:22 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/03 16:19:23 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/04 13:56:10 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*----------------------------------------------------------------------------*/
+/**
+ * @brief swap two int number
+ * 
+ * @param a 
+ * @param b 
+ */
 void	swap(int *a, int *b)
 {
 	int	temp;
@@ -23,27 +29,48 @@ void	swap(int *a, int *b)
 }
 
 /*----------------------------------------------------------------------------*/
-char	*ft_strcpy(char *dst, char *src)
+/**
+ * @brief copy the full length of "size" the content from one stack to another 
+ * 
+ * @param dst 
+ * @param src 
+ * @param size 
+ * @return void* 
+ */
+void	ft_stack_cpy(int *dst, int *src, int size)
 {
-	int	n;
+	int	i;
 
-	n = 0;
-	while (src[n] != '\0')
+	i = 0;
+	if (!src)
+		return ;
+	if (size > 0)
 	{
-		dst[n] = src[n];
-		n++;
+		while (i < size)
+		{
+			dst[i] = src[i];
+			i++;
+		}
 	}
-	dst[n] = '\0';
-	return (dst);
 }
 
 /*----------------------------------------------------------------------------*/
+/**
+ * @brief print a character using write() function.
+ * 
+ * @param c 
+ */
 void	ft_putchar(int c)
 {
 	write (1, &c, 1);
 }
 
 /*----------------------------------------------------------------------------*/
+/**
+ * @brief printf string of characters using ft_putchar() function.
+ * 
+ * @param s 
+ */
 void	ft_putstr(char *s)
 {
 	int		i;
@@ -68,45 +95,26 @@ void	ft_putstr(char *s)
  */
 void	addLast(t_stack *stack, int num)
 {
-	int	i;
-
-	i = 0;
 	stack -> len_a = stack -> len_a + 1;
 	if (stack -> len_a >= 2)
 	{
-		// if (stack -> len_a >= 2)
-		// {
-		// 	free(stack->temp_a);
-		// 	stack->temp_a = NULL;
-		// }
-		stack->temp_a = (int *)malloc(sizeof(int) * (stack->len_a));
-		while (i < stack->len_a - 1)
-		{
-			stack->temp_a[i] = stack->base_a[i];
-			i++;
-		}
-		stack->temp_a[stack -> len_a - 1] = num;
-		if (stack -> len_a >= 2)
-		{
-			free(stack->base_a);
-			stack->base_a = NULL;
-		}
-		stack->base_a = (int *)malloc(sizeof(int) * stack->len_a);
-		i = 0;
-		while (i < stack->len_a)
-		{
-			stack->base_a[i] = stack->temp_a[i];
-			i++;
-		}
-		if (stack->temp_a)
-		{
-			free(stack->temp_a);
-			stack->temp_a = NULL;
-		}
+		stack -> temp_a = malloc(sizeof(int) * (stack -> len_a));
+		if (!stack -> temp_a)
+			free_stack(stack -> temp_a, 'e');
+		ft_stack_cpy(stack -> temp_a, stack -> base_a, stack -> len_a - 1);
+		stack -> temp_a[stack -> len_a - 1] = num;
+		free_stack(stack -> base_a, 'n');
+		stack -> base_a = malloc(sizeof(int) * (stack -> len_a));
+		if (!stack -> base_a)
+			free_stack(stack -> base_a, 'e');
+		ft_stack_cpy(stack -> base_a, stack -> temp_a, stack -> len_a);
+		free_stack(stack -> temp_a, 'n');
 	}
 	else
 	{
-		stack->base_a = (int *)malloc(sizeof(int));
+		stack -> base_a = malloc(sizeof(int));
+		if (!stack -> base_a)
+			free_stack(stack -> base_a, 'e');
 		stack -> base_a[0] = num;
 	}
 }
@@ -144,4 +152,29 @@ void	error(void)
 	write(STDERR_FILENO, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
+
+/*----------------------------------------------------------------------------*/
+/**
+ * @brief free integer array and exit the program according to the flag.
+ * 
+ * @param stack 
+ * @param flag 
+ */
+void	free_stack(int *stack, char flag)
+{
+		if (flag == 'e')
+		{
+			if (stack)
+				free(stack);
+			stack = NULL;
+			exit(EXIT_FAILURE);
+		}
+		else
+		{
+			if (stack)
+				free(stack);
+			stack = NULL;
+		}
+}
+
 /*============================================================================*/

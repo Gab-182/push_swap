@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:14:07 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/04 01:45:36 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/04 03:48:24 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,9 +170,6 @@ void		a_to_b(int size, t_stack *stack, int *cnt)
 		back_to_orig_ra(stack, cnt, &rules);
 	else
 		back_to_orig_rb(stack, cnt, &rules);
-
-
-	
 	a_to_b(rules.ra, stack, cnt);
 	b_to_a(rules.rb, stack, cnt);
 	b_to_a(rules.pb - rules.rb, stack, cnt);

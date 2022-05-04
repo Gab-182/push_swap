@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:29 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/03 22:17:23 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/04 13:52:13 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ void	sort(int size, t_stack *stack)
 			sort_5_a(5, stack);
 		else if (stack -> len_a > 5)
 			a_to_b(size, stack, &cnt);
+	}
+	else
+	{
+		free(stack -> base_a);
+		exit (0);
 	}
 }
 
@@ -53,9 +58,14 @@ void	push_swap(char *arg, t_stack *stack)
 		else
 			error();
 	}
-	stack->base_a = (int *)malloc(sizeof(int) * (i));
-	if (!stack->base_a)
+	if (i == 1 || i == 0)
+		exit(EXIT_SUCCESS);
+	stack->base_a = malloc(sizeof(int) * (i));
+	if (!stack -> base_a)
+	{
+		free(stack -> base_a);
 		exit(EXIT_FAILURE);
+	}
 	i = 0;
 	while (stack_char[i])
 	{
@@ -67,24 +77,23 @@ void	push_swap(char *arg, t_stack *stack)
 	/************************   SORTING  **************************************/
 
 	sort(stack -> len_a, stack);
-	printf("-----------------------\n");
-	printf("Rules number = %d\n", stack -> rules_number);
-	printf("\n============  a  ================= \n");
-	i = 0;
-	while(i < stack -> len_a)
-	{
-		printf("%d\n", stack -> base_a[i]);
-		i++;
-	}
 
-	printf("\n============  b  ================= \n");
-	i = 0;
-	while(i < stack -> len_b)
-	{
-		printf("%d ", stack -> base_b[i]);
-		i++;
-	}
-	printf("-----------------------\n");
+	// printf("\n============  a  ================= \n");
+	// i = 0;
+	// while(i < stack -> len_a)
+	// {
+	// 	printf("%d\n", stack -> base_a[i]);
+	// 	i++;
+	// }
+
+	// printf("\n============  b  ================= \n");
+	// i = 0;
+	// while(i < stack -> len_b)
+	// {
+	// 	printf("%d ", stack -> base_b[i]);
+	// 	i++;
+	// }
+	// printf("-----------------------\n");
 }
 
 /*----------------------------------------------------------------------------*/
@@ -138,8 +147,7 @@ void	push_swap_multi(char **argv, t_stack *stack)
 	/************************   SORTING  **************************************/
 
 	sort(stack -> len_a, stack);
-	printf("-----------------------\n");
-	printf("Rules number = %d\n", stack -> rules_number);
+
 	printf("\n============  a  ================= \n");
 	i = 0;
 	while(i < stack -> len_a)

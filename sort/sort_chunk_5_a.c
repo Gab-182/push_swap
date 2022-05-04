@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_chunk_5_a.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 15:53:28 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/03 21:01:20 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/04 13:52:59 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	get_middle_num_five_a(int size, t_stack *stack)
 	i = 0;
 	if (size == 5)
 	{
-		stack -> temp_a = (int *)malloc(sizeof(int) * size);
+		stack -> temp_a = malloc(sizeof(int) * size);
 		while (i <= size)
 		{
 			stack -> temp_a[i] = stack -> base_a[i];

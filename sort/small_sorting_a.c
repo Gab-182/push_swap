@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   small_sorting_a.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:11:23 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/03 21:15:56 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/04 04:18:51 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,14 @@ void	sort_4_a(int size, t_stack *stack)
 	{
 		swap_a(stack);
 		printf("sa\n");
-		push_b(stack);
-		printf("pb\n");
-		sort_chunk_3_a(3, stack);
-		push_a(stack);
-		printf("pa\n");
+		if (is_sorted(stack) == 1)
+		{
+			push_b(stack);
+			printf("pb\n");
+			sort_chunk_3_a(3, stack);
+			push_a(stack);
+			printf("pa\n");
+		}
 	}
 	else if (get_position(4, smallest_num, stack -> base_a) == 2)
 	{
@@ -64,21 +67,27 @@ void	sort_4_a(int size, t_stack *stack)
 		printf("ra\n");
 		swap_a(stack);
 		printf("sa\n");
-		push_b(stack);
-		printf("pb\n");
-		sort_chunk_3_a(3, stack);
-		push_a(stack);
-		printf("pa\n");
+		if (is_sorted(stack) == 1)
+		{
+			push_b(stack);
+			printf("pb\n");
+			sort_chunk_3_a(3, stack);
+			push_a(stack);
+			printf("pa\n");
+		}
 	}
 	else if (get_position(4, smallest_num, stack -> base_a) == 3)
 	{
 		reverse_rotate_a(stack);
 		printf("rra\n");
-		push_b(stack);
-		printf("pb\n");
-		sort_chunk_3_a(3, stack);
-		push_a(stack);
-		printf("pa\n");
+		if (is_sorted(stack))
+		{
+			push_b(stack);
+			printf("pb\n");
+			sort_chunk_3_a(3, stack);
+			push_a(stack);
+			printf("pa\n");
+		}
 	}
 }
 
@@ -108,11 +117,14 @@ void	sort_5_a(int size, t_stack *stack)
 	{
 		swap_a(stack);
 		printf("sa\n");
-		push_b(stack);
-		printf("pb\n");
-		sort_4_a(size, stack);
-		push_a(stack);
-		printf("pa\n");
+		if (is_sorted(stack) == 1)
+		{
+			push_b(stack);
+			printf("pb\n");
+			sort_4_a(size, stack);
+			push_a(stack);
+			printf("pa\n");
+		}
 	}
 	else if (get_position(5, smallest_num, stack -> base_a) == 2)
 	{
@@ -120,11 +132,14 @@ void	sort_5_a(int size, t_stack *stack)
 		printf("ra\n");
 		swap_a(stack);
 		printf("sa\n");
-		push_b(stack);
-		printf("pb\n");
-		sort_4_a(size, stack);
-		push_a(stack);
-		printf("pa\n");
+		if (is_sorted(stack) == 1)
+		{
+			push_b(stack);
+			printf("pb\n");
+			sort_4_a(size, stack);
+			push_a(stack);
+			printf("pa\n");
+		}
 	}
 	else if (get_position(5, smallest_num, stack -> base_a) == 3)
 	{
@@ -132,21 +147,27 @@ void	sort_5_a(int size, t_stack *stack)
 		printf("rra\n");
 		reverse_rotate_a(stack);
 		printf("rra\n");
-		push_b(stack);
-		printf("pb\n");
-		sort_4_a(size, stack);
-		push_a(stack);
-		printf("pa\n");
+		if (is_sorted(stack) == 1)
+		{
+			push_b(stack);
+			printf("pb\n");
+			sort_4_a(size, stack);
+			push_a(stack);
+			printf("pa\n");
+		}
 	}
 	else if (get_position(5, smallest_num, stack -> base_a) == 4)
 	{
 		reverse_rotate_a(stack);
 		printf("rra\n");
-		push_b(stack);
-		printf("pb\n");
-		sort_4_a(size, stack);
-		push_a(stack);
-		printf("pa\n");
+		if (is_sorted(stack) == 1)
+		{
+			push_b(stack);
+			printf("pb\n");
+			sort_4_a(size, stack);
+			push_a(stack);
+			printf("pa\n");
+		}
 	}
 }
 /*----------------------------------------------------------------------------*/

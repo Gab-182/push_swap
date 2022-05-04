@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_rule.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:57:54 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/03 20:48:37 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/04 13:53:32 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	push_b(t_stack *stack)
 
 	if (stack->base_a && stack->len_a)
 	{
-		stack->temp_b = (int *)malloc(sizeof(int) * (stack->len_b + 1));
+		stack->temp_b = malloc(sizeof(int) * (stack->len_b + 1));
 		stack->len_b = stack->len_b + 1;
 		i = 0;
 		while (i < stack->len_b - 1 && stack->len_b > 1)
@@ -30,7 +30,7 @@ void	push_b(t_stack *stack)
 		stack->temp_b[0] = stack->base_a[0];
 		if (stack->len_b > 0)
 			free(stack->base_b);
-		stack->base_b = (int *)malloc(sizeof(int) * stack->len_b);
+		stack->base_b = malloc(sizeof(int) * stack->len_b);
 		i = 0;
 		while (i < stack->len_b)
 		{
@@ -49,7 +49,7 @@ void	push_a(t_stack *stack)
 
 	if (stack->base_b && stack->len_b)
 	{
-		stack->temp_a = (int *)malloc(sizeof(int) * (stack->len_a + 1));
+		stack->temp_a = malloc(sizeof(int) * (stack->len_a + 1));
 		stack->len_a = stack->len_a + 1;
 		i = 0;
 		while (i < stack->len_a - 1 && stack->len_a > 1)
@@ -60,7 +60,7 @@ void	push_a(t_stack *stack)
 		stack->temp_a[0] = stack->base_b[0];
 		if (stack->len_a > 0)
 			free(stack->base_a);
-		stack->base_a = (int *)malloc(sizeof(int) * stack->len_a);
+		stack->base_a = malloc(sizeof(int) * stack->len_a);
 		i = 0;
 		while (i < stack->len_a)
 		{

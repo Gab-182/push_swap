@@ -3,7 +3,7 @@
     		{
 			"label": "Build",
 			"type": "shell",
-			"command": ["make clean &&", " make all && make bonus"],
+			"command": ["make clean &&", " make"],
 			//"command": ["make fclean"],
 			"group":"build",
 		 }
