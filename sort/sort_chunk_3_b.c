@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:12:02 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 09:21:29 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:20:20 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	arg_three_top_min_b(t_stack *stack, int max)
 	if (stack -> len_b == 3)
 	{
 		rotate_b(stack);
+		write(1, "rb\n", 3);
 		if (stack -> base_b[1] == max)
 			swap_b(stack);
 	}
@@ -34,8 +35,10 @@ void	arg_three_top_min_b(t_stack *stack, int max)
 	{
 		swap_b(stack);
 		rotate_b(stack);
+		write(1, "rb\n", 3);
 		swap_b(stack);
 		reverse_rotate_b(stack);
+		write(1, "rrb\n", 4);
 		if (stack -> base_b[1] == max)
 			swap_b(stack);
 	}
@@ -47,14 +50,17 @@ void	arg_three_middle_min_b(t_stack *stack, int max)
 	if (stack -> len_b == 3)
 	{
 		reverse_rotate_b(stack);
+		write(1, "rrb\n", 4);
 		if (stack -> base_b[1] == max)
 			swap_b(stack);
 	}
 	else
 	{
 		rotate_b(stack);
+		write(1, "rb\n", 3);
 		swap_b(stack);
 		reverse_rotate_b(stack);
+		write(1, "rrb\n", 4);
 		if (stack -> base_b[1] == max)
 			swap_b(stack);
 	}

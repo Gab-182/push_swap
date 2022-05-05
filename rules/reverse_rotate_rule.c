@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:56:06 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 09:35:11 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 14:53:11 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	reverse_rotate_a_b(t_stack *stack)
 {
 	reverse_rotate_a(stack);
 	reverse_rotate_b(stack);
+	printf("rrr\n");
 }
 
 /*============================================================================*/

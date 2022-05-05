@@ -1,17 +1,14 @@
 {
-	// Use IntelliSense to learn about possible attributes.
-	// Hover to view descriptions of existing attributes.
-	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "push_swap",
+			"name": "gcc - Build and debug active file",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "/gab-182/Desktop/push_swap/push_swap",
-			"args": ["6 4 5 2 1 3 8 7 9"],
+			"program": "/Users/gabdoush/Desktop/push_swap/push_swap",
+			"args": ["1 2 3 5 4 9 8 7 10 11 12 14 13 15 20 16 17 18 19"],
 			"stopAtEntry": false,
-			"cwd": "/gab-182/Desktop/push_swap/push_swap",
+			"cwd": "/Users/gabdoush/Desktop/push_swap",
 			"logging": {
 				"moduleLoad": true,
 				"trace": false ,

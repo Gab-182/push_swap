@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:57:54 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 12:02:03 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:18:57 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	push_b(t_stack *stack)
 {
 	int	i;
 
+	write(1, "pb\n", 3);
+	// printf("pb\n");
 	if (stack -> base_a && stack -> len_a)
 	{
 		stack -> temp_b = ft_calloc(sizeof(int), (stack->len_b + 1));
@@ -45,6 +47,8 @@ void	push_a(t_stack *stack)
 {
 	int	i;
 
+	write(1, "pa\n", 3);
+	// printf("pa\n");
 	if (stack->base_b && stack->len_b)
 	{
 		stack -> temp_a = ft_calloc(sizeof(int), (stack->len_a + 1));

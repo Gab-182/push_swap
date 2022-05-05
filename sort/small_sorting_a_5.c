@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 10:09:37 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 10:24:31 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:20:31 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	smallest_num_scond_spot_5(t_stack *stack)
 void	smallest_num_third_spot_5(t_stack *stack)
 {
 	rotate_a(stack);
+	write(1, "ra\n", 3);
 	swap_a(stack);
 	if (is_sorted(stack) == 1)
 	{
@@ -42,6 +43,7 @@ void	smallest_num_fourth_spot_5(t_stack *stack)
 {
 	reverse_rotate_a(stack);
 	reverse_rotate_a(stack);
+	printf("rra\nrra\n");
 	if (is_sorted(stack) == 1)
 	{
 		push_b(stack);
@@ -54,6 +56,7 @@ void	smallest_num_fourth_spot_5(t_stack *stack)
 void	smallest_num_fifth_spot_5(t_stack *stack)
 {
 	reverse_rotate_a(stack);
+	write(1, "rra\n", 4);
 	if (is_sorted(stack) == 1)
 	{
 		push_b(stack);

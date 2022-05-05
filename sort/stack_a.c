@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:14:07 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 09:23:06 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:51:11 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	small_chunks_a(int size, t_stack *stack)
 		sort_2_a(stack);
 		return (0);
 	}
-	if (size == 3)
+	else if (size == 3)
 	{
 		sort_chunk_3_a(3, stack);
 		return (0);
@@ -64,6 +64,7 @@ void	compare_to_pivot(t_stack *stack, t_rules *rules)
 	if (stack -> base_a[0] > rules-> piv_big)
 	{
 		rotate_a(stack);
+		write(1, "ra\n", 3);
 		rules -> ra++;
 	}
 	else
@@ -73,6 +74,7 @@ void	compare_to_pivot(t_stack *stack, t_rules *rules)
 		if (stack -> base_b[0] > rules -> piv_small)
 		{
 			rotate_b(stack);
+			write(1, "rb\n", 3);
 			rules -> rb++;
 		}
 	}
@@ -91,12 +93,18 @@ void	back_to_orig_ra(t_stack *stack, int *cnt, t_rules *rules)
 		while (rb--)
 			reverse_rotate_a_b(stack);
 		while (rem--)
+		{
 			reverse_rotate_a(stack);
+			write(1, "rra\n", 4);
+		}
 	}
 	else
 	{
 		while (rb--)
+		{
 			reverse_rotate_b(stack);
+			write(1, "rrb\n", 4);
+		}
 	}
 }
 
@@ -113,13 +121,19 @@ void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
 		while (rrr--)
 			reverse_rotate_a_b(stack);
 		while (rem--)
+		{
 			reverse_rotate_b(stack);
+			write(1, "rrb\n", 4);
+		}
 	}
 	else
 	{
 		rrr = rules -> rb;
 		while (rrr--)
+		{
 			reverse_rotate_b(stack);
+			write(1, "rrb\n", 4);
+		}
 	}
 }
 
@@ -134,11 +148,8 @@ void	a_to_b(int size, t_stack *stack, int *cnt)
 	init_value(&rules);
 	select_pivot(size, stack -> base_a, &rules);
 	temp = size;
-	while (temp)
-	{
+	while (temp--)
 		compare_to_pivot(stack, &rules);
-		temp--;
-	}
 	if (rules.ra > rules.rb)
 		back_to_orig_ra(stack, cnt, &rules);
 	else

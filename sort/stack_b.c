@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:09 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 09:36:35 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:56:22 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	push_rotate_b(t_stack *stack, t_rules *rules)
 	if (stack -> base_b[0] <= rules -> piv_small)
 	{
 		rotate_b(stack);
+		write(1, "rb\n", 3);
 		rules -> rb++;
 	}
 	else
@@ -56,6 +57,7 @@ void	push_rotate_b(t_stack *stack, t_rules *rules)
 		if (stack -> base_a[0] <= rules -> piv_big)
 		{
 			rotate_a(stack);
+			write(1, "ra\n", 3);
 			rules -> ra++;
 		}
 	}
@@ -72,7 +74,10 @@ void	back_to_ra(t_stack *stack, t_rules *rules)
 	while (rrr--)
 		reverse_rotate_a_b(stack);
 	while (rem--)
+	{
 		reverse_rotate_a(stack);
+		write(1, "rra\n", 4);
+	}
 }
 
 /*----------------------------------------------------------------------------*/
@@ -86,7 +91,10 @@ void	back_to_rb(t_stack *stack, t_rules *rules)
 	while (rrr--)
 		reverse_rotate_a_b(stack);
 	while (rem--)
+	{
 		reverse_rotate_b(stack);
+		write(1, "rrb\n", 4);
+	}
 }
 
 /*----------------------------------------------------------------------------*/
