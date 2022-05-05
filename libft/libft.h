@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:05:29 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/04 10:37:26 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 10:58:50 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ typedef struct s_list
 
 long long int	ft_atoi(char *str);
 int				ft_isalnum(int n);
+void			swap(int *a, int *b);
+void			ft_putchar(int c);
+void			ft_putstr(char *s);
+int				is_number(char *str);
 int				ft_isalpha(int n);
 int				ft_isascii(int n);
 int				ft_isdigit(int n);

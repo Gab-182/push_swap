@@ -1,61 +1,46 @@
-# A tester for Push_swap@42 - To see what's going on
-This tester shows the performance of your push_swap program. 
+# push_swap_tester
+Script to test Push Swap project
 
-This tester *DOES NOT* check that your checker works correctly.
+<img src="screenshot.png" width="75%">
 
-* [What's push_swap tester?](#whats-push_swap_tester)
-* [How do I run this tester?](#how-do-I-run-this-tester)
-* [Contribution](#contribution)
-
-
-## What's push_swap_tester?
-
-Push_swap_tester is a little tester that shows you how your push_swap performs.
-It displays the number of instructions performed by your push_swap in color, here is what the colors mean:
-```diff
-# white means amazing!
-@@ blue means good @@
-+ green means ok
-! orange means really bad
-- red means eliminatory
-```
-
-![Screenshot](screenshot.png)
-
-
-## How do I run this tester?
+### Usage
 
 ```bash
-git clone https://github.com/lmalki-h/push_swap_tester
-bash push_swap_tester/tester.sh [path-to-push-swap-dir] [stack-size 0R range] [nb_of_tests]
+git clone git@github.com:laisarena/push_swap_tester.git
+cd push_swap_tester
+cp ../path_to_push_swap_folder/push_swap .
+bash tester.sh
 ```
-### for example:
-the following command will perform 100 testss with a stack of 100 integers
+
+You can change the variable 'NUM_TESTS' which determines how many times the program will be run to calculate the averages of operations, using the flag -n <NUMBER>
+
+You can also choose to test only a specific part of the program using the flag -f, as follows:
+* -f error : Error management
+* -f sorted: Check if sorted lists do nothing
+* -f simple: Lists of size 3 and 5
+* -f middle: Lists of size 100
+* -f advanced: Lists of size 500
+
+### Test Log
+You can see the test log into the folder "log_error"
 ```bash
-bash push_swap_tester/tester.sh ../push_swap 100 100
+$ cd log_error
 ```
-   
-the following command will perform 100 tests with a stack of 100 integers, then 100 tests with a stack of 101 integers and then 100 tests with a stack of 102 integers
+And choose the number of numbers tested into the folders "five", "hundred" and "five_hundred"<br>
+Then, you can use the command cat to see the content log
 ```bash
-bash push_swap_tester/tester.sh ../push_swap 100-102 100
+$ ls
+five hundred five_hundred
+$ cd five
+$ ls
+test_0 test_5
+$ cat test_0
+Random list of Five numbers
+2 0 1 3 4
+sa
+pb
+pa
+sa
+Qtt commands = 4
+Test Checker = KO
 ```
-
-## Commands
-
-```
-USAGE
-./push_swap_tester.sh [directory-to-push_swap] [stacksize 0R range] [nb_of_test] {options}
-
-OPTIONS
-  --show-arg    Display arguments after the number of instructions.
-  --quiet       Don't display arguments if the tester catch an error.
-  --retry       Retry with same arguments during the last run or the specified run with --retry=[NUM].
-  --score       Show the score of the current entries, useful to compare output of two differents push_swap algo.
-  --bench       Use with --score, save the score in push_swap_benchmark.log, if is a new record or a new entries.
-                Use --rewrite-bench to erase saved score by the current score.
-  --show-index  Display sorted index of each arguments, the index is the offset position when the list is sorted.
-  --help/-h     Show this message.
-```
-
-## Contribution
-If you noticed something wrong with the code or if you'd like to see a new feature, you can submit an issue. If you'd like to contribute please submit a pull request :) 

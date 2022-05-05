@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:14:07 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/04 03:48:24 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 09:23:06 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,15 @@ void	compare_to_pivot(t_stack *stack, t_rules *rules)
 	if (stack -> base_a[0] > rules-> piv_big)
 	{
 		rotate_a(stack);
-		printf("ra\n");
 		rules -> ra++;
 	}
 	else
 	{
 		push_b(stack);
-		printf("pb\n");
 		rules -> pb++;
 		if (stack -> base_b[0] > rules -> piv_small)
 		{
 			rotate_b(stack);
-			printf("rb\n");
 			rules -> rb++;
 		}
 	}
@@ -91,27 +88,15 @@ void	back_to_orig_ra(t_stack *stack, int *cnt, t_rules *rules)
 	rem = rules -> ra - rb;
 	if ((*cnt) > 0)
 	{
-		while (rb)
-		{
+		while (rb--)
 			reverse_rotate_a_b(stack);
-			printf("rrr\n");
-			rb--;
-		}
-		while (rem)
-		{
+		while (rem--)
 			reverse_rotate_a(stack);
-			printf("rra\n");
-			rem--;
-		}
 	}
 	else
 	{
-		while (rb)
-		{
+		while (rb--)
 			reverse_rotate_b(stack);
-			printf("rrb\n");
-			rb--;
-		}
 	}
 }
 
@@ -125,35 +110,23 @@ void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
 	rem = rules -> rb - rrr;
 	if ((*cnt) > 0)
 	{
-		while (rrr)
-		{
+		while (rrr--)
 			reverse_rotate_a_b(stack);
-			printf("rrr\n");
-			rrr--;
-		}
-		while (rem)
-		{
+		while (rem--)
 			reverse_rotate_b(stack);
-			printf("rrb\n");
-			rem--;
-		}
 	}
 	else
 	{
 		rrr = rules -> rb;
-		while (rrr)
-		{
+		while (rrr--)
 			reverse_rotate_b(stack);
-			printf("rrb\n");
-			rrr--;
-		}
 	}
 }
 
 /*----------------------------------------------------------------------------*/
-void		a_to_b(int size, t_stack *stack, int *cnt)
+void	a_to_b(int size, t_stack *stack, int *cnt)
 {
-	int	temp;
+	int		temp;
 	t_rules	rules;
 
 	if (!small_chunks_a(size, stack))

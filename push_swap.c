@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:29 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/04 13:52:13 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 13:19:40 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/**
+ ** @brief the main part of the sort algorithem, it handle all of the sizes
+ ** @param size 
+ ** @param stack 
+ **/
 void	sort(int size, t_stack *stack)
 {
 	int	cnt;
@@ -38,17 +42,17 @@ void	sort(int size, t_stack *stack)
 }
 
 /*✅-------------------------------------------------------------------------*/
-void	push_swap(char *arg, t_stack *stack)
+/**
+ ** @brief helper function to calculate the length of a 2d string to use it in
+ ** ft_calloc in push_swap().
+ ** @param stack_char 
+ ** @return int 
+ **/
+int	ft_get_length(char **stack_char)
 {
-	char	**stack_char;
-	int		i;
+	int	i;
 
 	i = 0;
-	if (!arg)
-		exit(EXIT_FAILURE);
-	check_empty(arg);
-	stack_char = ft_split(arg, ' ');
-	check_digit(stack_char);
 	while (stack_char[i] != NULL)
 	{
 		if ((*stack_char[i] >= '0' && *stack_char[i] <= '9') || \
@@ -60,12 +64,30 @@ void	push_swap(char *arg, t_stack *stack)
 	}
 	if (i == 1 || i == 0)
 		exit(EXIT_SUCCESS);
-	stack->base_a = malloc(sizeof(int) * (i));
-	if (!stack -> base_a)
-	{
-		free(stack -> base_a);
+	return (i);
+}
+
+/*✅-------------------------------------------------------------------------*/
+/**
+ ** @brief handle the parsing and sorting for single argument.
+ ** @param arg 
+ ** @param stack 
+ **/
+void	push_swap(char *arg, t_stack *stack)
+{
+	char	**stack_char;
+	int		i;
+
+	i = 0;
+	if (!arg)
 		exit(EXIT_FAILURE);
-	}
+	check_empty(arg);
+	stack_char = ft_split(arg, ' ');
+	check_digit(stack_char);
+	i = ft_get_length(stack_char);
+	stack->base_a = ft_calloc(sizeof(int), (i));
+	if (!stack -> base_a)
+		free_stack(stack -> base_a, 'e');
 	i = 0;
 	while (stack_char[i])
 	{
@@ -74,29 +96,15 @@ void	push_swap(char *arg, t_stack *stack)
 	}
 	stack->len_a = i;
 	checking_duplicated(stack);
-	/************************   SORTING  **************************************/
-
 	sort(stack -> len_a, stack);
-
-	// printf("\n============  a  ================= \n");
-	// i = 0;
-	// while(i < stack -> len_a)
-	// {
-	// 	printf("%d\n", stack -> base_a[i]);
-	// 	i++;
-	// }
-
-	// printf("\n============  b  ================= \n");
-	// i = 0;
-	// while(i < stack -> len_b)
-	// {
-	// 	printf("%d ", stack -> base_b[i]);
-	// 	i++;
-	// }
-	// printf("-----------------------\n");
 }
 
 /*----------------------------------------------------------------------------*/
+/**
+ ** @brief handle parsing and sorting for multiple arguments
+ ** @param argv 
+ ** @param stack 
+ **/
 void	push_swap_multi(char **argv, t_stack *stack)
 {
 	int			i;
@@ -120,7 +128,7 @@ void	push_swap_multi(char **argv, t_stack *stack)
 				while (split[s])
 				{
 					num = ft_atoi(split[s]);
-					addLast(stack, num);
+					add_last(stack, num);
 					s++;
 				}
 				free(split);
@@ -139,31 +147,27 @@ void	push_swap_multi(char **argv, t_stack *stack)
 			if (ft_atoi(argv[i]) > 2147483647 || ft_atoi(argv[i]) < -2147483648)
 				error();
 			num = ft_atoi(argv[i]);
-			addLast(stack, num);
+			add_last(stack, num);
 			i++;
 		}
 	}
 	checking_duplicated(stack);
-	/************************   SORTING  **************************************/
-
 	sort(stack -> len_a, stack);
-
+/************************   PRINTING  **************************************/
 	printf("\n============  a  ================= \n");
 	i = 0;
-	while(i < stack -> len_a)
+	while (i < stack -> len_a)
 	{
 		printf("%d\n", stack -> base_a[i]);
 		i++;
 	}
-
 	printf("\n============  b  ================= \n");
 	i = 0;
-	while(i < stack -> len_b)
+	while (i < stack -> len_b)
 	{
 		printf("%d ", stack -> base_b[i]);
 		i++;
 	}
-	printf("-----------------------\n");
 }
 
 /*============================================================================*/

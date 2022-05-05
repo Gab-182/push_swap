@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:22 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/04 13:56:10 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 10:49:59 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*----------------------------------------------------------------------------*/
-/**
- * @brief swap two int number
- * 
- * @param a 
- * @param b 
- */
-void	swap(int *a, int *b)
-{
-	int	temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
 
 /*----------------------------------------------------------------------------*/
 /**
@@ -56,44 +40,13 @@ void	ft_stack_cpy(int *dst, int *src, int size)
 
 /*----------------------------------------------------------------------------*/
 /**
- * @brief print a character using write() function.
- * 
- * @param c 
- */
-void	ft_putchar(int c)
-{
-	write (1, &c, 1);
-}
-
-/*----------------------------------------------------------------------------*/
-/**
- * @brief printf string of characters using ft_putchar() function.
- * 
- * @param s 
- */
-void	ft_putstr(char *s)
-{
-	int		i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i] != '\0')
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-}
-
-/*----------------------------------------------------------------------------*/
-/**
  * @brief Adding numbers to the end of the array of integer, the number
  * should be specified in the arguments.
  * 
  * @param stack 
  * @param num 
  */
-void	addLast(t_stack *stack, int num)
+void	add_last(t_stack *stack, int num)
 {
 	stack -> len_a = stack -> len_a + 1;
 	if (stack -> len_a >= 2)
@@ -141,40 +94,6 @@ int	is_sorted(t_stack *stack)
 		j++;
 	}
 	return (0);
-}
-
-/*----------------------------------------------------------------------------*/
-/**
- * @brief  Display "Error" message on the standard error
- */
-void	error(void)
-{
-	write(STDERR_FILENO, "Error\n", 6);
-	exit(EXIT_FAILURE);
-}
-
-/*----------------------------------------------------------------------------*/
-/**
- * @brief free integer array and exit the program according to the flag.
- * 
- * @param stack 
- * @param flag 
- */
-void	free_stack(int *stack, char flag)
-{
-		if (flag == 'e')
-		{
-			if (stack)
-				free(stack);
-			stack = NULL;
-			exit(EXIT_FAILURE);
-		}
-		else
-		{
-			if (stack)
-				free(stack);
-			stack = NULL;
-		}
 }
 
 /*============================================================================*/

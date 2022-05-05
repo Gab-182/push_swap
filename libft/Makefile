@@ -3,16 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+         #
+#    By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 11:05:39 by gabdoush          #+#    #+#              #
-#    Updated: 2022/02/21 03:29:38 by gabdoush         ###   ########.fr        #
+#    Updated: 2022/05/05 10:59:09 by gabdoush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 FILES =  ft_atoi\
+	 ft_putstr\
+	 ft_swap\
+	 is_number\
 	 ft_isalnum\
 	 ft_isalpha\
 	 ft_isascii\

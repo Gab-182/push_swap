@@ -6,12 +6,11 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:13:05 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/03 21:00:04 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 09:24:56 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 /*============================================================================*/
 void	bubble_sort_5(int *chunk)
@@ -21,7 +20,7 @@ void	bubble_sort_5(int *chunk)
 	int	temp;
 
 	i = 0;
-	while (i < 5) 
+	while (i < 5)
 	{
 		j = 0;
 		while (j < 5 - i - 1)
@@ -61,35 +60,28 @@ int	get_middle_num_five_b(t_stack *stack)
 /*----------------------------------------------------------------------------*/
 void	sort_chunk_5_b(int size, t_stack *stack)
 {
-	int	middle_num;
 	int	push;
 	int	rotate;
 
 	push = 0;
 	rotate = 0;
-	middle_num = get_middle_num_five_b(stack);
 	while (size--)
 	{
-		if (stack -> base_b[0] >= middle_num)
+		if (stack -> base_b[0] >= get_middle_num_five_b(stack))
 		{
 			push_a(stack);
-			printf("pa\n");
 			push++;
 		}
 		else
 		{
 			rotate_b(stack);
-			printf("rb\n");
 			rotate++;
 		}
 		if (push == 3)
 			break ;
 	}
 	while (rotate--)
-	{
 		reverse_rotate_b(stack);
-		printf("rrb\n");
-	}
 	sort_chunk_3_a(3, stack);
 	sort_2_b(stack);
 }

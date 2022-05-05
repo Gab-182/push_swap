@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 10:54:53 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/04/20 16:56:15 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 11:51:12 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ char	*ft_strdup(char *s1)
 		n++;
 	}
 	s2[n] = '\0';
-	//free(s1);
 	return (s2);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+         #
+#    By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 16:15:35 by gabdoush          #+#    #+#              #
-#    Updated: 2022/05/04 12:49:11 by gabdoush         ###   ########.fr        #
+#    Updated: 2022/05/05 11:59:26 by gabdoush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@
 NAME = push_swap
 
 FILES = push_swap.c\
+		errors.c\
 		parser.c\
 		push_swap_utils.c\
 		rules/swap_rule.c\
@@ -30,7 +31,8 @@ FILES = push_swap.c\
 		sort/stack_a.c\
 		sort/sort_chunk_3_a.c\
 		sort/sort_chunk_5_a.c\
-		sort/small_sorting_a.c\
+		sort/small_sorting_a_4.c\
+		sort/small_sorting_a_5.c\
 		sort/sort_utils.c\
 		main.c
 

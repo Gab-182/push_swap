@@ -1,0 +1,12 @@
+.vscode/
+NOTES/
+    *
+push_swap_tester/
+    *
+tester/
+checker
+python_visualizer.py
+*.o
+push_swap.dSYM
+libft/
+    *.o

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_chunk_5_a.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 15:53:28 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/04 13:52:59 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 09:24:00 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,39 +63,32 @@ int	get_middle_num_five_a(int size, t_stack *stack)
 /*----------------------------------------------------------------------------*/
 void	sort_five_a(int size, t_stack *stack)
 {
-	int	mid;
 	int	push;
 	int	rotate;
 
 	push = 0;
 	rotate = 0;
-	mid = get_middle_num_five_a(size, stack);
 	while (size--)
 	{
-		if (stack -> base_a[0] < mid)
+		if (stack -> base_a[0] < get_middle_num_five_a(size, stack))
 		{
 			push_b(stack);
-			printf("pb\n");
 			push++;
 		}
 		else
 		{
 			rotate_a(stack);
-			printf("ra\n");
 			rotate++;
 		}
 		if (push == 2)
 			break ;
 	}
 	while (rotate--)
-	{
 		reverse_rotate_a(stack);
-		printf("rra\n");
-	}
 }
 
 /*----------------------------------------------------------------------------*/
-void		sort_chunk_5_a(int size, t_stack *stack)
+void	sort_chunk_5_a(int size, t_stack *stack)
 {
 	sort_five_a(size, stack);
 	sort_chunk_3_a(3, stack);

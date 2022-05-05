@@ -6,34 +6,12 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:43 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/03 16:19:04 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 10:57:45 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/**
- * @brief Check if the given argument is a valid number.
- * 
- * @param str
- * @return int
- */
-
-int	isNumber(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (ft_isdigit(str[i]) == 0 || str[i] == '-' || str[i] == '+')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-/*----------------------------------------------------------------------------*/
 /**
  * @brief Check the validation of the given argument.
  * positive number or nigative number
@@ -58,13 +36,10 @@ void	check_digit(char **str)
 			else
 				error();
 		}
-		else if (isNumber(str[i]) != 1)
+		else if (is_number(str[i]) != 1)
 			error();
 		else if (ft_isdigit(*str[i]) != 1)
-		{
-			free(str);
-			error();
-		}
+			error_with_free(str);
 		else
 			i++;
 	}
@@ -89,10 +64,7 @@ void	checking_duplicated(t_stack *stack)
 		while (j < stack->len_a)
 		{
 			if (stack->base_a[i] == stack->base_a[j] && stack->base_a[j] != ' ')
-			{
-				free(stack->base_a);
-				error();
-			}
+				free_stack(stack->base_a, '1');
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:13:28 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/03 16:14:01 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 02:51:01 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int	get_largest(int size, int *chunk)
 
 	i = 1;
 	max = chunk[0];
-
 	while (i < size)
 	{
 		if (max < chunk[i])
@@ -73,7 +72,6 @@ int	get_position(int size, int num, int *chunk)
 	int	i;
 
 	i = 0;
-
 	while (i <= size)
 	{
 		if (num == chunk[i])

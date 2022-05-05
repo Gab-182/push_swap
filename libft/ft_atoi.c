@@ -3,14 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 10:45:16 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/04/02 17:08:02 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/05 11:48:53 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	check_letter_with_num(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if ((str[i] >= 'a' && str[i] <= 'z') || \
+		(str[i] >= 'A' && str[i] <= 'Z'))
+		{
+			free(str);
+			error();
+		}
+		i++;
+	}
+}
 
 long long int	ft_atoi(char *str)
 {
@@ -21,15 +38,7 @@ long long int	ft_atoi(char *str)
 	i = 0;
 	num = 0;
 	sign = 1;
-	while (str[i])
-	{
-		if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
-		{
-			free(str);
-			error();
-		}
-		i++;
-	}
+	check_letter_with_num(str);
 	i = 0;
 	while (str[i] == '\t' || str[i] == '\v' || str[i] == '\n'
 		|| str[i] == '\r' || str[i] == '\f' || str[i] == ' ')
