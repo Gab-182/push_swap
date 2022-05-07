@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   small_sorting_4_b.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 16:15:26 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/07 17:59:20 by gabdoush         ###   ########.fr       */
+/*   Created: 2022/05/07 14:05:21 by gabdoush          #+#    #+#             */
+/*   Updated: 2022/05/07 14:28:47 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char **argv)
+/*============================================================================*/
+void	sort_chunk_4_b(t_stack *stack)
 {
-	t_stack	stack;
-
-	stack.base_a = NULL;
-	stack.base_b = NULL;
-	stack.len_a = 0;
-	stack.len_b = 0;
-	if (argc == 2)
-		push_swap(argv[1], &stack);
-	else if (argc > 2)
-	{
-		argv++;
-		push_swap_multi(argv, &stack);
-	}
-	free_stack(stack.base_a, 'n');
-	free_stack(stack.base_b, 'n');
-	return (EXIT_SUCCESS);
+	push_a(stack);
+	push_a(stack);
+	push_a(stack);
+	push_a(stack);
+	printf("pa\npa\npa\npa\n");
+	sort_4_a(4, stack);
 }
 
 /*============================================================================*/

@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:14:07 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 16:51:11 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/07 21:01:28 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ int	small_chunks_a(int size, t_stack *stack)
 		sort_chunk_3_a(3, stack);
 		return (0);
 	}
-	else if (size == 4)
-	{
-		sort_4_a(4, stack);
-		return (0);
-	}
 	else if (size == 5)
 	{
 		sort_chunk_5_a(5, stack);
@@ -42,17 +37,6 @@ int	small_chunks_a(int size, t_stack *stack)
 }
 
 /*----------------------------------------------------------------------------*/
-/** _______________
- **| EXPLANATION: |
- **---------------
- * so the logic here is to check if the first number in the stack is bigger or
- * smaller than the (big pivot):
- * --> if it is bigger --> rotate the stack_a.
- * --> if it is smaller --> push the number to the stack b.
- * then comapare the pushed number with the small pivot:
- * --> if it is bigger --> rotate stack_b
- **/
-
 /**
  * @brief if the first numbers in the stack _a bigger than the (big pivot) 
  * push it to the stack_b, else rotate the stack_a.
@@ -64,17 +48,18 @@ void	compare_to_pivot(t_stack *stack, t_rules *rules)
 	if (stack -> base_a[0] > rules-> piv_big)
 	{
 		rotate_a(stack);
-		write(1, "ra\n", 3);
+		printf("ra\n");
 		rules -> ra++;
 	}
 	else
 	{
 		push_b(stack);
+		printf("pb\n");
 		rules -> pb++;
 		if (stack -> base_b[0] > rules -> piv_small)
 		{
 			rotate_b(stack);
-			write(1, "rb\n", 3);
+			printf("rb\n");
 			rules -> rb++;
 		}
 	}
@@ -91,11 +76,14 @@ void	back_to_orig_ra(t_stack *stack, int *cnt, t_rules *rules)
 	if ((*cnt) > 0)
 	{
 		while (rb--)
+		{
 			reverse_rotate_a_b(stack);
+			printf("rrr\n");
+		}
 		while (rem--)
 		{
 			reverse_rotate_a(stack);
-			write(1, "rra\n", 4);
+			printf("rra\n");
 		}
 	}
 	else
@@ -103,7 +91,7 @@ void	back_to_orig_ra(t_stack *stack, int *cnt, t_rules *rules)
 		while (rb--)
 		{
 			reverse_rotate_b(stack);
-			write(1, "rrb\n", 4);
+			printf("rrb\n");
 		}
 	}
 }
@@ -119,11 +107,14 @@ void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
 	if ((*cnt) > 0)
 	{
 		while (rrr--)
+		{
 			reverse_rotate_a_b(stack);
+			printf("rrr\n");
+		}
 		while (rem--)
 		{
 			reverse_rotate_b(stack);
-			write(1, "rrb\n", 4);
+			printf("rrb\n");
 		}
 	}
 	else
@@ -132,7 +123,7 @@ void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
 		while (rrr--)
 		{
 			reverse_rotate_b(stack);
-			write(1, "rrb\n", 4);
+			printf("rrb\n");
 		}
 	}
 }

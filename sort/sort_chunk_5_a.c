@@ -6,24 +6,24 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 15:53:28 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 15:20:31 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/07 18:35:50 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /*============================================================================*/
-void	bubble_sort_a(int *chunk, int size)
+void	bubble_sort_a(int *chunk)
 {
 	int	i;
 	int	j;
 	int	temp;
 
 	i = 0;
-	while (i < size)
+	while (i < 5)
 	{
 		j = 0;
-		while (j < size - i - 1)
+		while (j < 5 - i - 1)
 		{
 			if (chunk[j] > chunk[j + 1])
 			{
@@ -38,28 +38,23 @@ void	bubble_sort_a(int *chunk, int size)
 }
 
 /*----------------------------------------------------------------------------*/
-int	get_middle_num_five_a(int size, t_stack *stack)
+int	get_middle_num_five_a(t_stack *stack)
 {
-	int	middle_num;
 	int	i;
 
 	i = 0;
-	if (size == 5)
+	stack -> temp_a = ft_calloc(sizeof(int), 5);
+	if (!stack -> temp_a)
+		free_stack(stack -> temp_a, 'e');
+	while (i < 5)
 	{
-		stack -> temp_a = ft_calloc(sizeof(int), size);
-		if (!stack -> temp_a)
-			free_stack(stack -> temp_a, 'e');
-		while (i <= size)
-		{
-			stack -> temp_a[i] = stack -> base_a[i];
-			i++;
-		}
-		bubble_sort_a(stack -> temp_a, size);
-		middle_num = stack -> temp_a[2];
-		free_stack(stack -> temp_a, 'n');
-		return (middle_num);
+		stack -> temp_a[i] = stack -> base_a[i];
+		i++;
 	}
-	return (0);
+	bubble_sort_a(stack -> temp_a);
+	stack -> middle_num = stack -> temp_a[2];
+	free_stack(stack -> temp_a, 'n');
+	return (stack -> middle_num);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -67,20 +62,23 @@ void	sort_five_a(int size, t_stack *stack)
 {
 	int	push;
 	int	rotate;
+	int	middle_num;
 
+	middle_num = get_middle_num_five_a(stack);
 	push = 0;
 	rotate = 0;
 	while (size--)
 	{
-		if (stack -> base_a[0] < get_middle_num_five_a(size, stack))
+		if (stack -> base_a[0] < middle_num)
 		{
 			push_b(stack);
+			printf("pb\n");
 			push++;
 		}
 		else
 		{
 			rotate_a(stack);
-			write(1, "ra\n", 3);
+			printf("ra\n");
 			rotate++;
 		}
 		if (push == 2)
@@ -89,7 +87,7 @@ void	sort_five_a(int size, t_stack *stack)
 	while (rotate--)
 	{
 		reverse_rotate_a(stack);
-		write(1, "rra\n", 4);
+		printf("rra\n");
 	}
 }
 

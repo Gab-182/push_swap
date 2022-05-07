@@ -5,10 +5,12 @@
 			"name": "gcc - Build and debug active file",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "/Users/gabdoush/Desktop/push_swap/push_swap",
-			"args": ["1 2 3 5 4 9 8 7 10 11 12 14 13 15 20 16 17 18 19"],
+			"program": "/Users/gabdoush/Desktop/push_swap copy/push_swap",
+			"args": ["2 3 1 4 9 10 20 15"],
+			// "args": ["9 4 5 8 7 3 1 2 6 10"],
+			// "args": ["8 83 169 181 162 106 159 40 109 104 62 53 25 137 47 189 48 173 194 134 150 107 198 131 3 178 72 192 154 82 138 148 165 98 136 80 92 123 73 96 56 126 91 193 85 7 75 182 12 121 117 41 10 63 61 166 76 133 97 13 21 22 29 105 95 199 113 86 52 195 90 99 71 4 27 64 108 24 188 77 164 147 69 142 191 146 157 17 160 46 151 167 114 78 33 187 15 174 1"],
 			"stopAtEntry": false,
-			"cwd": "/Users/gabdoush/Desktop/push_swap",
+			"cwd": "/Users/gabdoush/Desktop/push_swap copy",
 			"logging": {
 				"moduleLoad": true,
 				"trace": false ,
@@ -18,4 +20,4 @@
 			"preLaunchTask": "Build"
 		}
 	]
-}1 2 3 5 4 9 8 7 10 11 12 14 13 15 20 16 17 18 19
+}

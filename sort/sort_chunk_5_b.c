@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:13:05 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 15:20:20 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/07 12:58:19 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	get_middle_num_five_b(t_stack *stack)
 	i = 0;
 	stack -> temp_b = ft_calloc(sizeof(int), 5);
 	if (!(stack -> temp_b))
-		return (0);
+		free_stack(stack -> temp_b, 'e');
 	while (i < 5)
 	{
 		stack -> temp_b[i] = stack -> base_b[i];
@@ -62,20 +62,23 @@ void	sort_chunk_5_b(int size, t_stack *stack)
 {
 	int	push;
 	int	rotate;
+	int	middle_num;
 
+	middle_num = get_middle_num_five_b(stack);
 	push = 0;
 	rotate = 0;
 	while (size--)
 	{
-		if (stack -> base_b[0] >= get_middle_num_five_b(stack))
+		if (stack -> base_b[0] >= middle_num)
 		{
 			push_a(stack);
+			printf("pa\n");
 			push++;
 		}
 		else
 		{
 			rotate_b(stack);
-			write(1, "rb\n", 3);
+			printf("rb\n");
 			rotate++;
 		}
 		if (push == 3)
@@ -84,7 +87,7 @@ void	sort_chunk_5_b(int size, t_stack *stack)
 	while (rotate--)
 	{
 		reverse_rotate_b(stack);
-		write(1, "rrb\n", 4);
+		printf("rrb\n");
 	}
 	sort_chunk_3_a(3, stack);
 	sort_2_b(stack);

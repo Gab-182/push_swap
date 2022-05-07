@@ -6,7 +6,7 @@
 #    By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 16:15:35 by gabdoush          #+#    #+#              #
-#    Updated: 2022/05/05 11:59:26 by gabdoush         ###   ########.fr        #
+#    Updated: 2022/05/07 15:14:40 by gabdoush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,23 +14,22 @@
 # .SILENT:
 # endif
 
+
 NAME = push_swap
 
 FILES = push_swap.c\
 		errors.c\
 		parser.c\
 		push_swap_utils.c\
-		rules/swap_rule.c\
-		rules/push_rule.c\
-		rules/push_rule_utils.c\
-		rules/rotate_rule.c\
-		rules/reverse_rotate_rule.c\
+		rules/oper_1.c\
+		rules/oper_2.c\
 		sort/sort_chunk_3_b.c\
 		sort/sort_chunk_5_b.c\
 		sort/stack_b.c\
 		sort/stack_a.c\
 		sort/sort_chunk_3_a.c\
 		sort/sort_chunk_5_a.c\
+		sort/small_sorting_4_b.c\
 		sort/small_sorting_a_4.c\
 		sort/small_sorting_a_5.c\
 		sort/sort_utils.c\

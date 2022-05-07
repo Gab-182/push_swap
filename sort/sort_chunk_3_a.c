@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:11:53 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 15:20:31 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/07 00:48:29 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@
 void	sort_2_a(t_stack *stack)
 {
 	if (stack -> base_a[1] < stack -> base_a[0])
+	{	
 		swap_a(stack);
+		printf("sa\n");
+	}
 }
 
 /*----------------------------------------------------------------------------*/
@@ -31,8 +34,9 @@ void	arg_three_top_min_a(t_stack *stack, int max)
 		if (stack -> base_a[1] == max)
 		{
 			reverse_rotate_a(stack);
-			write(1, "rra\n", 4);
+			printf("rra\n");
 			swap_a(stack);
+			printf("sa\n");
 		}
 	}
 	else
@@ -40,11 +44,11 @@ void	arg_three_top_min_a(t_stack *stack, int max)
 		if (stack -> base_a[1] == max)
 		{
 			rotate_a(stack);
-			write(1, "ra\n", 3);
-			write(1, "ra\n", 3);
+			printf("ra\n");
 			swap_a(stack);
+			printf("sa\n");
 			reverse_rotate_a(stack);
-			write(1, "rra\n", 4);
+			printf("rra\n");
 		}
 	}
 }
@@ -55,23 +59,28 @@ void	arg_three_middle_min_a(t_stack *stack, int max)
 	if (stack -> len_a == 3)
 	{
 		if (stack -> base_a[2] == max)
+		{
 			swap_a(stack);
+			printf("sa\n");
+		}
 		else
 		{
 			rotate_a(stack);
-			write(1, "ra\n", 3);
+			printf("ra\n");
 		}
 	}
 	else
 	{
 		swap_a(stack);
+		printf("sa\n");
 		if (stack -> base_a[1] == max)
 		{
 			rotate_a(stack);
-			write(1, "ra\n", 3);
+			printf("ra\n");
 			swap_a(stack);
+			printf("sa\n");
 			reverse_rotate_a(stack);
-			write(1, "rra\n", 4);
+			printf("rra\n");
 		}
 	}
 }
@@ -82,20 +91,28 @@ void	arg_three_bottom_min_a(t_stack *stack, int max)
 	if (stack -> len_a == 3)
 	{
 		if (stack -> base_a[0] == max)
+		{
 			swap_a(stack);
+			printf("sa\n");
+		}
 		reverse_rotate_a(stack);
-		write(1, "rra\n", 4);
+		printf("rra\n");
 	}
 	else
 	{
 		if (stack -> base_a[0] == max)
+		{
 			swap_a(stack);
+			printf("sa\n");
+		}
 		rotate_a(stack);
-		write(1, "ra\n", 3);
+		printf("ra\n");
 		swap_a(stack);
+		printf("sa\n");
 		reverse_rotate_a(stack);
-		write(1, "rra\n", 4);
+		printf("rra\n");
 		swap_a(stack);
+		printf("sa\n");
 	}
 }
 

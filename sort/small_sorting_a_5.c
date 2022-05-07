@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 10:09:37 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 15:20:31 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/07 19:23:15 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@
 void	smallest_num_scond_spot_5(t_stack *stack)
 {
 	swap_a(stack);
+	printf("sa\n");
 	if (is_sorted(stack) == 1)
 	{
 		push_b(stack);
+		printf("pb\n");
 		sort_4_a(4, stack);
 		push_a(stack);
+		printf("pa\n");
 	}
 }
 
@@ -28,13 +31,16 @@ void	smallest_num_scond_spot_5(t_stack *stack)
 void	smallest_num_third_spot_5(t_stack *stack)
 {
 	rotate_a(stack);
-	write(1, "ra\n", 3);
+	printf("ra\n");
 	swap_a(stack);
+	printf("sa\n");
 	if (is_sorted(stack) == 1)
 	{
 		push_b(stack);
+		printf("pb\n");
 		sort_4_a(4, stack);
 		push_a(stack);
+		printf("pa\n");
 	}
 }
 
@@ -47,8 +53,10 @@ void	smallest_num_fourth_spot_5(t_stack *stack)
 	if (is_sorted(stack) == 1)
 	{
 		push_b(stack);
+		printf("pb\n");
 		sort_4_a(4, stack);
 		push_a(stack);
+		printf("pa\n");
 	}
 }
 
@@ -56,12 +64,14 @@ void	smallest_num_fourth_spot_5(t_stack *stack)
 void	smallest_num_fifth_spot_5(t_stack *stack)
 {
 	reverse_rotate_a(stack);
-	write(1, "rra\n", 4);
+	printf("rra\n");
 	if (is_sorted(stack) == 1)
 	{
 		push_b(stack);
+		printf("pb\n");
 		sort_4_a(4, stack);
 		push_a(stack);
+		printf("pa\n");
 	}
 }
 
@@ -82,8 +92,10 @@ void	sort_5_a(int size, t_stack *stack)
 	if (get_position(5, smallest_num, stack -> base_a) == 0)
 	{
 		push_b(stack);
+		printf("pb\n");
 		sort_4_a(size, stack);
 		push_a(stack);
+		printf("pa\n");
 	}
 	else if (get_position(5, smallest_num, stack -> base_a) == 1)
 		smallest_num_scond_spot_5(stack);

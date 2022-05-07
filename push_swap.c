@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:29 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 16:57:40 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/07 21:07:02 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,29 +97,13 @@ void	push_swap(char *arg, t_stack *stack)
 	stack->len_a = i;
 	checking_duplicated(stack);
 	sort(stack -> len_a, stack);
-/************************   PRINTING  **************************************/
-	printf("\n============  a  ================= \n");
-	i = 0;
-	while (i < stack -> len_a)
-	{
-		printf("%d\n", stack -> base_a[i]);
-		i++;
-	}
-	printf("\n============  b  ================= \n");
-	i = 0;
-	while (i < stack -> len_b)
-	{
-		printf("%d ", stack -> base_b[i]);
-		i++;
-	}
-/************************   PRINTING  **************************************/
 }
 
 /*----------------------------------------------------------------------------*/
 /**
  ** @brief handle parsing and sorting for multiple arguments
  ** @param argv 
- ** @param stack 
+ ** @param stack
  **/
 void	push_swap_multi(char **argv, t_stack *stack)
 {
@@ -161,7 +145,7 @@ void	push_swap_multi(char **argv, t_stack *stack)
 		{
 			check_digit_multi(argv[i]);
 			if (ft_atoi(argv[i]) > 2147483647 || ft_atoi(argv[i]) < -2147483648)
-				error();
+				free_stack(stack->base_a, '1');
 			num = ft_atoi(argv[i]);
 			add_last(stack, num);
 			i++;
@@ -169,22 +153,6 @@ void	push_swap_multi(char **argv, t_stack *stack)
 	}
 	checking_duplicated(stack);
 	sort(stack -> len_a, stack);
-/************************   PRINTING  **************************************/
-	printf("\n============  a  ================= \n");
-	i = 0;
-	while (i < stack -> len_a)
-	{
-		printf("%d\n", stack -> base_a[i]);
-		i++;
-	}
-	printf("\n============  b  ================= \n");
-	i = 0;
-	while (i < stack -> len_b)
-	{
-		printf("%d ", stack -> base_b[i]);
-		i++;
-	}
-/************************   PRINTING  **************************************/
 }
 
 /*============================================================================*/
