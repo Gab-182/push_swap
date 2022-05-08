@@ -6,13 +6,13 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 10:09:37 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 09:56:43 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 10:25:50 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*============================================================================*/
+/*✅-------------------------------------------------------------------------*/
 void	smallest_num_scond_spot_5(t_stack *stack)
 {
 	swap_a(stack);
@@ -24,7 +24,7 @@ void	smallest_num_scond_spot_5(t_stack *stack)
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅-------------------------------------------------------------------------*/
 void	smallest_num_third_spot_5(t_stack *stack)
 {
 	rotate_a(stack);
@@ -38,7 +38,7 @@ void	smallest_num_third_spot_5(t_stack *stack)
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅-------------------------------------------------------------------------*/
 void	smallest_num_fourth_spot_5(t_stack *stack)
 {
 	reverse_rotate_a(stack);
@@ -52,7 +52,7 @@ void	smallest_num_fourth_spot_5(t_stack *stack)
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅-------------------------------------------------------------------------*/
 void	smallest_num_fifth_spot_5(t_stack *stack)
 {
 	reverse_rotate_a(stack);
@@ -65,7 +65,7 @@ void	smallest_num_fifth_spot_5(t_stack *stack)
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅-------------------------------------------------------------------------*/
 /**
  * @brief Sorting 5 numbers in stack a according to the smaller number position
  * in the stack a.

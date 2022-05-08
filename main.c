@@ -6,12 +6,44 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:26 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/07 17:59:20 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 10:20:55 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*✅-------------------------------------------------------------------------*/
+/**
+ ** @brief the main part of the sort algorithem, it handle all of the sizes
+ ** @param size 
+ ** @param stack 
+ **/
+void	sort(int size, t_stack *stack)
+{
+	int	cnt;
+
+	cnt = 0;
+	if (is_sorted(stack) == 1)
+	{
+		if (stack -> len_a == 2)
+			sort_2_a(stack);
+		else if (stack -> len_a == 3)
+			sort_chunk_3_a(3, stack);
+		else if (stack -> len_a == 4)
+			sort_4_a(4, stack);
+		else if (stack -> len_a == 5)
+			sort_5_a(5, stack);
+		else if (stack -> len_a > 5)
+			a_to_b(size, stack, &cnt);
+	}
+	else
+	{
+		free(stack -> base_a);
+		exit (0);
+	}
+}
+
+/*✅-------------------------------------------------------------------------*/
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
@@ -26,6 +58,8 @@ int	main(int argc, char **argv)
 	{
 		argv++;
 		push_swap_multi(argv, &stack);
+		checking_duplicated(&stack);
+		sort(stack.len_a, &stack);
 	}
 	free_stack(stack.base_a, 'n');
 	free_stack(stack.base_b, 'n');

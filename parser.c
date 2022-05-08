@@ -6,12 +6,13 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:43 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/05 10:57:45 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 10:24:24 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*✅-------------------------------------------------------------------------*/
 /**
  * @brief Check the validation of the given argument.
  * positive number or nigative number
@@ -46,7 +47,7 @@ void	check_digit(char **str)
 	return ;
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅-------------------------------------------------------------------------*/
 /**
  * @brief Check if there any duplicate numbers in the given arguments.
  * 
@@ -72,7 +73,7 @@ void	checking_duplicated(t_stack *stack)
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅-------------------------------------------------------------------------*/
 /**
  * @brief check the validation of the given arguments
  * positive number or nigative number.
@@ -103,7 +104,7 @@ void	check_digit_multi(char *str)
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅-------------------------------------------------------------------------*/
 /**
  * @brief check the validity of using negative or positive signs
  * as an arguments.
@@ -128,7 +129,7 @@ void	check_negative_sign(char *str)
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅-------------------------------------------------------------------------*/
 /**
  * @brief check if the argument is not just spaces
  * @param arg 

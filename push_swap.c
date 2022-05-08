@@ -6,40 +6,11 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:29 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 07:30:49 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 11:14:57 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/**
- ** @brief the main part of the sort algorithem, it handle all of the sizes
- ** @param size 
- ** @param stack 
- **/
-void	sort(int size, t_stack *stack)
-{
-	int	cnt;
-
-	cnt = 0;
-	if (is_sorted(stack) == 1)
-	{
-		if (stack -> len_a == 2)
-			sort_2_a(stack);
-		else if (stack -> len_a == 3)
-			sort_chunk_3_a(3, stack);
-		else if (stack -> len_a == 4)
-			sort_4_a(4, stack);
-		else if (stack -> len_a == 5)
-			sort_5_a(5, stack);
-		else if (stack -> len_a > 5)
-			a_to_b(size, stack, &cnt);
-	}
-	else
-	{
-		free(stack -> base_a);
-		exit (0);
-	}
-}
 
 /*✅-------------------------------------------------------------------------*/
 /**
@@ -99,7 +70,57 @@ void	push_swap(char *arg, t_stack *stack)
 	sort(stack -> len_a, stack);
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅-------------------------------------------------------------------------*/
+/**
+ * @brief 😒😒😒Helper function for push_swap_multi {just for Norm 😒😒😒 }
+ * 
+ * @param argv 
+ * @param stack 
+ * @param i 
+ */
+int	store_to_stack(char **argv, t_stack *stack, int i)
+{
+	int	num;
+
+	if (argv[i])
+	{
+		check_digit_multi(argv[i]);
+		if (ft_atoi(argv[i]) > 2147483647 || ft_atoi(argv[i]) < -2147483648)
+			free_stack(stack->base_a, '1');
+		num = ft_atoi(argv[i]);
+		add_last(stack, num);
+		i++;
+	}
+	return (i);
+}
+
+/*✅-------------------------------------------------------------------------*/
+/**
+ * @brief 😒😒😒Helper function for push_swap_multi {just for Norm 😒😒😒 }
+ * 
+ * @param argv 
+ * @param stack 
+ * @param i 
+ */
+void	deal_with_spaces(char **argv, t_stack *stack, int i)
+{
+	int		s;
+	int		num;
+	char	**split;
+
+	s = 0;
+	split = ft_split(argv[i], ' ');
+	while (split[s])
+	{
+		num = ft_atoi(split[s]);
+		add_last(stack, num);
+		s++;
+	}
+	free(split);
+	split = NULL;
+}
+
+/*✅-------------------------------------------------------------------------*/
 /**
  ** @brief handle parsing and sorting for multiple arguments
  ** @param argv 
@@ -109,13 +130,9 @@ void	push_swap_multi(char **argv, t_stack *stack)
 {
 	int			i;
 	int			j;
-	int			s;
-	int			num;
-	char		**split;
 
 	i = 0;
 	j = 0;
-	s = 0;
 	while (argv[i])
 	{
 		check_empty(argv[i]);
@@ -124,15 +141,7 @@ void	push_swap_multi(char **argv, t_stack *stack)
 		{
 			if (argv[i][j] == ' ')
 			{
-				split = ft_split(argv[i], ' ');
-				while (split[s])
-				{
-					num = ft_atoi(split[s]);
-					add_last(stack, num);
-					s++;
-				}
-				free(split);
-				split = NULL;
+				deal_with_spaces(argv, stack, i);
 				i++;
 				j = 0;
 				break ;
@@ -140,19 +149,8 @@ void	push_swap_multi(char **argv, t_stack *stack)
 			else
 				j++;
 		}
-		j = 0;
-		if (argv[i])
-		{
-			check_digit_multi(argv[i]);
-			if (ft_atoi(argv[i]) > 2147483647 || ft_atoi(argv[i]) < -2147483648)
-				free_stack(stack->base_a, '1');
-			num = ft_atoi(argv[i]);
-			add_last(stack, num);
-			i++;
-		}
+		i = store_to_stack(argv, stack, i);
 	}
-	checking_duplicated(stack);
-	sort(stack -> len_a, stack);
 }
 
 /*============================================================================*/

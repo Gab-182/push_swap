@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:36 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 09:31:02 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 10:21:51 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct s_rules
 
 /*✅-------------------------------push_swap.c--------------------------------*/
 
+void		sort(int size, t_stack *stack);
 void		push_swap(char *arg, t_stack *stack_a);
 void		push_swap_multi(char **arg, t_stack *stack);
 
@@ -79,7 +80,9 @@ int			*push(int *stack, int element, int *old_stack, int size);
 int			*new_stack(int *stack, int size);
 void		push_b(t_stack *stack);
 void		push_a(t_stack *stack);
+
 /*✅-------------------------------oper_2.c------------------------------------*/
+
 void		rotate(int *tab, int size);
 void		reverse_rotate(int *tab, int size);
 void		rotate_a(t_stack *stack);
@@ -135,6 +138,7 @@ void		init_value(t_rules *rules);
 void		a_to_b(int size, t_stack *stack, int *cnt);
 
 /*✅-----------------------------stack_b.c------------------------------------*/
+
 void		b_to_a(int size, t_stack *stack, int *cnt);
 
 #endif
