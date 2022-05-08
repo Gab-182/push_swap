@@ -6,7 +6,7 @@
 #    By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 16:15:35 by gabdoush          #+#    #+#              #
-#    Updated: 2022/05/08 09:31:35 by gabdoush         ###   ########.fr        #
+#    Updated: 2022/05/08 15:30:29 by gabdoush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ NAME = push_swap
 
 FILES = push_swap.c\
 		errors.c\
+		free_args.c\
 		parser.c\
 		push_swap_utils.c\
 		rules/oper_1.c\

@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:26 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 15:09:24 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 16:52:11 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	sort(int size, t_stack *stack)
 		free(stack -> base_a);
 		exit (0);
 	}
+	if (is_sorted(stack) == 1)
+		swap_a(stack);
 }
 
 /*✅-------------------------------------------------------------------------*/

@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:43 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 14:32:59 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 15:18:11 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,8 +140,6 @@ void	check_empty(char *arg)
 
 	i = 0;
 	if (ft_strlen(arg) == 0)
-		error();
-	if (ft_strlen(arg) == 1)
 		error();
 	while (arg[i])
 	{
