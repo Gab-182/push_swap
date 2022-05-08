@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 15:53:28 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 10:26:12 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 11:25:25 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,19 @@ int	get_middle_num_five_a(t_stack *stack)
 }
 
 /*----------------------------------------------------------------------------*/
-void	sort_five_a(int size, t_stack *stack)
+/**
+ * @brief 😒😒😒 Helper function for sort_five_a() {just for Norm 😒😒😒 }
+ * 
+ * @param size 
+ * @param stack 
+ * @param middle_num 
+ * @return int 
+ */
+int	helper_sort_five_a(int size, t_stack *stack, int middle_num)
 {
 	int	push;
 	int	rotate;
-	int	middle_num;
 
-	middle_num = get_middle_num_five_a(stack);
 	push = 0;
 	rotate = 0;
 	while (size--)
@@ -83,6 +89,17 @@ void	sort_five_a(int size, t_stack *stack)
 		if (push == 2)
 			break ;
 	}
+	return (rotate);
+}
+
+/*----------------------------------------------------------------------------*/
+void	sort_five_a(int size, t_stack *stack)
+{
+	int	rotate;
+	int	middle_num;
+
+	middle_num = get_middle_num_five_a(stack);
+	rotate = helper_sort_five_a(size, stack, middle_num);
 	while (rotate--)
 	{
 		reverse_rotate_a(stack);

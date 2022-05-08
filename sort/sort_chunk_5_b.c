@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:13:05 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 10:26:21 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 11:26:59 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,19 @@ int	get_middle_num_five_b(t_stack *stack)
 }
 
 /*----------------------------------------------------------------------------*/
-void	sort_chunk_5_b(int size, t_stack *stack)
+/**
+ * @brief 😒😒😒 Helper function for sort_five_b() {just for Norm 😒😒😒 }
+ * 
+ * @param size 
+ * @param stack 
+ * @param middle_num 
+ * @return int 
+ */
+int	helper_sort_five_b(int size, t_stack *stack, int middle_num)
 {
 	int	push;
 	int	rotate;
-	int	middle_num;
 
-	middle_num = get_middle_num_five_b(stack);
 	push = 0;
 	rotate = 0;
 	while (size--)
@@ -83,6 +89,17 @@ void	sort_chunk_5_b(int size, t_stack *stack)
 		if (push == 3)
 			break ;
 	}
+	return (rotate);
+}
+
+/*----------------------------------------------------------------------------*/
+void	sort_chunk_5_b(int size, t_stack *stack)
+{
+	int	rotate;
+	int	middle_num;
+
+	middle_num = get_middle_num_five_b(stack);
+	rotate = helper_sort_five_b(size, stack, middle_num);
 	while (rotate--)
 	{
 		reverse_rotate_b(stack);
