@@ -6,13 +6,13 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:22 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/07 19:47:38 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 08:28:43 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*----------------------------------------------------------------------------*/
+/*============================================================================*/
 /**
  * @brief copy the full length of "size" the content from one stack to another 
  * 
@@ -38,7 +38,7 @@ void	ft_stack_cpy(int *dst, int *src, int size)
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 /**
  * @brief Adding numbers to the end of the array of integer, the number
  * should be specified in the arguments.
@@ -72,7 +72,7 @@ void	add_last(t_stack *stack, int num)
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 /**
  * @brief check if the stack is already sorted.
  * 

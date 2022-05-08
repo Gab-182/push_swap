@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:11:23 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/07 18:35:50 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 09:56:11 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,19 @@
 void	smallest_num_first_spot_4(t_stack *stack)
 {
 	push_b(stack);
-	printf("pb\n");
 	sort_chunk_3_a(3, stack);
 	push_a(stack);
-	printf("pa\n");
 }
 
 /*----------------------------------------------------------------------------*/
 void	smallest_num_scond_spot_4(t_stack *stack)
 {
 	swap_a(stack);
-	printf("sa\n");
 	if (is_sorted(stack) == 1)
 	{
 		push_b(stack);
-		printf("pb\n");
 		sort_chunk_3_a(3, stack);
 		push_a(stack);
-		printf("pa\n");
 	}
 }
 
@@ -41,16 +36,13 @@ void	smallest_num_scond_spot_4(t_stack *stack)
 void	smallest_num_third_spot_4(t_stack *stack)
 {
 	rotate_a(stack);
-	printf("ra\n");
+	write(1, "ra\n", 3);
 	swap_a(stack);
-	printf("sa\n");
 	if (is_sorted(stack) == 1)
 	{
 		push_b(stack);
-		printf("pb\n");
 		sort_chunk_3_a(3, stack);
 		push_a(stack);
-		printf("pa\n");
 	}
 }
 
@@ -58,14 +50,12 @@ void	smallest_num_third_spot_4(t_stack *stack)
 void	smallest_num_forth_spot_4(t_stack *stack)
 {
 	reverse_rotate_a(stack);
-	printf("rra\n");
+	write(1, "rra\n", 4);
 	if (is_sorted(stack))
 	{
 		push_b(stack);
-		printf("pb\n");
 		sort_chunk_3_a(3, stack);
 		push_a(stack);
-		printf("pa\n");
 	}
 }
 

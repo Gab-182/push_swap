@@ -6,38 +6,13 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 15:12:34 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/07 19:52:04 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 09:33:30 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap_a(t_stack *stack)
-{
-	int *temp;
-
-	temp = malloc((2 + 1) * sizeof(int *));
-	temp[0] = stack->base_a[0];
-	temp[1] = stack->base_a[1];
-	stack->base_a[1] = temp[0];
-	stack->base_a[0] = temp[1];
-	free(temp);
-}
-
-/*----------------------------------------------------------------------------*/
-void	swap_b(t_stack *stack)
-{
-	int		*temp;
-
-	temp = malloc((2 + 1) * sizeof(int *));
-	temp[0] = stack->base_b[0];
-	temp[1] = stack->base_b[1];
-	stack->base_b[1] = temp[0];
-	stack->base_b[0] = temp[1];
-	free(temp);
-}
-
-/*----------------------------------------------------------------------------*/
+/*============================================================================*/
 int	*push(int *stack, int element, int *old_stack, int size)
 {
 	int	i;
@@ -56,7 +31,7 @@ int	*push(int *stack, int element, int *old_stack, int size)
 	return (stack);
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 void	push_b(t_stack *stack)
 {
 	int	*temp;
@@ -79,9 +54,10 @@ void	push_b(t_stack *stack)
 		free(temp);
 		stack->base_a = new_stack(stack->base_a, stack->len_a);
 	}
+	write(1, "pb\n", 3);
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 void	push_a(t_stack *stack)
 {
 	int	*temp;
@@ -93,9 +69,10 @@ void	push_a(t_stack *stack)
 			stack->base_a, stack->len_a);
 	free(temp);
 	stack->base_b = new_stack(stack->base_b, stack->len_b);
+	write(1, "pa\n", 3);
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 int	*new_stack(int *stack, int size)
 {
 	int	*temp;
@@ -118,4 +95,4 @@ int	*new_stack(int *stack, int size)
 	return (stack);
 }
 
-/*----------------------------------------------------------------------------*/
+/*============================================================================*/

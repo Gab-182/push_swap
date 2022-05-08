@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 15:53:28 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/07 18:35:50 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 09:58:58 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	bubble_sort_a(int *chunk)
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 int	get_middle_num_five_a(t_stack *stack)
 {
 	int	i;
@@ -72,13 +72,12 @@ void	sort_five_a(int size, t_stack *stack)
 		if (stack -> base_a[0] < middle_num)
 		{
 			push_b(stack);
-			printf("pb\n");
 			push++;
 		}
 		else
 		{
 			rotate_a(stack);
-			printf("ra\n");
+			write(1, "ra\n", 3);
 			rotate++;
 		}
 		if (push == 2)
@@ -87,11 +86,11 @@ void	sort_five_a(int size, t_stack *stack)
 	while (rotate--)
 	{
 		reverse_rotate_a(stack);
-		printf("rra\n");
+		write(1, "rra\n", 4);
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 void	sort_chunk_5_a(int size, t_stack *stack)
 {
 	sort_five_a(size, stack);

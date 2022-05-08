@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:14:07 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/07 21:01:28 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 10:00:14 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	small_chunks_a(int size, t_stack *stack)
 		return (1);
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 /**
  * @brief if the first numbers in the stack _a bigger than the (big pivot) 
  * push it to the stack_b, else rotate the stack_a.
@@ -48,18 +48,17 @@ void	compare_to_pivot(t_stack *stack, t_rules *rules)
 	if (stack -> base_a[0] > rules-> piv_big)
 	{
 		rotate_a(stack);
-		printf("ra\n");
+		write(1, "ra\n", 3);
 		rules -> ra++;
 	}
 	else
 	{
 		push_b(stack);
-		printf("pb\n");
 		rules -> pb++;
 		if (stack -> base_b[0] > rules -> piv_small)
 		{
 			rotate_b(stack);
-			printf("rb\n");
+			write(1, "rb\n", 3);
 			rules -> rb++;
 		}
 	}
@@ -76,14 +75,11 @@ void	back_to_orig_ra(t_stack *stack, int *cnt, t_rules *rules)
 	if ((*cnt) > 0)
 	{
 		while (rb--)
-		{
 			reverse_rotate_a_b(stack);
-			printf("rrr\n");
-		}
 		while (rem--)
 		{
 			reverse_rotate_a(stack);
-			printf("rra\n");
+			write(1, "rra\n", 4);
 		}
 	}
 	else
@@ -91,7 +87,7 @@ void	back_to_orig_ra(t_stack *stack, int *cnt, t_rules *rules)
 		while (rb--)
 		{
 			reverse_rotate_b(stack);
-			printf("rrb\n");
+			write(1, "rrb\n", 4);
 		}
 	}
 }
@@ -107,14 +103,11 @@ void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
 	if ((*cnt) > 0)
 	{
 		while (rrr--)
-		{
 			reverse_rotate_a_b(stack);
-			printf("rrr\n");
-		}
 		while (rem--)
 		{
 			reverse_rotate_b(stack);
-			printf("rrb\n");
+			write(1, "rrb\n", 4);
 		}
 	}
 	else
@@ -123,12 +116,12 @@ void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
 		while (rrr--)
 		{
 			reverse_rotate_b(stack);
-			printf("rrb\n");
+			write(1, "rrb\n", 4);
 		}
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 void	a_to_b(int size, t_stack *stack, int *cnt)
 {
 	int		temp;

@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:11:53 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/07 00:48:29 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 09:57:45 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,10 @@
 void	sort_2_a(t_stack *stack)
 {
 	if (stack -> base_a[1] < stack -> base_a[0])
-	{	
 		swap_a(stack);
-		printf("sa\n");
-	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 void	arg_three_top_min_a(t_stack *stack, int max)
 {
 	if (stack -> len_a == 3)
@@ -34,9 +31,8 @@ void	arg_three_top_min_a(t_stack *stack, int max)
 		if (stack -> base_a[1] == max)
 		{
 			reverse_rotate_a(stack);
-			printf("rra\n");
+			write(1, "rra\n", 4);
 			swap_a(stack);
-			printf("sa\n");
 		}
 	}
 	else
@@ -44,11 +40,10 @@ void	arg_three_top_min_a(t_stack *stack, int max)
 		if (stack -> base_a[1] == max)
 		{
 			rotate_a(stack);
-			printf("ra\n");
+			write(1, "ra\n", 3);
 			swap_a(stack);
-			printf("sa\n");
 			reverse_rotate_a(stack);
-			printf("rra\n");
+			write(1, "rra\n", 4);
 		}
 	}
 }
@@ -59,28 +54,23 @@ void	arg_three_middle_min_a(t_stack *stack, int max)
 	if (stack -> len_a == 3)
 	{
 		if (stack -> base_a[2] == max)
-		{
 			swap_a(stack);
-			printf("sa\n");
-		}
 		else
 		{
 			rotate_a(stack);
-			printf("ra\n");
+			write(1, "ra\n", 3);
 		}
 	}
 	else
 	{
 		swap_a(stack);
-		printf("sa\n");
 		if (stack -> base_a[1] == max)
 		{
 			rotate_a(stack);
-			printf("ra\n");
+			write(1, "ra\n", 3);
 			swap_a(stack);
-			printf("sa\n");
 			reverse_rotate_a(stack);
-			printf("rra\n");
+			write(1, "rra\n", 4);
 		}
 	}
 }
@@ -91,32 +81,24 @@ void	arg_three_bottom_min_a(t_stack *stack, int max)
 	if (stack -> len_a == 3)
 	{
 		if (stack -> base_a[0] == max)
-		{
 			swap_a(stack);
-			printf("sa\n");
-		}
 		reverse_rotate_a(stack);
-		printf("rra\n");
+		write(1, "rra\n", 4);
 	}
 	else
 	{
 		if (stack -> base_a[0] == max)
-		{
 			swap_a(stack);
-			printf("sa\n");
-		}
 		rotate_a(stack);
-		printf("ra\n");
+		write(1, "ra\n", 3);
 		swap_a(stack);
-		printf("sa\n");
 		reverse_rotate_a(stack);
-		printf("rra\n");
+		write(1, "rra\n", 4);
 		swap_a(stack);
-		printf("sa\n");
 	}
 }
 
-/*----------------------------------------------------------------------------*/
+/*✅--------------------------------------------------------------------------*/
 void	sort_chunk_3_a(int size, t_stack *stack)
 {
 	int	min;

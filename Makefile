@@ -6,7 +6,7 @@
 #    By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 16:15:35 by gabdoush          #+#    #+#              #
-#    Updated: 2022/05/07 15:14:40 by gabdoush         ###   ########.fr        #
+#    Updated: 2022/05/08 09:31:35 by gabdoush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,13 @@ FILES = push_swap.c\
 		push_swap_utils.c\
 		rules/oper_1.c\
 		rules/oper_2.c\
+		rules/oper_3.c\
 		sort/sort_chunk_3_b.c\
 		sort/sort_chunk_5_b.c\
 		sort/stack_b.c\
 		sort/stack_a.c\
 		sort/sort_chunk_3_a.c\
 		sort/sort_chunk_5_a.c\
-		sort/small_sorting_4_b.c\
 		sort/small_sorting_a_4.c\
 		sort/small_sorting_a_5.c\
 		sort/sort_utils.c\
