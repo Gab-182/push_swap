@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:29 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 11:14:57 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 15:07:56 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_get_length(char **stack_char)
 			|| *stack_char[i] == '+')
 			i++;
 		else
-			error();
+			error_with_free_2d(stack_char);
 	}
 	if (i == 1 || i == 0)
 		exit(EXIT_SUCCESS);
@@ -54,6 +54,8 @@ void	push_swap(char *arg, t_stack *stack)
 		exit(EXIT_FAILURE);
 	check_empty(arg);
 	stack_char = ft_split(arg, ' ');
+	if (stack_char[1] == NULL)
+		error_with_free_2d(stack_char);
 	check_digit(stack_char);
 	i = ft_get_length(stack_char);
 	stack->base_a = ft_calloc(sizeof(int), (i));
@@ -65,6 +67,7 @@ void	push_swap(char *arg, t_stack *stack)
 		stack->base_a[i] = ft_atoi(stack_char[i]);
 		i++;
 	}
+	error_with_free_2d(stack_char);
 	stack->len_a = i;
 	checking_duplicated(stack);
 	sort(stack -> len_a, stack);
@@ -113,6 +116,7 @@ void	deal_with_spaces(char **argv, t_stack *stack, int i)
 	while (split[s])
 	{
 		num = ft_atoi(split[s]);
+		free(split[s]);
 		add_last(stack, num);
 		s++;
 	}

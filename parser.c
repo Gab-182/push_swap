@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:43 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 10:24:24 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 14:32:59 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ void	check_digit(char **str)
 				i++;
 			}
 			else
-				error();
+				error_with_free_2d(str);
 		}
 		else if (is_number(str[i]) != 1)
-			error();
+			error_with_free_2d(str);
 		else if (ft_isdigit(*str[i]) != 1)
-			error_with_free(str);
+			error_with_free_2d(str);
 		else
 			i++;
 	}
@@ -92,14 +92,14 @@ void	check_digit_multi(char *str)
 			if (ft_isdigit(str[i + 1]) == 1)
 				i++;
 			else
-				error();
+				error_with_free_1d(str);
 		}
 		while (str[i] && str)
 		{
 			if ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ')
 				i++;
 			else
-				error();
+				error_with_free_1d(str);
 		}
 	}
 }
@@ -123,7 +123,7 @@ void	check_negative_sign(char *str)
 			if (ft_isdigit(str[i + 1]) == 1)
 				i++;
 			else
-				error();
+				error_with_free_1d(str);
 		}
 		i++;
 	}
@@ -140,6 +140,8 @@ void	check_empty(char *arg)
 
 	i = 0;
 	if (ft_strlen(arg) == 0)
+		error();
+	if (ft_strlen(arg) == 1)
 		error();
 	while (arg[i])
 	{

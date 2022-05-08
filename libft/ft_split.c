@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabdoush <gabdoush@42ABUDHABI.AE>          +#+  +:+       +#+        */
+/*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 10:53:53 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/02/07 20:12:04 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 14:36:16 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ char	**ft_split(char *s, char c)
 	sup_str_number = count_sup_str(s, c);
 	full_str = (char **)malloc(sizeof(*full_str) * (count_sup_str(s, c) + 1));
 	if (!full_str)
-		return (NULL);
+		error_with_free_2d(full_str);
 	while (sup_str_number)
 	{
 		while (*s == c && *s != '\0')
 			s++;
 		full_str[n] = ft_substr(s, 0, sup_str_len(s, c));
 		if (full_str[n] == NULL)
-			return (NULL);
+			error_with_free_2d(full_str);
 		s = s + sup_str_len(s, c);
 		n++;
 		sup_str_number--;

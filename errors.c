@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 10:49:17 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 10:23:50 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 14:16:53 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,29 @@ void	free_stack(int *stack, char flag)
 }
 
 /*✅-------------------------------------------------------------------------*/
-void	error_with_free(char **str)
+void	error_with_free_2d(char **str)
 {
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		str[i] = NULL;
+		i++;
+	}
 	free(str);
+	str = NULL;
 	write(STDERR_FILENO, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
+/*✅-------------------------------------------------------------------------*/
+void	error_with_free_1d(char *str)
+{
+	free(str);
+	str = NULL;
+	write(STDERR_FILENO, "Error\n", 6);
+	exit(EXIT_FAILURE);
+}
 /*============================================================================*/

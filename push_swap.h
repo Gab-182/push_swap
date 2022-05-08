@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:36 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 10:21:51 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/08 13:52:54 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,10 @@ int			is_sorted(t_stack *stack);
 
 /*✅------------------------------errors.c------------------------------------*/
 
-void		error_with_free(char **str);
+void		error_with_free_2d(char **str);
 void		error(void);
 void		free_stack(int *stack, char flag);
+void		error_with_free_1d(char *str);
 /*✅------------------------------parser.c------------------------------------*/
 
 void		check_digit(char **str);
