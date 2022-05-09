@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:43 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/10 03:25:16 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/10 03:36:17 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	check_digit(char **str)
 			if (str[i][j] == '-' || str[i][0] == '+')
 			{
 				if (str[i] && str && str[i][j] && ft_isdigit(str[i][j + 1]) != 1)
-					error();
+					error_with_free_2d(str);
 			}
 			j++;
 		}
