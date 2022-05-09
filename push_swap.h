@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:36 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 15:29:54 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/09 22:34:47 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void		free_2d(char **str);
 
 void		check_digit(char **str);
 void		check_digit_multi(char *str);
-void		check_negative_sign(char *str);
+void		check_negative_sign(char **str);
 void		checking_duplicated(t_stack *stack);
 void		check_empty(char *arg);
 

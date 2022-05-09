@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:29 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 15:36:55 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/10 02:22:47 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,14 @@ int	ft_get_length(char **stack_char)
 		else
 			error_with_free_2d(stack_char);
 	}
+	if (i == 1 && (ft_atoi(stack_char[0]) > 2147483647 || \
+		ft_atoi(stack_char[0]) < -2147483648))
+		error_with_free_2d(stack_char);
 	if (i == 1 || i == 0)
-		exit(EXIT_SUCCESS);
+	{
+		free_2d(stack_char);
+		exit(EXIT_SUCCESS);	
+	}
 	return (i);
 }
 
@@ -49,13 +55,10 @@ void	push_swap(char *arg, t_stack *stack)
 	char	**stack_char;
 	int		i;
 
-	i = 0;
 	if (!arg)
 		exit(EXIT_FAILURE);
 	check_empty(arg);
 	stack_char = ft_split(arg, ' ');
-	if (stack_char[1] == NULL)
-		free_exit(stack_char);
 	check_digit(stack_char);
 	i = ft_get_length(stack_char);
 	stack->base_a = ft_calloc(sizeof(int), (i));
@@ -140,7 +143,7 @@ void	push_swap_multi(char **argv, t_stack *stack)
 	while (argv[i])
 	{
 		check_empty(argv[i]);
-		check_negative_sign(argv[i]);
+		check_negative_sign(argv);
 		while (argv[i][j])
 		{
 			if (argv[i][j] == ' ')

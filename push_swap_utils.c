@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:22 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 10:24:10 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/10 00:03:58 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	add_last(t_stack *stack, int num)
 	stack -> len_a = stack -> len_a + 1;
 	if (stack -> len_a >= 2)
 	{
-		stack -> temp_a = malloc(sizeof(int) * (stack -> len_a));
+		stack -> temp_a = ft_calloc(sizeof(int), (stack -> len_a));
 		if (!stack -> temp_a)
 			free_stack(stack -> temp_a, 'e');
 		ft_stack_cpy(stack -> temp_a, stack -> base_a, stack -> len_a - 1);
@@ -65,7 +65,7 @@ void	add_last(t_stack *stack, int num)
 	}
 	else
 	{
-		stack -> base_a = malloc(sizeof(int));
+		stack -> base_a = ft_calloc(sizeof(int), 1);
 		if (!stack -> base_a)
 			free_stack(stack -> base_a, 'e');
 		stack -> base_a[0] = num;

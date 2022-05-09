@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 10:49:17 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 15:27:40 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/10 00:03:23 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	free_stack(int *stack, char flag)
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
-	else
+	else if (flag == 'n')
 	{
 		if (stack)
 			free(stack);
