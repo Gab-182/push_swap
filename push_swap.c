@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:29 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/10 03:22:45 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/10 03:42:06 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_get_length(char **stack_char)
 	if (i == 1 || i == 0)
 	{
 		free_2d(stack_char);
-		exit(EXIT_SUCCESS);	
+		exit(EXIT_SUCCESS);
 	}
 	return (i);
 }

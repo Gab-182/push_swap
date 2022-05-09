@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:43 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/10 03:36:17 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/10 03:41:50 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	check_digit(char **str)
 		{
 			if (str[i][j] == '-' || str[i][0] == '+')
 			{
-				if (str[i] && str && str[i][j] && ft_isdigit(str[i][j + 1]) != 1)
+				if (str[i] && str && str[i][j] && \
+					ft_isdigit(str[i][j + 1]) != 1)
 					error_with_free_2d(str);
 			}
 			j++;
@@ -87,8 +88,8 @@ void	check_digit_multi(char *str)
 	i = 0;
 	while (str[i] && str)
 	{
-		if ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ' ||\
-		 str[i] == '-' || str[i] == '+')
+		if ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ' || \
+			str[i] == '-' || str[i] == '+')
 			i++;
 		else
 			error();
@@ -115,7 +116,8 @@ void	check_negative_sign(char **str)
 		{
 			if (str[i][j] == '-' || str[i][0] == '+')
 			{
-				if (str[i] && str && str[i][j] && ft_isdigit(str[i][j + 1]) != 1)
+				if (str[i] && str && str[i][j] && \
+					ft_isdigit(str[i][j + 1]) != 1)
 					error();
 			}
 			j++;

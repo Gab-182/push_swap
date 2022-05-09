@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:26 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/10 01:00:48 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/10 03:39:46 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int	main(int argc, char **argv)
 		free_stack(stack.base_a, 'n');
 		free_stack(stack.base_b, 'n');
 	}
-		
 	else if (argc > 2)
 	{
 		argv++;
