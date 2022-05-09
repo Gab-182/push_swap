@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:19:36 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/09 22:34:47 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/10 03:48:51 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,11 +142,11 @@ void		init_value(t_rules *rules);
 
 /*✅------------------------------stack_a.c---------------------------------*/
 
-void		a_to_b(int size, t_stack *stack, int *cnt);
+void		push_a_to_b(int size, t_stack *stack, int *chunk_count_in_b);
 
 /*✅-----------------------------stack_b.c----------------------------------*/
 
-void		b_to_a(int size, t_stack *stack, int *cnt);
+void		push_b_to_a(int size, t_stack *stack, int *chunk_count_in_b);
 
 #endif
 

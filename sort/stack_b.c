@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:09 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 10:24:04 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/10 03:48:51 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,12 @@ void	back_to_rb(t_stack *stack, t_rules *rules)
 }
 
 /*✅-------------------------------------------------------------------------*/
-void	b_to_a(int size, t_stack *stack, int *cnt)
+void	push_b_to_a(int size, t_stack *stack, int *chunk_count_in_b)
 {
 	int		temp;
 	t_rules	rules;
 
-	(*cnt)++;
+	(*chunk_count_in_b)++;
 	if (!small_chunks_b(size, stack))
 		return ;
 	init_value(&rules);
@@ -111,13 +111,13 @@ void	b_to_a(int size, t_stack *stack, int *cnt)
 	temp = size;
 	while (temp--)
 		push_rotate_b(stack, &rules);
-	a_to_b(rules.pa - rules.ra, stack, cnt);
+	push_a_to_b(rules.pa - rules.ra, stack, chunk_count_in_b);
 	if (rules.ra > rules.rb)
 		back_to_ra(stack, &rules);
 	else
 		back_to_rb(stack, &rules);
-	a_to_b(rules.ra, stack, cnt);
-	b_to_a(rules.rb, stack, cnt);
+	push_a_to_b(rules.ra, stack, chunk_count_in_b);
+	push_b_to_a(rules.rb, stack, chunk_count_in_b);
 }
 
 /*============================================================================*/

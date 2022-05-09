@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:26 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/10 03:39:46 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/10 03:48:51 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
  **/
 void	sort(int size, t_stack *stack)
 {
-	int	cnt;
+	int	chunk_count_in_b;
 
-	cnt = 0;
+	chunk_count_in_b = 0;
 	if (is_sorted(stack) == 1)
 	{
 		if (stack -> len_a == 2)
@@ -34,7 +34,7 @@ void	sort(int size, t_stack *stack)
 		else if (stack -> len_a == 5)
 			sort_5_a(5, stack);
 		else if (stack -> len_a > 5)
-			a_to_b(size, stack, &cnt);
+			push_a_to_b(size, stack, &chunk_count_in_b);
 	}
 	else
 	{

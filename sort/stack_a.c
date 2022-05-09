@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:14:07 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/08 10:24:44 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/10 03:48:51 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,14 @@ void	compare_to_pivot(t_stack *stack, t_rules *rules)
 }
 
 /*✅-------------------------------------------------------------------------*/
-void	back_to_orig_ra(t_stack *stack, int *cnt, t_rules *rules)
+void	compare_to_rb(t_stack *stack, int *chunk_count_in_b, t_rules *rules)
 {
 	int	rb;
 	int	rem;
 
 	rb = rules -> rb;
 	rem = rules -> ra - rb;
-	if ((*cnt) > 0)
+	if ((*chunk_count_in_b) > 0)
 	{
 		while (rb--)
 			reverse_rotate_a_b(stack);
@@ -93,14 +93,14 @@ void	back_to_orig_ra(t_stack *stack, int *cnt, t_rules *rules)
 }
 
 /*✅-------------------------------------------------------------------------*/
-void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
+void	compare_to_ra(t_stack *stack, int *chunk_count_in_b, t_rules *rules)
 {
 	int	rrr;
 	int	rem;
 
 	rrr = rules -> ra;
 	rem = rules -> rb - rrr;
-	if ((*cnt) > 0)
+	if ((*chunk_count_in_b) > 0)
 	{
 		while (rrr--)
 			reverse_rotate_a_b(stack);
@@ -122,7 +122,7 @@ void	back_to_orig_rb(t_stack *stack, int *cnt, t_rules *rules)
 }
 
 /*✅--------------------------------------------------------------------------*/
-void	a_to_b(int size, t_stack *stack, int *cnt)
+void	push_a_to_b(int size, t_stack *stack, int *chunk_count_in_b)
 {
 	int		temp;
 	t_rules	rules;
@@ -135,12 +135,12 @@ void	a_to_b(int size, t_stack *stack, int *cnt)
 	while (temp--)
 		compare_to_pivot(stack, &rules);
 	if (rules.ra > rules.rb)
-		back_to_orig_ra(stack, cnt, &rules);
+		compare_to_rb(stack, chunk_count_in_b, &rules);
 	else
-		back_to_orig_rb(stack, cnt, &rules);
-	a_to_b(rules.ra, stack, cnt);
-	b_to_a(rules.rb, stack, cnt);
-	b_to_a(rules.pb - rules.rb, stack, cnt);
+		compare_to_ra(stack, chunk_count_in_b, &rules);
+	push_a_to_b(rules.ra, stack, chunk_count_in_b);
+	push_b_to_a(rules.rb, stack, chunk_count_in_b);
+	push_b_to_a(rules.pb - rules.rb, stack, chunk_count_in_b);
 }
 
 /*============================================================================*/
