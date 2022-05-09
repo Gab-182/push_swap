@@ -6,7 +6,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "/Users/gabdoush/Desktop/push_swap/push_swap",
-			"args": ["999","99","  --9"],
+			"args": ["-1--9"],
 			"stopAtEntry": true,
 			"externalConsole": false,
 			"cwd": "/Users/gabdoush/Desktop/push_swap",

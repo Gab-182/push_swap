@@ -6,7 +6,7 @@
 /*   By: gabdoush <gabdoush@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:15:43 by gabdoush          #+#    #+#             */
-/*   Updated: 2022/05/10 02:11:07 by gabdoush         ###   ########.fr       */
+/*   Updated: 2022/05/10 03:25:16 by gabdoush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,23 @@
 void	check_digit(char **str)
 {
 	int	i;
+	int	j;
 
 	i = 0;
+	j = 0;
 	while (str[i] && str)
 	{
-		if (str[i][0] == '-' || str[i][0] == '+')
+		while (str[i][j])
 		{
-			if (str[i] && str && str[i][1] && ft_isdigit(str[i][1]) == 1)
+			if (str[i][j] == '-' || str[i][0] == '+')
 			{
-				if (str[i + 1] == NULL)
-					return ;
-				i++;
+				if (str[i] && str && str[i][j] && ft_isdigit(str[i][j + 1]) != 1)
+					error();
 			}
-			else
-				error_with_free_2d(str);
+			j++;
 		}
-		else if (is_number(str[i]) != 1)
+		j = 0;
+		if (is_number(str[i]) != 1)
 			error_with_free_2d(str);
 		else if (ft_isdigit(*str[i]) != 1)
 			error_with_free_2d(str);
@@ -104,23 +105,23 @@ void	check_digit_multi(char *str)
 void	check_negative_sign(char **str)
 {
 	int	i;
+	int	j;
 
 	i = 0;
+	j = 0;
 	while (str[i] && str)
 	{
-		if (str[i][0] == '-' || str[i][0] == '+')
+		while (str[i][j])
 		{
-			if (str[i] && str && str[i][1] && ft_isdigit(str[i][1]) == 1)
+			if (str[i][j] == '-' || str[i][0] == '+')
 			{
-				if (str[i + 1] == NULL)
-					return ;
-				i++;
+				if (str[i] && str && str[i][j] && ft_isdigit(str[i][j + 1]) != 1)
+					error();
 			}
-			else
-				error();
+			j++;
 		}
-		else
-			i++;
+		j = 0;
+		i++;
 	}
 }
 
